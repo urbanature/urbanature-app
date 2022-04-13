@@ -1,0 +1,38 @@
+:root {
+    --vh: 1vh;
+    --color-1: #0C423E;
+    --color-2: #E67032;
+    --color-3: #E0E789;
+    --color-4: #FFFFFF;
+    --color-5: #000000;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    max-width: 100vw;
+    max-height: calc(100 * var(--vh));
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--color-1);
+    color: var(--color-4);
+    font-family: "Alegreya";
+}
+
+h1, h2, h3, h4, h5, h6, strong, b, p, a {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    text-decoration: none;
+    margin: 0;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
