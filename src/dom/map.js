@@ -24,7 +24,10 @@ const moveMap = (x, y, w, h) => {
 
 export const updateMapPosition = ($dom, animated = true) => {
     const $map_here = $('#map-here');
-    if($map_here.length === 0) return;
+    if($map_here.length === 0) {
+        moveMap(0, 0, 0, 0);
+        return;
+    }
     if(!animated) mapTransitionTimer = 50;
     moveMap(
         $map_here.offset().left - $dom.offset().left,

@@ -15,7 +15,7 @@ export const imgToSvg = () => {
         $svg.width($img.width());
         $svg.height($img.height());
         const img_class = $img.attr('class');
-        const $svg_div = $(`<div class="${img_class}">`);
+        const $svg_div = $(`<div class="${img_class ?? ""} svg">`);
         $svg_div.append($svg);
         $img.replaceWith($svg_div);
     });
