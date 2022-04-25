@@ -1,3 +1,5 @@
+import { updateMap } from "./map.js";
+
 /**
  * 
  * @param {string} url 
@@ -16,6 +18,7 @@ export const getTemplate = async url => {
  * @param {string} html 
  */
 export const importHTML = html => {
+    let loaded = 0;
     const template = document.createElement('html');
     template.innerHTML = html;
     const head = template.querySelector('head');
@@ -31,7 +34,18 @@ export const importHTML = html => {
         const scriptEl = document.createElement('script');
         scriptEl.onload = () => {}
         scriptEl.src = script.src;
+        scriptEl.type = script.type;
+        scriptEl.dataset.import = 'true';
         document.body.append(scriptEl);
+    });
+    const links = document.querySelectorAll("link[data-import]");
+    links.forEach(link => {
+        link.onload = () => {
+            loaded++;
+            if (loaded == links.length) {
+                updateMap();
+            }
+        }
     });
 }
 
@@ -42,7 +56,7 @@ export const loadPage = async url => {
 
 export const resetPage = () => {
     document.getElementById("__dom__page") && (document.getElementById("__dom__page").innerHTML = "");
-    document.querySelector("[data-import]") && (document.querySelector("[data-import]").remove());
+    document.querySelector("[data-import]") && (document.querySelectorAll("[data-import]").forEach(el => el.remove()));
 }
 
 window.getTemplate = getTemplate;

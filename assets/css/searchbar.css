@@ -16,6 +16,7 @@
     background-position: .8rem center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.25rem;
+    color: var(--color-5);
 }
 .searchbar input::placeholder {
     color: #CCC;
