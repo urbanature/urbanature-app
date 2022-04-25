@@ -162,21 +162,21 @@ a {
     height: 100%;
 }
 #map-one {
-    left: 0; z-index: 1000;
+    left: 0; z-index: 3000;
     width: var(--cover);
     background: var(--color-2);
     border-right: var(--color-4) .125rem solid;
     box-shadow: .125rem 0 0 0 var(--color-4);
 }
 #map-two {
-    left: 0;
+    left: 0; z-index: 2000;
     width: 100%;
     background: var(--color-3);
 }
 
 #_exploration [data-info="map"] .cursor {
     position: absolute;
-    top: 50%; left: var(--cover); z-index: 1001;
+    top: 50%; left: var(--cover); z-index: 3001;
     transform: translate(-50%, -50%);
     width: 2rem; height: 2rem;
     background: var(--color-1);

@@ -1,6 +1,6 @@
-import { updateMapPosition } from "./map.js";
+import { updateMapPosition, initMap, updateMapSize } from "./map.js";
 import { loadPage } from "./page.js";
-import { imgToSvg } from "../misc.js";
+import { delay, imgToSvg } from "../misc.js";
 
 export const onStart = {
     accueil: () => {},
@@ -20,6 +20,8 @@ $__dom__page.on('loadPage', async function(e, url) {
     updateMapPosition($__dom__page);
     imgToSvg();
     onStart[url]();
+    await delay(500);
+    updateMapSize();
 });
 
 $__dom__navbar.on('click', 'a', function(e) {
@@ -33,3 +35,5 @@ $__dom__navbar.on('click', 'a', function(e) {
 export const openFirstPage = async (url) => {
     $__dom__page.trigger('loadPage', [url]);
 }
+
+initMap();
