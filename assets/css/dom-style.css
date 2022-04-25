@@ -30,6 +30,9 @@
     display: block;
     height: 100%;
 }
+.__link__image svg {
+    fill: #FFF;
+}
 
 #__dom__map {
     --x: 0; --y: 0; --w: 0; --h: 0;

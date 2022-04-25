@@ -35,7 +35,7 @@
 .button__icon {
     display: block;
     width: 1.5rem; height: 1.5rem;
-    stroke: #FFF;
+    fill: #FFF;
 }
 
 .button--menu {
