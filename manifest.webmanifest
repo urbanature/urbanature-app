@@ -1,0 +1,36 @@
+{
+    "short_name": "Urbanature",
+    "name": "Urbanature",
+    "icons": [
+        {
+            "src": "/assets/favicon/256.png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/assets/favicon/192.png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/favicon/96.png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/assets/favicon/48.png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/assets/favicon/32.png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/assets/favicon/16.png",
+            "sizes": "16x16"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#0C423E",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#0C423E",
+    "description": "Explorez les savoirs et cultures de la biodiversité urbaine du XIXe au XXIe siècle."
+}
