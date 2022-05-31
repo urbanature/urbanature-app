@@ -51,8 +51,9 @@ export const accueil__mapCursor = () => {
         cursorState.isChanging = false;
     });
     $cursor.on('mousemove touchmove', e => {
+        const pageMargin = parseInt($cursor.css('--page-margin'));
         if (cursorState.isChanging) {
-            cursorState.position = ((e.clientX || e.touches[0].clientX) - $cursor.width()/2) * 100 / $maps.width();
+            cursorState.position = ((e.clientX || e.touches[0].clientX) - $cursor.width() - pageMargin) * 100 / $maps.width();
             if(cursorState.position < 0) cursorState.position = 0;
             if(cursorState.position > 100) cursorState.position = 100;
             $maps.css('--cover', `${cursorState.position}%`);

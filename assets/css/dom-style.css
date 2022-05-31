@@ -17,9 +17,16 @@
     z-index: 9999;
 }
 .__nav {
-    display: flex;
+    display: grid;
+    place-items: center;
     justify-content: space-around;
+    grid-template-columns: repeat(5, 4rem);
+    height: 4rem;
     background: var(--color-2);
+    overflow: hidden;
+}
+.__link {
+    width: 100%; height: 100%;
 }
 .__link__button {
     display: block;
@@ -29,8 +36,6 @@
 .__link__image {
     display: block;
     height: 100%;
-}
-.__link__image svg {
     fill: #FFF;
 }
 
@@ -45,10 +50,18 @@
 #__dom__map[data-transition="none"] {
     transition: none;
 }
+#__dom__map.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
 .error {
     margin: 0 1rem;
     padding: .5rem;
     text-align: center;
     background: var(--color-2);
+}
+
+.leaflet-control-attribution {
+    display: none;
 }

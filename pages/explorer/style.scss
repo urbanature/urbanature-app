@@ -1,0 +1,199 @@
+@import "../../.common/scss/mixins.scss";
+
+[data-page="explorer"] {
+
+#map-here {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hud {
+    position: absolute;
+    top: 0; left: 0; z-index: 2000;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    
+    .searchbar {
+        top: 1rem;
+        left: 1rem;
+        width: calc(100% - 6rem);
+        pointer-events: auto;
+        transition: top .5s ease-in-out;
+    }
+}
+
+.button {
+    position: absolute;
+    width: 3rem; height: 3rem;
+    padding: .75rem;
+    border-radius: 50%;
+    background: var(--color-2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    pointer-events: auto;
+    &__icon {
+        display: block;
+        width: 1.5rem; height: 1.5rem;
+        fill: #FFF;
+    }
+    &--menu {
+        top: 1rem;
+        right: 1rem;
+        border-radius: 0;
+        transition: top .5s ease-in-out;
+    }
+    &--locate {
+        bottom: 1rem;
+        right: 1rem;
+        transition: right .5s ease-in-out;
+    }
+}
+
+
+div.zoom-buttons {
+    display: none;
+}
+
+
+.hud--hide {
+    .searchbar {
+        top: -4rem;
+    }
+    .button--menu {
+        top: -4rem;
+    }
+    .button--locate {
+        right: -4rem;
+    }
+    .zoom-buttons {
+        right: -4rem;
+    }    
+}
+
+.menu {
+    position: absolute;
+    top: 0; left: 0; z-index: 2000;
+    width: 100%; height: 100%;
+    padding-top: 4rem;
+    background: var(--color-1);
+    transition: transform 0.3s ease-in-out;
+    font-weight: 500;
+    transform: translateY(-100%);
+    overflow: auto;
+    &--show {
+        transform: translateY(0%);
+    }
+    &__close {
+        position: absolute;
+        top: 1rem; left: 1rem;
+        width: 2rem; height: 2rem;
+        fill: #FFF;
+        img, .svg {
+            width: 100%; height: 100%;
+        }
+    }
+
+    &__title {
+        position: absolute;
+        top: 2rem; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.375rem;
+        font-weight: bold;
+    }
+}
+
+.category {
+    &__title {
+        display: flex;
+        align-items: center;
+        height: 3.5rem;
+        padding: 0 1.5rem;
+        font-size: 1.375rem;
+        font-weight: inherit;
+        background: var(--color-2);
+        &--subcategory {
+            font-size: 1rem;
+            background: var(--color-6);
+            color: var(--color-5);
+        }
+    }
+}
+.subcategory {
+    position: relative;
+    &__expander {
+        position: absolute;
+        top: 1.75rem; right: 1.75rem;
+        width: 1rem; height: 1rem;
+        transform: translate(50%, -50%);
+        .expand {
+            display: block;
+        }
+        .collapse {
+            display: none;
+        }
+    }
+    .filterlist {
+        display: none;
+    }
+    &[data-expanded="true"] {
+        .subcategory__expander {
+            .expand {
+                display: none;
+            }
+            .collapse {
+                display: block;
+            }
+        }
+        .filterlist {
+            display: block;
+        }
+    }
+    & + .subcategory {
+        border-top: var(--color-4) 1px solid;
+    }
+}
+.filterlist {
+    padding: 1rem 2rem;
+    background: var(--color-4);
+    color: var(--color-5);
+}
+.filter {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    padding-bottom: .125rem;
+    &__name {
+        width: 100%;
+    }
+}
+
+input[type="checkbox"] {
+    display: none;
+    &+.checkbox {
+        width: 1.125rem; height: 1.125rem;
+        fill: var(--color-4);
+        .checked {
+            background: var(--color-2);
+            display: none;
+        }
+        .not-checked {
+            background: var(--color-6);
+            display: block;
+        }
+    }
+    &:checked+.checkbox {
+        .checked {
+            display: block;
+        }
+        .not-checked {
+            display: none;
+        }
+    }
+}
+
+
+}

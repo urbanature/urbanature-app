@@ -30,6 +30,7 @@
     "start_url": "/",
     "background_color": "#0C423E",
     "display": "standalone",
+    "orientation": "portrait",
     "scope": "/",
     "theme_color": "#0C423E",
     "description": "Explorez les savoirs et cultures de la biodiversité urbaine du XIXe au XXIe siècle."

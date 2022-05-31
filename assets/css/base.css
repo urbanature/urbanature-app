@@ -5,6 +5,7 @@
     --color-3: #E0E789;
     --color-4: #FFFFFF;
     --color-5: #000000;
+    --color-6: #E5E5E5;
 }
 * {
     box-sizing: border-box;
@@ -35,4 +36,14 @@ input, select, textarea, button {
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.svg svg {
+    display: block;
 }

@@ -7,15 +7,24 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: var(--color-4);
 }
+.searchbar .svg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: .8rem;
+    transform: translateY(-50%);
+    fill: #000;
+    width: 1.25rem;
+}
 .searchbar input {
     width: 100%;
     padding-left: 2.75rem;
-    background-image: url("/assets/icon/inpages/rechercher.svg");
+    /* background-image: url("/assets/icon/menu/explorer.svg");
     background-repeat: no-repeat;
     background-size: 1.75rem;
-    background-position: .8rem center;
+    background-position: .8rem center; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--color-5);
 }
 .searchbar input::placeholder {

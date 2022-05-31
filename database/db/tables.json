@@ -1,0 +1,14 @@
+[{
+    "id": "arbres",
+    "name": "Arbres"
+}, {
+    "id": "arbres-remarquables",
+    "name": "Arbres remarquables"
+}, {
+    "id": "espaces-verts",
+    "name": "Espaces verts",
+    "default": true
+}, {
+    "id": "jardins-partages",
+    "name": "Jardins partagés"
+}]

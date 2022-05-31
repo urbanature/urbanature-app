@@ -1,21 +1,24 @@
 <div id="map-here"></div>
 <div class="hud hud--hide">
     <form action="" class="searchbar">
-        <input type="search" name="search" placeholder="Rechercher un lieu">
+        <img src="/assets/icon/recherche.svg" alt="">
+        <input type="search" name="search" placeholder="Rechercher un lieu" disabled>
     </form>
     <button class="button button--menu">
-        <img src="/assets/icon/inpages/menu.svg" alt="Menu" class="button__icon">
+        <img src="/assets/icon/filtres.svg" alt="Menu" class="button__icon">
     </button>
-    <button class="button button--locate">
-        <img src="/assets/icon/inpages/localiser.svg" alt="Localiser" class="button__icon">
+    <button class="button button--locate" id="geolocate">
+        <img src="/assets/icon/localisation.svg" alt="Localiser" class="button__icon">
     </button>
 </div>
 <div class="menu">
     <div class="menu__close">
-        <img src="/assets/icon/inpages/close.svg" alt="Fermer">
+        <img src="/assets/icon/x.svg" alt="Fermer">
     </div>
-    <div class="menu_-_todo">
-        ¯\_(ツ)_/¯
+    <h1 class="menu__title">Filtres</h1>
+    <div class="menu__categories">
+        <section class="category" id="verdure">
+            <h2 class="category__title">Verdure</h2>
+        </section>
     </div>
-    <!-- TODO -->
 </div>

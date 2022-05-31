@@ -1,0 +1,158 @@
+@import "../../.common/scss/mixins.scss";
+
+[data-page="accueil"] {
+--page-margin: 19px;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--page-margin);
+}
+
+h1,h2, h3 {
+    text-align: center;
+}
+h2 {
+    font-size: 1.75rem;
+    font-style: italic;
+    strong {
+        font-weight: 500;
+        font-style: normal;
+        color: var(--color-2);
+    }
+}
+h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.liste {
+    display: flex;
+    margin: var(--page-margin);
+    &--decouverte {
+        flex-direction: column;
+        gap: calc(var(--page-margin) * 1.5);
+    }
+    &--parcours {
+        justify-content: center;
+        position: relative;
+        height: 12rem;
+        margin-bottom: 4rem;
+        padding: .75rem;
+        gap: calc(var(--page-margin) * .75);
+        border-radius: calc(var(--page-margin) * .5);
+        @include glass(#FFFFFF26, #0C423E88);
+        & li {
+            --size: calc(50% - var(--page-margin) / 2);
+            width: var(--size);
+        }
+    }
+}
+
+.search {
+    width: 3rem; height: 3rem;
+    padding: .875rem;
+    fill: var(--color-4);
+    border-radius: calc(var(--page-margin) * .5);
+    @include glass(#FFFFFF26, #E6703255);
+}
+
+.decouvrir {
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    border-radius: calc(var(--page-margin) / 2);
+    overflow: hidden;
+    @include glass(#FFFFFF01, #E6703255);
+    &__img {
+        width: 50%; height: 100%;
+        object-fit: cover;
+        box-shadow: 0 .25rem .25rem #0004;
+    }
+    &__texte {
+        width: 50%;
+        padding-left: .75rem;
+        color: var(--color-3);
+        text-shadow: 0 .25rem .25rem #0004;
+    }
+}
+
+.parcourir {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 13.5rem;
+    border-radius: 4rem 4rem 0 0;
+    box-shadow: 0 .25rem .25rem #0004;
+    overflow: hidden;
+    > * {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+    }
+    &__img {
+        z-index: -1;
+        display: block;
+        object-fit: cover;
+    }
+    &__texte {
+        display: flex;
+        align-items: flex-end;
+        padding: calc(var(--page-margin) * .5);
+        color: var(--color-3);
+        background: linear-gradient(
+            to bottom, 
+            #00000000, 
+            #00000099
+        );
+    }
+}
+
+.map-container {
+    position: relative;
+    margin: var(--page-margin);
+    padding: 2rem;
+    border-radius: calc(var(--page-margin) / 2);
+    @include glass(#FFFFFF26, #0C423E88);
+}
+#map-here {
+    --cover: 50%;
+    position: relative;
+    height: 15rem;
+    background: var(--color-4);
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    .map {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        overflow: hidden;
+        div {
+            width: calc(100vw - 2rem);
+            height: 100%;
+        }
+    }
+    .cursor {
+        position: absolute;
+        top: 50%; left: var(--cover); z-index: 3001;
+        transform: translate(-50%, -50%);
+        width: 2rem; height: 2rem;
+        background: var(--color-1);
+        border-radius: 50%;
+        box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+    #map-one {
+        left: 0; z-index: 3000;
+        width: var(--cover);
+        background: var(--color-2);
+        border-right: var(--color-4) .125rem solid;
+        box-shadow: .125rem 0 0 0 var(--color-4);
+    }
+    #map-two {
+        left: 0; z-index: 2000;
+        width: 100%;
+        background: var(--color-3);
+    }
+}
+
+}

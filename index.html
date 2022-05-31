@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urbanature</title>
+    <meta charset="UTF-8">
+    <meta name="thme-color" content="#0C423E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/assets/css/font.css">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/css/dom-style.css">
@@ -15,33 +16,51 @@
     <link rel="stylesheet" href="/vendors/leaflet/leaflet.css">
     <script src="/vendors/leaflet/leaflet.js"></script>
     <script src="/vendors/jquery-3.6.0.slim.min.js"></script>
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="module">
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        } else {
+            console.log('Service workers are not supported in this browser.');
+        }
+    </script>
 </head>
 <body>
     <div id="__dom__page"></div>
     <footer id="__dom__navbar" class="__nav">
         <div class="__nav__link __link">
             <a href="/accueil" class="__link__button">
-                <img src="/assets/icon/accueil.svg" alt="" class="__link__image">
+                <img src="/assets/icon/menu/accueil.svg" alt="Accueil" class="__link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/decouvrir" class="__link__button">
-                <img src="/assets/icon/decouvrir.svg" alt="" class="__link__image">
+                <img src="/assets/icon/menu/decouvrir.svg" alt="Découvrir" class="__link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/explorer" class="__link__button">
-                <img src="/assets/icon/explorer.svg" alt="" class="__link__image">
+                <img src="/assets/icon/menu/explorer.svg" alt="Explorer" class="__link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/parcourir" class="__link__button">
-                <img src="/assets/icon/parcourir.svg" alt="" class="__link__image">
+                <img src="/assets/icon/menu/parcourir.svg" alt="Parcourir" class="__link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/profil" class="__link__button">
-                <img src="/assets/icon/profil.svg" alt="" class="__link__image">
+                <img src="/assets/icon/menu/profil.svg" alt="Profil" class="__link__image">
             </a>
         </div>
     </footer>
