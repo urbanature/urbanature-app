@@ -5,7 +5,9 @@
     @if not $color2 {
         $color2: rgba(255, 255, 255, 0.3);
     }
-    position: relative;
+    @if not position {
+        position: relative;
+    }
     background: linear-gradient(
         to bottom right,
         rgba(255, 255, 255, .3) 45%,

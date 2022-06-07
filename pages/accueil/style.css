@@ -1,19 +1,35 @@
 [data-page="accueil"] {
   --page-margin: 19px;
+  padding: 0 !important;
 }
 
 [data-page="accueil"] header {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  z-index: 10;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 var(--page-margin);
+  padding: 0 var(--page-margin);
+  padding-bottom: 2rem;
+}
+
+[data-page="accueil"] header h1 .svg {
+  width: 3rem;
 }
 
 [data-page="accueil"] h1, [data-page="accueil"] h2, [data-page="accueil"] h3 {
   text-align: center;
+  text-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="accueil"] p {
+  text-shadow: 0 .25rem .25rem #0004;
 }
 
 [data-page="accueil"] h2 {
@@ -32,57 +48,50 @@
   font-style: italic;
 }
 
+[data-page="accueil"] main h1 {
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  z-index: 15;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--color-2);
+}
+
+[data-page="accueil"] section {
+  position: relative;
+  z-index: 1;
+  padding: 3.5rem 0;
+  min-height: calc(100 * var(--vh) - var(--dom-navbar-height));
+  background-position: center;
+  background-size: cover;
+}
+
+[data-page="accueil"] #_decouverte {
+  padding-top: 5rem;
+  background-image: url("/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg");
+}
+
+[data-page="accueil"] #_parcours {
+  background-image: url("/database/img/louis-paulin-z4TOhAEXrCA-unsplash.jpg");
+}
+
+[data-page="accueil"] #_parcours h3 {
+  margin-bottom: 2.5rem;
+}
+
 [data-page="accueil"] .liste {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: var(--page-margin);
-}
-
-[data-page="accueil"] .liste--decouverte {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   gap: calc(var(--page-margin) * 1.5);
-}
-
-[data-page="accueil"] .liste--parcours {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  height: 12rem;
-  margin-bottom: 4rem;
-  padding: .75rem;
-  gap: calc(var(--page-margin) * .75);
-  border-radius: calc(var(--page-margin) * .5);
-  position: relative;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
-  -webkit-backdrop-filter: blur(1rem);
-          backdrop-filter: blur(1rem);
-  -webkit-box-shadow: 0 .25rem .25rem #0004;
-          box-shadow: 0 .25rem .25rem #0004;
-}
-
-[data-page="accueil"] .liste--parcours::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  padding: 1px;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
-  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
-  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
-  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
-  -webkit-mask-composite: xor;
-  border-radius: inherit;
-}
-
-[data-page="accueil"] .liste--parcours li {
-  --size: calc(50% - var(--page-margin) / 2);
-  width: var(--size);
 }
 
 [data-page="accueil"] .search {
@@ -91,7 +100,6 @@
   padding: .875rem;
   fill: var(--color-4);
   border-radius: calc(var(--page-margin) * .5);
-  position: relative;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
@@ -114,7 +122,7 @@
   border-radius: inherit;
 }
 
-[data-page="accueil"] .decouvrir {
+[data-page="accueil"] .listel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,7 +132,6 @@
   height: 10rem;
   border-radius: calc(var(--page-margin) / 2);
   overflow: hidden;
-  position: relative;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
@@ -133,7 +140,7 @@
           box-shadow: 0 .25rem .25rem #0004;
 }
 
-[data-page="accueil"] .decouvrir::before {
+[data-page="accueil"] .listel::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -147,7 +154,7 @@
   border-radius: inherit;
 }
 
-[data-page="accueil"] .decouvrir__img {
+[data-page="accueil"] .listel__img {
   width: 50%;
   height: 100%;
   -o-object-fit: cover;
@@ -156,50 +163,30 @@
           box-shadow: 0 .25rem .25rem #0004;
 }
 
-[data-page="accueil"] .decouvrir__texte {
+[data-page="accueil"] .listel__texte {
   width: 50%;
-  padding-left: .75rem;
-  color: var(--color-3);
-  text-shadow: 0 .25rem .25rem #0004;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  color: var(--color-4);
 }
 
-[data-page="accueil"] .parcourir {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 13.5rem;
-  border-radius: 4rem 4rem 0 0;
-  -webkit-box-shadow: 0 .25rem .25rem #0004;
-          box-shadow: 0 .25rem .25rem #0004;
-  overflow: hidden;
-}
-
-[data-page="accueil"] .parcourir > * {
+[data-page="accueil"] .listel__go {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  right: .5rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1.5rem;
+  -webkit-filter: drop-shadow(0 0.25rem 0.25rem #0004);
+          filter: drop-shadow(0 0.25rem 0.25rem #0004);
 }
 
-[data-page="accueil"] .parcourir__img {
-  z-index: -1;
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+[data-page="accueil"] .listel__go svg {
+  fill: var(--color-4);
 }
 
-[data-page="accueil"] .parcourir__texte {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  padding: calc(var(--page-margin) * .5);
-  color: var(--color-3);
-  background: -webkit-gradient(linear, left top, left bottom, from(#00000000), to(#00000099));
-  background: linear-gradient(to bottom, #00000000, #00000099);
+[data-page="accueil"] .listel--bis {
+  border-radius: 0 2.5rem;
 }
 
 [data-page="accueil"] .map-container {
@@ -207,7 +194,6 @@
   margin: var(--page-margin);
   padding: 2rem;
   border-radius: calc(var(--page-margin) / 2);
-  position: relative;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
@@ -237,7 +223,6 @@
   background: var(--color-4);
   -webkit-box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
-  overflow: hidden;
 }
 
 [data-page="accueil"] #map-here .map {
@@ -261,7 +246,7 @@
           transform: translate(-50%, -50%);
   width: 2rem;
   height: 2rem;
-  background: var(--color-1);
+  background: var(--color-2);
   border-radius: 50%;
   -webkit-box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -282,5 +267,91 @@
   z-index: 2000;
   width: 100%;
   background: var(--color-3);
+}
+
+[data-page="accueil"] .exploboxes-groups {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2.5rem auto;
+  gap: calc(.75rem / 2 - 1px);
+}
+
+[data-page="accueil"] .exploboxes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (5rem)[2];
+      grid-template-columns: repeat(2, 5rem);
+  -ms-grid-rows: (5rem)[2];
+      grid-template-rows: repeat(2, 5rem);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  row-gap: .5rem;
+  -webkit-column-gap: .5rem;
+          column-gap: .5rem;
+  width: 100%;
+}
+
+[data-page="accueil"] .exploboxes .explobox {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: .75rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="accueil"] .exploboxes .explobox::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
+  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="accueil"] .group {
+  width: 100%;
+}
+
+[data-page="accueil"] .group__title {
+  color: var(--color-3);
+  font-size: 1rem;
+}
+
+[data-page="accueil"] .group.group--left .group__title {
+  text-align: left;
+}
+
+[data-page="accueil"] .group.group--right .group__title {
+  text-align: right;
+}
+
+[data-page="accueil"] .group-splitter {
+  min-width: 1px;
+  height: 4.5rem;
+  background: var(--color-3);
+  -webkit-transform: translateY(0.75rem);
+          transform: translateY(0.75rem);
 }
 /*# sourceMappingURL=style.css.map */

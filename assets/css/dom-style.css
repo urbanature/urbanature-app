@@ -38,6 +38,9 @@
     height: 100%;
     fill: #FFF;
 }
+.__link__button--active .__link__image {
+    fill: var(--color-3);
+}
 
 #__dom__map {
     --x: 0; --y: 0; --w: 0; --h: 0;
@@ -55,11 +58,56 @@
     pointer-events: none;
 }
 
+#__dom__loadico {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: calc(50%); left: calc(50%); z-index: 40000;
+    transform: translate(-50%, -50%);
+    width: 12rem; height: 10rem;
+    background: #000A;
+    border-radius: 1rem;
+    transition: opacity 100ms ease-in-out;
+}
+#__dom__loadico img {
+    width: 6rem;
+}
+#__dom__loadico.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .error {
     margin: 0 1rem;
-    padding: .5rem;
+    padding: .75rem;
+    border-radius: .5rem;
     text-align: center;
-    background: var(--color-2);
+    position: relative;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, .3) 45%,
+        rgba(255, 255, 255, .1) 95%
+    );
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+    box-shadow: 0 .25rem .25rem #0004;
+}
+.error::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.1) 5%,
+        rgba(255, 255, 255, 0.3) 95%
+    );
+    -webkit-mask: 
+        linear-gradient(#FFF 0 0) content-box,
+        linear-gradient(#FFF 0 0);
+    -webkit-mask-composite: xor;
+    border-radius: inherit;
 }
 
 .leaflet-control-attribution {

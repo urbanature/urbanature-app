@@ -1,5 +1,11 @@
+import { setHref } from "../history.js";
+import { stripUrl } from "../misc.js";
+
 export const downloadPage = async (url) => {
     const response = await fetch(url);
+    if(response.url.includes('404')) {
+        return "";
+    }
     const text = await response.text();
     const $page = $(text);
     return $page;
@@ -12,13 +18,15 @@ export const downloadPage = async (url) => {
  */
 export const loadDownloadedContent = ($page, $dest) => {
     if($page.length === 0) {
-        $dest.append(`<p class="error">Page not found</p>`);
+        $dest.append(`<p class="error">404: Page introuvable</p>`);
         return;
     }
     $page.appendTo($dest);
 }
 
-export const loadPage = async (url, $dest) => {
-    const $page = await downloadPage(url);
+export const loadPage = async (url, $dest, navigating = false) => {
+    let new_url = stripUrl(url);
+    const $page = await downloadPage(new_url);
     loadDownloadedContent($page, $dest);
+    if(!navigating) setHref(url);
 }

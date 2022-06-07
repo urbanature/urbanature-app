@@ -2,15 +2,27 @@
 
 [data-page="accueil"] {
 --page-margin: 19px;
+padding: 0 !important;
 
 header {
+    position: absolute;
+    top: 1rem; left: 0; z-index: 10;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 0 var(--page-margin);
+    padding: 0 var(--page-margin);
+    padding-bottom: 2rem;
+    h1 .svg {
+        width: 3rem;
+    }
 }
 
 h1,h2, h3 {
     text-align: center;
+    text-shadow: 0 .25rem .25rem #0004;
+}
+p {
+    text-shadow: 0 .25rem .25rem #0004;
 }
 h2 {
     font-size: 1.75rem;
@@ -25,28 +37,44 @@ h3 {
     font-size: 1.5rem;
     font-style: italic;
 }
+main {
+    h1 {
+        position: absolute;
+        top: 1.75rem; left: 50%; z-index: 15;
+        transform: translateX(-50%);
+        font-size: 1.375rem;
+        font-weight: 500;
+        color: var(--color-2);
+    }
+}
+section {
+    position: relative;
+    z-index: 1;
+    padding: 3.5rem 0;
+    min-height: calc(100 * var(--vh) - var(--dom-navbar-height));
+    background-position: center;
+    background-size: cover;
+}
+#_decouverte {
+    padding-top: 5rem;
+    background-image: url("/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg");
+}
+#_exploration {
+    // padding-bottom: 8rem;
+}
+#_parcours {
+    // padding: 4rem 0 10rem 0;
+    background-image: url("/database/img/louis-paulin-z4TOhAEXrCA-unsplash.jpg");
+    h3 {
+        margin-bottom: 2.5rem;
+    }
+}
 
 .liste {
     display: flex;
     margin: var(--page-margin);
-    &--decouverte {
-        flex-direction: column;
-        gap: calc(var(--page-margin) * 1.5);
-    }
-    &--parcours {
-        justify-content: center;
-        position: relative;
-        height: 12rem;
-        margin-bottom: 4rem;
-        padding: .75rem;
-        gap: calc(var(--page-margin) * .75);
-        border-radius: calc(var(--page-margin) * .5);
-        @include glass(#FFFFFF26, #0C423E88);
-        & li {
-            --size: calc(50% - var(--page-margin) / 2);
-            width: var(--size);
-        }
-    }
+    flex-direction: column;
+    gap: calc(var(--page-margin) * 1.5);
 }
 
 .search {
@@ -57,7 +85,7 @@ h3 {
     @include glass(#FFFFFF26, #E6703255);
 }
 
-.decouvrir {
+.listel {
     display: flex;
     align-items: center;
     height: 10rem;
@@ -71,40 +99,22 @@ h3 {
     }
     &__texte {
         width: 50%;
-        padding-left: .75rem;
-        color: var(--color-3);
-        text-shadow: 0 .25rem .25rem #0004;
+        padding-left: 1rem;
+        padding-right: 3rem;
+        color: var(--color-4);
     }
-}
-
-.parcourir {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 13.5rem;
-    border-radius: 4rem 4rem 0 0;
-    box-shadow: 0 .25rem .25rem #0004;
-    overflow: hidden;
-    > * {
+    &__go {
         position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
+        top: 50%; right: .5rem;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        filter: drop-shadow(0 .25rem .25rem #0004);
+        svg {
+            fill: var(--color-4);
+        }
     }
-    &__img {
-        z-index: -1;
-        display: block;
-        object-fit: cover;
-    }
-    &__texte {
-        display: flex;
-        align-items: flex-end;
-        padding: calc(var(--page-margin) * .5);
-        color: var(--color-3);
-        background: linear-gradient(
-            to bottom, 
-            #00000000, 
-            #00000099
-        );
+    &--bis {
+        border-radius: 0 2.5rem;
     }
 }
 
@@ -121,7 +131,6 @@ h3 {
     height: 15rem;
     background: var(--color-4);
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
-    overflow: hidden;
     .map {
         position: absolute;
         top: 0;
@@ -137,7 +146,7 @@ h3 {
         top: 50%; left: var(--cover); z-index: 3001;
         transform: translate(-50%, -50%);
         width: 2rem; height: 2rem;
-        background: var(--color-1);
+        background: var(--color-2);
         border-radius: 50%;
         box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
     }
@@ -152,6 +161,49 @@ h3 {
         left: 0; z-index: 2000;
         width: 100%;
         background: var(--color-3);
+    }
+}
+
+.exploboxes-groups {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 2.5rem auto;
+    gap: calc(.75rem / 2 - 1px);
+}
+.exploboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 5rem);
+    grid-template-rows: repeat(2, 5rem);
+    justify-content: center;
+    row-gap: .5rem;
+    column-gap: .5rem;
+    width: 100%;
+    .explobox {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        border-radius: .75rem;
+        @include glass(#FFFFFF26, #0C423E88);
+    }
+}
+.group {
+    width: 100%;
+    &__title {
+        color: var(--color-3);
+        font-size: 1rem;
+    }
+    &.group--left .group__title {
+        text-align: left;
+    }
+    &.group--right .group__title {
+        text-align: right;
+    }
+    &-splitter {
+        min-width: 1px; height: 4.5rem;
+        background: var(--color-3);
+        transform: translateY(.75rem);
     }
 }
 

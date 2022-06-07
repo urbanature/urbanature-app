@@ -1,33 +1,58 @@
 <header>
     <h1>
-        <img src="" alt="Urbanature">
+        <img src="/assets/img/logo.svg" alt="Urbanature">
     </h1>
-    <button class="search">
+    <button class="search" title="Rechercher">
         <img src="/assets/icon/recherche.svg" alt="Rechercher">
     </button>
 </header>
 <main>
+    <h1>Accueil</h1>
     <section id="_decouverte">
         <h2><strong>Découvrez</strong><br> la biodiversité urbaine</h2>
         <h3>Savoirs et Culture</h3>
         <ul class="liste liste--decouverte">
-            <li><a href="/decouvrir#expos" class="decouvrir">
-                <img src="/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg" alt="" class="decouvrir__img">
-                <p class="decouvrir__texte">Expositions</p>
+            <li><a href="/decouvrir#expos" class="listel listel--bis">
+                <img src="/database/img/maquis-montmartre.jpg" alt="" class="listel__img">
+                <p class="listel__texte">Expositions virtuelles</p>
+                <img src="/assets/icon/fleche_droite.svg" alt="" class="listel__go">
             </a></li>
-            <li><a href="/decouvrir#icono" class="decouvrir">
-                <img src="/database/img/map-btv1b530855456.jpg" alt="" class="decouvrir__img">
-                <p class="decouvrir__texte">Iconographie et vidéographie</p>
+            <li><a href="/decouvrir#icono" class="listel">
+                <img src="/database/img/map-btv1b530855456.jpg" alt="" class="listel__img">
+                <p class="listel__texte">Iconographie et vidéographie</p>
+                <img src="/assets/icon/fleche_droite.svg" alt="" class="listel__go">
             </a></li>
-            <li><a href="/decouvrir#ecrit" class="decouvrir">
-                <img src="/database/img/Les_Rougon-Macquart_2_La_curee_...Zola_Emile_bpt6k5804559h.jfif" alt="" class="decouvrir__img">
-                <p class="decouvrir__texte">Sources écrites</p>
+            <li><a href="/decouvrir#ecrit" class="listel">
+                <img src="/database/img/Les_Rougon-Macquart_2_La_curee_...Zola_Emile_bpt6k5804559h.jfif" alt="" class="listel__img">
+                <p class="listel__texte">Sources écrites</p>
+                <img src="/assets/icon/fleche_droite.svg" alt="" class="listel__go">
             </a></li>
         </ul>
     </section>
     <section id="_exploration">
         <h2><strong>Explorez</strong><br> la nature à Paris</h2>
         <h3>Envie de culture ou de verdure&#xa0;?</h3>
+        <div class="exploboxes-groups">
+            <div class="group group--left">
+                <h3 class="group__title">Culture</h3>
+                <div class="exploboxes">
+                    <a href="/explorer" class="explobox">Littérature</a>
+                    <a href="/explorer" class="explobox">Sources sonores</a>
+                    <a href="/explorer" class="explobox">Ornitologie 1873</a>
+                    <a href="/explorer" class="explobox">Vidéos</a>
+                </div>
+            </div>
+            <div class="group-splitter"></div>
+            <div class="group group--right">
+                <h3 class="group__title">Verdure</h3>
+                <div class="exploboxes">
+                    <a href="/explorer" class="explobox">Parcs</a>
+                    <a href="/explorer" class="explobox">Arbres</a>
+                    <a href="/explorer" class="explobox">Faune</a>
+                    <a href="/explorer" class="explobox">Vidéos</a>
+                </div>
+            </div>
+        </div>
         <div class="map-container">
             <div data-info="map" id="map-here" data-map-show="false">
                 <div class="map" id="map-one">
@@ -41,16 +66,18 @@
         </div>
     </section>
     <section id="_parcours">
-        <h2><strong>Parcourez</strong> texte</h2>
+        <h2><strong>Parcourez</strong><br>texte</h2>
         <h3>Promenades culturelles<br> dans la capitale</h3>
         <ul class="liste liste--parcours">
-            <li><a href="" class="parcourir">
-                <img src="/database/img/louis-paulin-z4TOhAEXrCA-unsplash.jpg" alt="" class="parcourir__img">
-                <p class="parcourir__texte">Découvrez les parcours</p>
+            <li><a href="/parcourir#decouvrir" class="listel listel--bis">
+                <img src="/database/img/louis-paulin-z4TOhAEXrCA-unsplash.jpg" alt="" class="listel__img">
+                <p class="parcourir__texte listel__texte">Découvrez les parcours</p>
+                <img src="/assets/icon/fleche_droite.svg" alt="" class="decouvrir__go listel__go">
             </a></li>
-            <li><a href="" class="parcourir">
-                <img src="/database/img/jean-baptiste-d-EkE-eqz_CJE-unsplash.jpg" alt="" class="parcourir__img">
-                <p class="parcourir__texte">Créez vos parcours</p>
+            <li><a href="/parcourir#creer" class="listel listel--bis">
+                <img src="/database/img/jean-baptiste-d-EkE-eqz_CJE-unsplash.jpg" alt="" class="listel__img">
+                <p class="listel__texte">Créez vos parcours</p>
+                <img src="/assets/icon/fleche_droite.svg" alt="" class="listel__go">
             </a></li>
         </ul>
     </section>

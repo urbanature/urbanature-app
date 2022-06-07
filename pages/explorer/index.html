@@ -20,5 +20,64 @@
         <section class="category" id="verdure">
             <h2 class="category__title">Verdure</h2>
         </section>
+        <section class="category" id="litterature">
+            <h2 class="category__title">Littérature</h2>
+        </section>
     </div>
+</div>
+<div class="context" id="context" data-mode="none">
+    <div class="context__handle"></div>
+    <section class="csection" id="ctx-head">
+        <h2 class="title"></h2>
+        <p class="address"></p>
+        <div class="context__save">
+            <input type="checkbox" id="save">
+            <label for="save" class="checkbox">
+                <img src="/assets/icon/signet_on.svg" alt="" class="checked">
+                <img src="/assets/icon/signet_off.svg" alt="" class="not-checked">
+            </label>
+        </div>
+        <div class="context__menu">
+            <button class="cbutton">
+                <img src="/assets/icon/itineraire.svg" alt="" class="cbutton__icon">
+                <div class="cbutton__text">Itinéraire</div>
+            </button>
+            <button class="cbutton">
+                <img src="/assets/icon/partager.svg" alt="" class="cbutton__icon">
+                <div class="cbutton__text">Partager</div>
+            </button>
+            <button class="cbutton">
+                <img src="/assets/icon/siteweb.svg" alt="" class="cbutton__icon">
+                <div class="cbutton__text">Site web</div>
+            </button>
+            <button class="cbutton">
+                <img src="/assets/icon/ajout_parcourir.svg" alt="" class="cbutton__icon">
+                <div class="cbutton__text">Parcours</div>
+            </button>
+        </div>
+    </section>
+    <section class="csection" id="ctx-info">
+        <h2>Informations</h2>
+        <div class="content"></div>
+    </section>
+    <section class="csection" id="ctx-litter">
+        <h2>Littérature</h2>
+        <a href="#" class="csection__more">Voir plus</a>
+    </section>
+    <section class="csection" id="ctx-icono">
+        <h2>Iconographie</h2>
+        <a href="#" class="csection__more">Voir plus</a>
+    </section>
+    <section class="csection" id="ctx-suggestion">
+        <h2>Suggestions</h2>
+        <article class="suggestion">
+            <h3 class="suggestion__title">Similaire</h3>
+            <ul class="suggestion__list"></ul>
+        </article>
+        <article class="suggestion">
+            <h3 class="suggestion__title">À proximité</h3>
+            <ul class="suggestion__list"></ul>
+        </article>
+        <article class="suggestion suggestion--menu"></article>
+    </section>
 </div>

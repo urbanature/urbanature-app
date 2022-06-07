@@ -195,5 +195,211 @@ input[type="checkbox"] {
     }
 }
 
+.context {
+    --pos: 0;
+    position: fixed;
+    top: var(--pos);
+    left: 0; z-index: 2001;
+    width: 100vw; height: calc((100 * var(--vh)) - var(--dom-navbar-height));
+    padding-top: 0;
+    background: var(--color-1);
+    border-radius: 2rem 2rem 0 0;
+    transition: top 200ms ease-out, border-radius 200ms ease-in-out;
+    overflow-y: hidden;
+    &[data-mode="full"] {
+        --pos: 0%;
+        border-radius: 0;
+        overflow-y: auto;
+    }
+    &[data-mode="partial"] {
+        --pos: calc(100% - var(--dom-navbar-height) - 192px);
+    }
+    &[data-mode="none"] {
+        --pos: 100%;
+    }
+    &[data-mode="drag"] {
+        transition: border-radius 200ms ease-in-out;
+    }
+    h2, p {
+        margin: .25rem 1rem 1.5rem 1rem;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--color-2);
+        &.title {
+            margin: .25rem 4rem .25rem 1rem;
+        }
+    }
+    p {
+        &.address {
+            margin: .25rem 1rem;
+        }
+    }
+    &__handle {
+        width: 100%; height: calc(5px + 2 * 1.5rem);
+        padding: 1.5rem;
+        &::after {
+            content: " ";
+            display: block;
+            width: 8rem; height: 5px;
+            background: var(--color-4);
+            border-radius: 2.5px;
+            margin: auto;
+        }
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        margin: .5rem 0;
+        padding: .5rem 1rem;
+        overflow-x: auto;
+    }
+    &__save {
+        position: absolute;
+        top: 0; right: 1rem;
+        width: 2rem; height: 2rem;
+        .svg {
+            background: none !important;
+            fill: var(--color-2);
+        }
+    }
+}
+
+.cbutton {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    width: 8.75rem; height: 2.5rem;
+    min-width: 8.75rem; min-height: 2.5rem;
+    padding: .5rem .75rem;
+    border-radius: 1.25rem;
+    background: var(--color-2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &__icon {
+        display: block;
+        width: 1.5rem; height: 1.5rem;
+        fill: #FFF;
+    }
+}
+
+.csection {
+    position: relative;
+    &:not(#ctx-head) {
+        margin-bottom: 3.5rem;
+    }
+    &__more {
+        position: absolute;
+        top: .25rem; right: 1rem;
+        color: var(--color-4);
+    }
+}
+
+.suggestion {
+    &__title {
+        margin: 0 1.25rem;
+        font-weight: 500;
+        color: var(--color-3);
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+        margin: .5rem 0;
+        padding: .5rem 1rem;
+        overflow-x: auto;
+    }
+    &--menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .75rem;
+        margin: .5rem 0;
+        padding: .5rem 1rem;
+    }
+}
+.sugg {
+    display: grid;
+    place-items: center;
+    width: 7rem; height: 7rem;
+    min-width: 7rem; min-height: 7rem;
+    border-radius: .75rem;
+    @include glass(#FFFFFF4C, #FFFFFF19);
+    &--ico {
+        position: relative;
+        place-items: end center;
+        img {
+            position: absolute;
+            top: 0; left: 0;
+            width: inherit; height: inherit;
+            object-fit: cover;
+            border-radius: .75rem;
+        }
+        .sugg__text {
+            z-index: 1;
+        }
+    }
+    &--button {
+        width: 8.5rem; height: 2.5rem;
+        min-width: 8.5rem; min-height: 2.5rem;
+    }
+}
+
+
+.contentbox {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 1rem;
+    border-radius: .75rem;
+    @include glass(#FFFFFF4C, #FFFFFF19);
+    &__content {
+        width: 100%; height: 25rem;
+        padding: 1rem;
+        &--text {
+            h3 {
+                font-weight: bold;
+                color: var(--color-3);
+            }
+            p.page {
+                margin: 0;
+            }
+            p {
+                margin: 1.5rem 0;
+            }
+            strong {
+                color: var(--color-2);
+            }
+            &-fit {
+                height: auto;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        &--images {
+            display: grid;
+            padding: 1rem; gap: .75rem;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 9rem);
+            img {
+                object-fit: cover;
+                width: 100%; height: 100%;
+                border-radius: .75rem;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+    &__expand {
+        width: 100%;
+        &-arrow {
+            width: 1.5rem; height: 1.5rem;
+            fill: var(--color-3);
+            margin: auto;
+        }
+    }
+}
 
 }

@@ -6,6 +6,8 @@
         "include": [
             "jquery",
             "leaflet",
+            "leaflet.markercluster",
+            "lodash"
         ]
     }
 }

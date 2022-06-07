@@ -1,9 +1,9 @@
-import * as BASE_DATA from "../../src/data_manager/basedata.js";
 import * as MAP from "../../src/dom/map.js";
-import { imgToSvg } from "../../src/misc.js";
+import * as BASEDATA from "../../src/data_manager/bd.js";
+import { delay, imgToSvg } from "../../src/misc.js";
 import { $_filter, $_subcategory } from "./el.js";
 import { setFilterToLeafmap } from "./leaf.js";
-import { delay } from "/src/misc.js";
+import { contextClose } from "./context.js";
 
 export const explorer__unhide = async () => {
     await delay(500);
@@ -23,6 +23,7 @@ const menuHide = () => {
 
 export const explorer__manageMenu = () => {
     $(".button--menu").on("click", () => {
+        contextClose();
         menuShow();
     });
     $(".menu__close").on("click", () => {
@@ -31,42 +32,22 @@ export const explorer__manageMenu = () => {
 }
 
 let active_filters = [];
-
 export const explorer__init = async () => {
     active_filters = [];
-    const dataKeys = BASE_DATA.getDataKeys();
-    for(let key of dataKeys.sort()) {
-        const {name, data, filter} = BASE_DATA.GLOBAL_DATA[key];
-        const $sc = $_subcategory(key, name).appendTo(".category");
+    for (let db of BASEDATA.table) {
+        const {name, category, path, table} = db;
+        const $sc = $_subcategory(name, name).appendTo(`.category#${category}`);
         const $ul = $sc.find(".filterlist");
-        if(filter) {
-            for(let f of filter.filters) {
-                const $f = $_filter(f.key, f.val, f.nom).appendTo($ul);
-                $f.find("input").on("change", () => {
-                    if($f.find("input").prop("checked")) {
-                        active_filters.push({dataKey: key, key: f.key, val: f.val});
-                    } else {
-                        active_filters = active_filters.filter(f => f.key !== f.key);
-                    }
-                    setFilterToLeafmap(active_filters);
-                });
-                if(BASE_DATA.DEFAULT_DATA.data === data) {
-                    $f.find("input").prop("checked", true).trigger("change");
-                }
-            }
-        } else {
-            const $f = $_filter(key, name, name).appendTo($ul);
+        for (let t of table) {
+            const $f = $_filter(name, t.key, `${t.name} (${t.length})`).appendTo($ul);
             $f.find("input").on("change", () => {
-                if($f.find("input").prop("checked")) {
-                    active_filters.push({dataKey: key, all: true});
+                if ($f.find("input").prop("checked")) {
+                    active_filters.push({dataKey: path, key: t.key, val: t.name});
                 } else {
-                    active_filters = active_filters.filter(f => f.dataKey !== key);
+                    active_filters = active_filters.filter(f => f.key !== t.key);
                 }
                 setFilterToLeafmap(active_filters);
             });
-            if(BASE_DATA.DEFAULT_DATA.data === data) {
-                $f.find("input").prop("checked", true).trigger("change");
-            }
         }
     }
     imgToSvg();
@@ -77,10 +58,10 @@ export const explorer__init = async () => {
 }
 
 export const explorer__initMenu = async () => {
-    if(BASE_DATA.flags.loaded) {
+    if(BASEDATA.flags.loaded) {
         explorer__init();
     } else {
-        BASE_DATA.on.load = explorer__init;
+        BASEDATA.on.load = explorer__init;
     }
 }
 
@@ -90,3 +71,5 @@ export const explorer__initGeoloc = async () => {
         MAP.pinLocation();
     });
 }
+
+export { initContext as explorer__initContext } from "./context.js";
