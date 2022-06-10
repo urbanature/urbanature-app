@@ -100,8 +100,8 @@
   padding: .875rem;
   fill: var(--color-4);
   border-radius: calc(var(--page-margin) * .5);
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
   -webkit-box-shadow: 0 .25rem .25rem #0004;
@@ -132,8 +132,8 @@
   height: 10rem;
   border-radius: calc(var(--page-margin) / 2);
   overflow: hidden;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
   -webkit-box-shadow: 0 .25rem .25rem #0004;
@@ -194,8 +194,8 @@
   margin: var(--page-margin);
   padding: 2rem;
   border-radius: calc(var(--page-margin) / 2);
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
   -webkit-box-shadow: 0 .25rem .25rem #0004;
@@ -308,8 +308,8 @@
   place-items: center;
   text-align: center;
   border-radius: .75rem;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
   -webkit-box-shadow: 0 .25rem .25rem #0004;

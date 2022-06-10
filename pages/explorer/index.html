@@ -1,29 +1,21 @@
 <div id="map-here"></div>
 <div class="hud hud--hide">
-    <form action="" class="searchbar">
-        <img src="/assets/icon/recherche.svg" alt="">
-        <input type="search" name="search" placeholder="Rechercher un lieu" disabled>
-    </form>
-    <button class="button button--menu">
+    <button class="button button--menu button--left" id="filters-on">
         <img src="/assets/icon/filtres.svg" alt="Menu" class="button__icon">
     </button>
-    <button class="button button--locate" id="geolocate">
+    <button class="button button--menu button--right" id="search-on">
+        <img src="/assets/icon/recherche.svg" alt="Rechercher" class="button__icon">
+    </button>
+    <button class="button button--locate button--right" id="geolocate">
         <img src="/assets/icon/localisation.svg" alt="Localiser" class="button__icon">
     </button>
 </div>
 <div class="menu">
-    <div class="menu__close">
+    <div class="menu__close" id="filters-off">
         <img src="/assets/icon/x.svg" alt="Fermer">
     </div>
     <h1 class="menu__title">Filtres</h1>
-    <div class="menu__categories">
-        <section class="category" id="verdure">
-            <h2 class="category__title">Verdure</h2>
-        </section>
-        <section class="category" id="litterature">
-            <h2 class="category__title">Littérature</h2>
-        </section>
-    </div>
+    <div class="menu__categories"></div>
 </div>
 <div class="context" id="context" data-mode="none">
     <div class="context__handle"></div>
@@ -79,5 +71,60 @@
             <ul class="suggestion__list"></ul>
         </article>
         <article class="suggestion suggestion--menu"></article>
+    </section>
+</div>
+<!-- data-active: no | my | search -->
+<div class="search" id="search" data-active="no">
+    <div class="search__close" id="search-off">
+        <img src="/assets/icon/fleche_gauche.svg" alt="Fermer">
+    </div>
+    <form action="" class="searchbar">
+        <input type="search" name="search" id="explorer-search" placeholder="Rechercher un lieu" autocomplete="off" >
+    </form>
+    <section class="ssection" id="src-recent">
+        <h2 class="ssection__title">Recherches récentes</h2>
+        <ul class="ssection__list slist slist--list">
+            <li class="slist__item">
+                <img src="/assets/icon/historique.svg" alt="">
+                <p>Parc</p>
+            </li>
+            <li class="slist__item">
+                <img src="/assets/icon/historique.svg" alt="">
+                <p>Chateau</p>
+            </li>
+        </ul>
+    </section>
+    <section class="ssection" id="src-favorites">
+        <h2 class="ssection__title">Mes adresses</h2>
+        <ul class="ssection__list slist slist--carousel">
+            <li class="slist__item">
+                <p>Parc Montsouris</p>
+            </li>
+            <li class="slist__item">
+                <p>Parc des Buttes-Chaumont</p>
+            </li>
+            <li class="slist__item">
+                <p>Parc de Belleville</p>
+            </li>
+            <li class="slist__item">
+                <p>Parc de machintruc</p>
+            </li>
+        </ul>
+    </section>
+    <section class="ssection ssection--list" id="src-results">
+        <h2 class="ssection__title">Résultats</h2>
+        <ul class="ssection__list slist slist--biglist">
+            <li class="slist__item">
+                <h3>Parc Monceau</h3>
+                <p>35 Bd de Courcelles, 75008 Paris</p>
+                <div class="search__save">
+                    <input type="checkbox" id="save-res-0">
+                    <label class="checkbox" for="save-res-0">
+                        <img src="/assets/icon/signet_on.svg" alt="" class="checked">
+                        <img src="/assets/icon/signet_off.svg" alt="" class="not-checked">
+                    </label>
+                </div>
+            </li>
+        </ul>
     </section>
 </div>

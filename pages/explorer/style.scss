@@ -16,14 +16,6 @@
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    
-    .searchbar {
-        top: 1rem;
-        left: 1rem;
-        width: calc(100% - 6rem);
-        pointer-events: auto;
-        transition: top .5s ease-in-out;
-    }
 }
 
 .button {
@@ -42,15 +34,30 @@
     }
     &--menu {
         top: 1rem;
-        right: 1rem;
         border-radius: 0;
-        transition: top .5s ease-in-out;
     }
     &--locate {
         bottom: 1rem;
+    }
+    &--left {
+        left: 1rem;
+        transition: left .5s ease-in-out;
+    }
+    &--right {
         right: 1rem;
         transition: right .5s ease-in-out;
     }
+    &.no-transition {
+        transition: none !important;
+    }
+}
+.sneak-button {
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+    width: 3rem; height: 3rem;
+    padding: 0;
+    min-width: 3rem;
 }
 
 
@@ -60,18 +67,21 @@ div.zoom-buttons {
 
 
 .hud--hide {
-    .searchbar {
-        top: -4rem;
+    // .button--menu {
+    //     top: -4rem;
+    // }
+    // .button--locate {
+    //     right: -4rem;
+    // }
+    // .zoom-buttons {
+    //     right: -4rem;
+    // }
+    .button--left {
+        left: -4rem;
     }
-    .button--menu {
-        top: -4rem;
-    }
-    .button--locate {
+    .button--right {
         right: -4rem;
     }
-    .zoom-buttons {
-        right: -4rem;
-    }    
 }
 
 .menu {
@@ -326,7 +336,7 @@ input[type="checkbox"] {
     width: 7rem; height: 7rem;
     min-width: 7rem; min-height: 7rem;
     border-radius: .75rem;
-    @include glass(#FFFFFF4C, #FFFFFF19);
+    @include glass(#FFFFFF40, #FFFFFF19);
     &--ico {
         position: relative;
         place-items: end center;
@@ -354,7 +364,7 @@ input[type="checkbox"] {
     flex-direction: column;
     margin: 1rem;
     border-radius: .75rem;
-    @include glass(#FFFFFF4C, #FFFFFF19);
+    @include glass(#FFFFFF40, #FFFFFF19);
     &__content {
         width: 100%; height: 25rem;
         padding: 1rem;
@@ -398,6 +408,128 @@ input[type="checkbox"] {
             width: 1.5rem; height: 1.5rem;
             fill: var(--color-3);
             margin: auto;
+        }
+    }
+}
+
+.search {
+    position: absolute;
+    top: 0; left: 0; z-index: 2000;
+    width: 100vw; height: calc(100vh - var(--dom-navbar-height));
+    background: var(--color-1);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+
+    &--show {
+        transform: translateY(0);
+    }
+    &__close {
+        position: absolute;
+        top: 1.5rem; left: 1.5rem; z-index: 1;
+        width: 2rem; height: 2rem;
+        padding: .5rem;
+        fill: #000;
+        img, .svg {
+            width: 100%; height: 100%;
+        }
+    }
+    &__save {
+        position: absolute;
+        top: 0; right: 1rem;
+        width: 2rem; height: 2rem;
+        .svg {
+            background: none !important;
+            fill: var(--color-2);
+        }
+    }
+    
+    .searchbar {
+        position: relative;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        pointer-events: auto;
+        transition: top .5s ease-in-out;
+    }
+}
+
+.ssection {
+    &__title {
+        margin: 1rem 1rem .5rem 1rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--color-2);
+        text-shadow: 0 .25rem .25rem #0004;
+    }
+    &__list {
+        margin: 0 1rem;
+    }
+}
+.slist {
+    position: relative;
+    display: flex;
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0 .5rem;
+        gap: 1rem;
+        .svg {
+            width: 1.5rem;
+            fill: var(--color-4);
+        }
+    }
+    &--list {
+        flex-direction: column;
+        .slist__item {
+            width: 100%;
+            height: 3rem;
+        }
+    }
+    &--biglist {
+        flex-direction: row;
+        gap: 1rem;
+        .slist__item {
+            display: block;
+            width: 100%;
+            height: 8rem;
+            padding: .75rem;
+            border-radius: .75rem;
+            @include glass(#FFFFFF40, #FFFFFF19);
+        }
+        h3 {
+            margin-left: .25rem;
+            font-weight: bold;
+            color: var(--color-2);
+            text-shadow: 0 .25rem .25rem #0004;
+        }
+        .search__save {
+            position: absolute;
+            top: .5rem; right: .5rem;
+            width: 2rem; height: 2rem;
+            .svg {
+                width: 100%; height: 100%;
+                background: none !important;
+                fill: var(--color-4);
+            }
+        }
+    }
+    &--carousel {
+        margin: 0;
+        padding: 0 1rem;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: .25rem;
+        padding: 0 1rem 1rem 1rem;
+        font-weight: 500;
+        .slist__item {
+            width: 7rem;
+            height: 7rem;
+            min-width: 7rem;
+            min-height: 7rem;
+            text-align: center;
+            border-radius: .75rem;
+            color: var(--color-1);
+            background: var(--color-6);
+            box-shadow: 0 .25rem .25rem #0004;
         }
     }
 }

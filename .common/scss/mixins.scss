@@ -3,14 +3,14 @@
         $color1: rgba(255, 255, 255, 0.1);
     }
     @if not $color2 {
-        $color2: rgba(255, 255, 255, 0.3);
+        $color2: rgba(255, 255, 255, 0.25);
     }
     @if not position {
         position: relative;
     }
     background: linear-gradient(
         to bottom right,
-        rgba(255, 255, 255, .3) 45%,
+        rgba(255, 255, 255, .25) 45%,
         rgba(255, 255, 255, .1) 95%
     );
     backdrop-filter: blur(1rem);

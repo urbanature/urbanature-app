@@ -5,13 +5,17 @@ import { $_filter, $_subcategory } from "./el.js";
 import { setFilterToLeafmap } from "./leaf.js";
 import { contextClose } from "./context.js";
 
+const cond = {
+    hasTransition: false
+}
+
 export const explorer__unhide = async () => {
-    await delay(500);
+    await delay(200);
     $(".hud").removeClass("hud--hide");
 }
 export const explorer__hide = async () => {
     $(".hud").addClass("hud--hide");
-    await delay(500);
+    await delay(200);
 }
 
 const menuShow = () => {
@@ -21,19 +25,39 @@ const menuHide = () => {
     $(".menu").removeClass("menu--show");
 }
 
+const searchShow = () => {
+    $(".search").addClass("search--show");
+}
+const searchHide = () => {
+    $(".search").removeClass("search--show");
+}
+
 export const explorer__manageMenu = () => {
-    $(".button--menu").on("click", () => {
+    $("#filters-on").on("click", () => {
         contextClose();
         menuShow();
     });
-    $(".menu__close").on("click", () => {
+    $("#search-on").on("click", () => {
+        contextClose();
+        searchShow();
+    });
+    $("#filters-off").on("click", () => {
+        contextClose();
         menuHide();
+    });
+    $("#search-off").on("click", () => {
+        contextClose();
+        searchHide();
     });
 }
 
 let active_filters = [];
 export const explorer__init = async () => {
     active_filters = [];
+    const $menu__categories = $(".menu__categories");
+    for (let cate of BASEDATA.categories) {
+        $(`<section class="category" id="${cate.key}"><h2 class="category__title">${cate.name}</h2></section>`).appendTo($menu__categories);
+    }
     for (let db of BASEDATA.table) {
         const {name, category, path, table} = db;
         const $sc = $_subcategory(name, name).appendTo(`.category#${category}`);

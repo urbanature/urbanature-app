@@ -17,15 +17,6 @@
   overflow: hidden;
 }
 
-[data-page="explorer"] .hud .searchbar {
-  top: 1rem;
-  left: 1rem;
-  width: calc(100% - 6rem);
-  pointer-events: auto;
-  -webkit-transition: top .5s ease-in-out;
-  transition: top .5s ease-in-out;
-}
-
 [data-page="explorer"] .button {
   position: absolute;
   width: 3rem;
@@ -48,36 +39,50 @@
 
 [data-page="explorer"] .button--menu {
   top: 1rem;
-  right: 1rem;
   border-radius: 0;
-  -webkit-transition: top .5s ease-in-out;
-  transition: top .5s ease-in-out;
 }
 
 [data-page="explorer"] .button--locate {
   bottom: 1rem;
+}
+
+[data-page="explorer"] .button--left {
+  left: 1rem;
+  -webkit-transition: left .5s ease-in-out;
+  transition: left .5s ease-in-out;
+}
+
+[data-page="explorer"] .button--right {
   right: 1rem;
   -webkit-transition: right .5s ease-in-out;
   transition: right .5s ease-in-out;
+}
+
+[data-page="explorer"] .button.no-transition {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+[data-page="explorer"] .sneak-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  min-width: 3rem;
 }
 
 [data-page="explorer"] div.zoom-buttons {
   display: none;
 }
 
-[data-page="explorer"] .hud--hide .searchbar {
-  top: -4rem;
+[data-page="explorer"] .hud--hide .button--left {
+  left: -4rem;
 }
 
-[data-page="explorer"] .hud--hide .button--menu {
-  top: -4rem;
-}
-
-[data-page="explorer"] .hud--hide .button--locate {
-  right: -4rem;
-}
-
-[data-page="explorer"] .hud--hide .zoom-buttons {
+[data-page="explorer"] .hud--hide .button--right {
   right: -4rem;
 }
 
@@ -419,8 +424,8 @@
   min-width: 7rem;
   min-height: 7rem;
   border-radius: .75rem;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
   -webkit-box-shadow: 0 .25rem .25rem #0004;
@@ -433,8 +438,8 @@
   z-index: -1;
   inset: 0;
   padding: 1px;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF4C), color-stop(95%, #FFFFFF19));
-  background: linear-gradient(to bottom right, #FFFFFF4C 5%, #FFFFFF19 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF40), color-stop(95%, #FFFFFF19));
+  background: linear-gradient(to bottom right, #FFFFFF40 5%, #FFFFFF19 95%);
   -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
   -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
   -webkit-mask-composite: xor;
@@ -481,8 +486,8 @@
           flex-direction: column;
   margin: 1rem;
   border-radius: .75rem;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.1) 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
   -webkit-box-shadow: 0 .25rem .25rem #0004;
@@ -495,8 +500,8 @@
   z-index: -1;
   inset: 0;
   padding: 1px;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF4C), color-stop(95%, #FFFFFF19));
-  background: linear-gradient(to bottom right, #FFFFFF4C 5%, #FFFFFF19 95%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF40), color-stop(95%, #FFFFFF19));
+  background: linear-gradient(to bottom right, #FFFFFF40 5%, #FFFFFF19 95%);
   -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
   -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
   -webkit-mask-composite: xor;
@@ -564,5 +569,195 @@
   height: 1.5rem;
   fill: var(--color-3);
   margin: auto;
+}
+
+[data-page="explorer"] .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100vw;
+  height: calc(100vh - var(--dom-navbar-height));
+  background: var(--color-1);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+[data-page="explorer"] .search--show {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+[data-page="explorer"] .search__close {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  padding: .5rem;
+  fill: #000;
+}
+
+[data-page="explorer"] .search__close img, [data-page="explorer"] .search__close .svg {
+  width: 100%;
+  height: 100%;
+}
+
+[data-page="explorer"] .search__save {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+[data-page="explorer"] .search__save .svg {
+  background: none !important;
+  fill: var(--color-2);
+}
+
+[data-page="explorer"] .search .searchbar {
+  position: relative;
+  width: calc(100% - 2rem);
+  margin: 1rem;
+  pointer-events: auto;
+  -webkit-transition: top .5s ease-in-out;
+  transition: top .5s ease-in-out;
+}
+
+[data-page="explorer"] .ssection__title {
+  margin: 1rem 1rem .5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-2);
+  text-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="explorer"] .ssection__list {
+  margin: 0 1rem;
+}
+
+[data-page="explorer"] .slist {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+[data-page="explorer"] .slist__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 .5rem;
+  gap: 1rem;
+}
+
+[data-page="explorer"] .slist__item .svg {
+  width: 1.5rem;
+  fill: var(--color-4);
+}
+
+[data-page="explorer"] .slist--list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+[data-page="explorer"] .slist--list .slist__item {
+  width: 100%;
+  height: 3rem;
+}
+
+[data-page="explorer"] .slist--biglist {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+}
+
+[data-page="explorer"] .slist--biglist .slist__item {
+  display: block;
+  width: 100%;
+  height: 8rem;
+  padding: .75rem;
+  border-radius: .75rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="explorer"] .slist--biglist .slist__item::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF40), color-stop(95%, #FFFFFF19));
+  background: linear-gradient(to bottom right, #FFFFFF40 5%, #FFFFFF19 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="explorer"] .slist--biglist h3 {
+  margin-left: .25rem;
+  font-weight: bold;
+  color: var(--color-2);
+  text-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="explorer"] .slist--biglist .search__save {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+[data-page="explorer"] .slist--biglist .search__save .svg {
+  width: 100%;
+  height: 100%;
+  background: none !important;
+  fill: var(--color-4);
+}
+
+[data-page="explorer"] .slist--carousel {
+  margin: 0;
+  padding: 0 1rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow-x: auto;
+  gap: .25rem;
+  padding: 0 1rem 1rem 1rem;
+  font-weight: 500;
+}
+
+[data-page="explorer"] .slist--carousel .slist__item {
+  width: 7rem;
+  height: 7rem;
+  min-width: 7rem;
+  min-height: 7rem;
+  text-align: center;
+  border-radius: .75rem;
+  color: var(--color-1);
+  background: var(--color-6);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
 }
 /*# sourceMappingURL=style.css.map */

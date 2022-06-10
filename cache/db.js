@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-database-20220602-1000';
+export const PRECACHE = 'precache-database-20220609-1600';
 export const PRECACHE_URLS = [
     "/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg",
     "/database/img/Jardin_du_Roy_Les_serres_...Hilair_Jean-Baptiste_btv1b103030852.jfif",
@@ -10,8 +10,10 @@ export const PRECACHE_URLS = [
     "/database/img/maquis-montmartre.jpg",
     "/database/img/plan-de-paris-bis.jpg",
     "/database/img/Rue_Saint-Honore_in_the_Afternoon._Effect_of_Rain.jpeg",
+    "/database/json/categories.json",
     "/database/json/table.json",
     "/database/json/arbres/table.json",
+    "/database/json/arbres/template.html",
     "/database/json/arbres/tree.png",
     "/database/json/arbres/tree_mask.png",
     "/database/json/arbres/data/Abelia.json",
@@ -190,6 +192,7 @@ export const PRECACHE_URLS = [
     "/database/json/arbres/data/Zanthoxylum.json",
     "/database/json/arbres/data/Zelkova.json",
     "/database/json/arbres-remarquables/table.json",
+    "/database/json/arbres-remarquables/template.html",
     "/database/json/arbres-remarquables/tree2.png",
     "/database/json/arbres-remarquables/tree_mask.png",
     "/database/json/arbres-remarquables/data/Acer.json",
@@ -241,6 +244,7 @@ export const PRECACHE_URLS = [
     "/database/json/arbres-remarquables/data/Ulmus.json",
     "/database/json/arbres-remarquables/data/Zelkova.json",
     "/database/json/espaces-verts/table.json",
+    "/database/json/espaces-verts/template.html",
     "/database/json/espaces-verts/data/Arboretum.json",
     "/database/json/espaces-verts/data/Archipel.json",
     "/database/json/espaces-verts/data/Bois.json",
@@ -264,7 +268,10 @@ export const PRECACHE_URLS = [
     "/database/json/espaces-verts/data/Talus.json",
     "/database/json/espaces-verts/data/Terrain de boules.json",
     "/database/json/espaces-verts/data/Terre-plein.json",
+    "/database/json/jardins-partages/gerden.png",
+    "/database/json/jardins-partages/gerden_mask.png",
     "/database/json/jardins-partages/table.json",
+    "/database/json/jardins-partages/template.html",
     "/database/json/jardins-partages/data/Autre.json",
     "/database/json/jardins-partages/data/Conseil d'arrondissement.json",
     "/database/json/jardins-partages/data/Conseil de Paris.json",

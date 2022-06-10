@@ -1,4 +1,5 @@
 /** Lists of local resources we always want to be cached. */
+import * as APP from "./cache/app.js";
 import * as DB from "./cache/db.js";
 import * as HTTP from "./cache/http.js";
 
@@ -7,7 +8,7 @@ import * as HTTP from "./cache/http.js";
  *  in turn trigger the install event again.
  */
 const RUNTIME = 'runtime';
-const PRECACHES = [DB, HTTP];
+const PRECACHES = [APP, DB, HTTP];
 
 /** The install handler takes care of precaching the resources we always need. */
 self.addEventListener('install', event => {
