@@ -577,7 +577,7 @@
   left: 0;
   z-index: 2000;
   width: 100vw;
-  height: calc(100vh - var(--dom-navbar-height));
+  height: calc(100 * var(--vh) - var(--dom-navbar-height));
   background: var(--color-1);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
@@ -585,6 +585,7 @@
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
+  overflow-y: auto;
 }
 
 [data-page="explorer"] .search--show {
@@ -628,6 +629,30 @@
   pointer-events: auto;
   -webkit-transition: top .5s ease-in-out;
   transition: top .5s ease-in-out;
+}
+
+[data-page="explorer"] .search[data-mode="my"] #src-results {
+  display: none;
+}
+
+[data-page="explorer"] .search[data-mode="my"] #src-recent {
+  display: block;
+}
+
+[data-page="explorer"] .search[data-mode="my"] #src-favorites {
+  display: block;
+}
+
+[data-page="explorer"] .search[data-mode="search"] #src-results {
+  display: block;
+}
+
+[data-page="explorer"] .search[data-mode="search"] #src-recent {
+  display: none;
+}
+
+[data-page="explorer"] .search[data-mode="search"] #src-favorites {
+  display: none;
 }
 
 [data-page="explorer"] .ssection__title {
@@ -678,10 +703,10 @@
 }
 
 [data-page="explorer"] .slist--biglist {
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 1rem;
 }
 
@@ -759,5 +784,9 @@
   background: var(--color-6);
   -webkit-box-shadow: 0 .25rem .25rem #0004;
           box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="explorer"] .slist--carousel .slist__item p {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

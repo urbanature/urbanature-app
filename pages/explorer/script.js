@@ -4,6 +4,7 @@ import { delay, imgToSvg } from "../../src/misc.js";
 import { $_filter, $_subcategory } from "./el.js";
 import { setFilterToLeafmap } from "./leaf.js";
 import { contextClose } from "./context.js";
+import { addToQuery, getHash, getQueryString } from "../../src/history.js";
 
 const cond = {
     hasTransition: false
@@ -51,7 +52,36 @@ export const explorer__manageMenu = () => {
     });
 }
 
+// filter:
+//  {dataKey: "arbres", key: "Platanus", val: "Platane"}
+// query:
+//  ?filter=arbres.Platanus,arbres.Juglans
 let active_filters = [];
+
+const getFiltersFromQuery = () => {
+    const query = getQueryString();
+    const output = [];
+    if(!query.filter) return output;
+    const filters = query.filter.split(",");
+    for(let i = 0; i < filters.length; i++) {
+        const filter = filters[i].split(".");
+        output.push({
+            dataKey: filter[0],
+            key: filter[1]
+        });
+    }
+    return output;
+}
+const updateQueryFromActiveFilters = () => {
+    const filters = [];
+    for(let i = 0; i < active_filters.length; i++) {
+        const filter = active_filters[i];
+        filters.push(filter.dataKey + "." + filter.key);
+    }
+    addToQuery({filter: filters.join(",")});
+}
+
+
 export const explorer__init = async () => {
     active_filters = [];
     const $menu__categories = $(".menu__categories");
@@ -60,10 +90,10 @@ export const explorer__init = async () => {
     }
     for (let db of BASEDATA.table) {
         const {name, category, path, table} = db;
-        const $sc = $_subcategory(name, name).appendTo(`.category#${category}`);
+        const $sc = $_subcategory(path, name).appendTo(`.category#${category}`);
         const $ul = $sc.find(".filterlist");
         for (let t of table) {
-            const $f = $_filter(name, t.key, `${t.name} (${t.length})`).appendTo($ul);
+            const $f = $_filter(path, t.key, `${t.name} (${t.length})`).appendTo($ul);
             $f.find("input").on("change", () => {
                 if ($f.find("input").prop("checked")) {
                     active_filters.push({dataKey: path, key: t.key, val: t.name});
@@ -71,6 +101,7 @@ export const explorer__init = async () => {
                     active_filters = active_filters.filter(f => f.key !== t.key);
                 }
                 setFilterToLeafmap(active_filters);
+                updateQueryFromActiveFilters();
             });
         }
     }
@@ -79,6 +110,13 @@ export const explorer__init = async () => {
         const isExpanded = ($(this).parent().attr("data-expanded") === "true");
         $(this).parent().attr("data-expanded", !isExpanded);
     });
+    const filter_query = getFiltersFromQuery();
+    console.log(filter_query);
+    if (filter_query.length > 0) {
+        filter_query.forEach(f => {
+            $(`input[data-key="${f.dataKey}"][data-val="${f.key}"]`).trigger("click");
+        });
+    }
 }
 
 export const explorer__initMenu = async () => {
@@ -97,3 +135,4 @@ export const explorer__initGeoloc = async () => {
 }
 
 export { initContext as explorer__initContext } from "./context.js";
+export { initSearch as explorer__initSearch } from "./search.js";

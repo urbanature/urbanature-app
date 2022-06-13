@@ -21,7 +21,7 @@ const fetchOrCache = async (src) => {
 window.url_cache = url_cache;
 
 export const imgToSvg = async () => {
-    const imgs = $('img').get();
+    const imgs = $('img.svg-img').get();
     for(let img of imgs) {
         const $img = $(img);
         const src = $img.attr('src');

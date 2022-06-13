@@ -2,6 +2,8 @@ import { delay, imgToSvg, invlerp } from "../../src/misc.js";
 import * as MAP from "../../src/dom/map.js";
 import * as LEAF from "./leaf.js";
 import { $_context } from "./el.js";
+import * as USERDATA from "../../src/data_manager/ud.js";
+import { setHash } from "../../src/history.js";
 
 export const initContext = () => {
     const handle_state = {
@@ -55,16 +57,20 @@ export const initContext = () => {
 
 export const initContextEvent = () => {
     let is_open = false;
-    LEAF.on.click = async (data, dataKey) => {
+    LEAF.on.click = async (data, dataKey, save_id) => {
         if(is_open) {
-            contextClose();
+            contextClose(false);
             await delay(250);
         }
-        contextSet(data, dataKey);
+        contextSet(data, dataKey, save_id);
         if(!is_open) {
             await delay(50);
         }
-        contextOpen();
+        const geo = LEAF.getPosFromGeo(data.geo);
+        contextOpen(save_id, {
+            lat: geo[1] - .003,
+            lng: geo[0]
+        });
         is_open = true;
     }
     MAP.on.click = (e) => {
@@ -73,19 +79,29 @@ export const initContextEvent = () => {
     }
 }
 
-export const contextSet = async (data, dataKey) => {
+export const contextSet = async (data, dataKey, save_id) => {
     const $context = $("#context");
     $context.find(":not(.context__handle)").remove();
-    (await $_context(data, `/database/json/${dataKey}/template.html`))
-        .appendTo($context);
+    (await $_context(data, `/database/json/${dataKey}/template.html`, save_id, USERDATA.isFavorisById(save_id)))
+        .appendTo($context)
+        .find(".context__save input").on('change', function(e) {
+            if(this.checked) {
+                USERDATA.addFavorisById(save_id);
+            } else {
+                USERDATA.removeFavorisById(save_id);
+            }
+        });
     imgToSvg();
 }
 
-export const contextOpen = () => {
+export const contextOpen = (save_id, geoloc) => {
     $("#context").attr("data-mode", "partial");
+    setHash(save_id);
+    MAP.setPosition(geoloc);
 }
-export const contextClose = () => {
+export const contextClose = (reset_hash = true) => {
     $("#context").attr("data-mode", "none");
+    if(reset_hash) setHash();
 }
 
 window.contextOpen = contextOpen;

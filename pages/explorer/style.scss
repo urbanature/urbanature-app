@@ -415,10 +415,11 @@ input[type="checkbox"] {
 .search {
     position: absolute;
     top: 0; left: 0; z-index: 2000;
-    width: 100vw; height: calc(100vh - var(--dom-navbar-height));
+    width: 100vw; height: calc(100 * var(--vh) - var(--dom-navbar-height));
     background: var(--color-1);
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%);
+    overflow-y: auto;
 
     &--show {
         transform: translateY(0);
@@ -449,6 +450,29 @@ input[type="checkbox"] {
         margin: 1rem;
         pointer-events: auto;
         transition: top .5s ease-in-out;
+    }
+
+    &[data-mode="my"] {
+        #src-results {
+            display: none;
+        }
+        #src-recent {
+            display: block;
+        }
+        #src-favorites {
+            display: block;
+        }
+    }
+    &[data-mode="search"] {
+        #src-results {
+            display: block;
+        }
+        #src-recent {
+            display: none;
+        }
+        #src-favorites {
+            display: none;
+        }
     }
 }
 
@@ -485,7 +509,7 @@ input[type="checkbox"] {
         }
     }
     &--biglist {
-        flex-direction: row;
+        flex-direction: column;
         gap: 1rem;
         .slist__item {
             display: block;
@@ -530,6 +554,9 @@ input[type="checkbox"] {
             color: var(--color-1);
             background: var(--color-6);
             box-shadow: 0 .25rem .25rem #0004;
+            p {
+                width: 100%;
+            }
         }
     }
 }

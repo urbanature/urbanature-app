@@ -18,8 +18,10 @@
     <link rel="stylesheet" href="/assets/css/common/searchbar.css">
 
     <link rel="stylesheet" href="/pages/accueil/style.css">
-    <link rel="stylesheet" href="/pages/explorer/style.css">
     <link rel="stylesheet" href="/pages/decouvrir/style.css">
+    <link rel="stylesheet" href="/pages/explorer/style.css">
+    <link rel="stylesheet" href="/pages/parcourir/style.css">
+    <link rel="stylesheet" href="/pages/profil/style.css">
     
     <link rel="stylesheet" href="/vendors/leaflet/leaflet.css">
     <link rel="stylesheet" href="/vendors/Leaflet.markercluster-1.4.1/MarkerCluster.Default.css">
@@ -27,6 +29,7 @@
     <script src="/vendors/Leaflet.markercluster-1.4.1/leaflet.markercluster.js"></script>
     <script src="/vendors/jquery-3.6.0.min.js"></script>
     <script src="/vendors/lodash.min.js"></script>
+    <script src="/vendors/lz-string.js"></script>
 
     <link rel="manifest" href="/manifest.webmanifest">
     <script src="/src/dom/cacheload.js" type="module"></script>
@@ -36,33 +39,33 @@
     <footer id="__dom__navbar" class="__nav">
         <div class="__nav__link __link">
             <a href="/accueil" class="__link__button __link__button--active">
-                <img src="/assets/icon/menu/accueil.svg" alt="Accueil" class="__link__image">
+                <img src="/assets/icon/menu/accueil.svg" alt="Accueil" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/decouvrir" class="__link__button">
-                <img src="/assets/icon/menu/decouvrir.svg" alt="Découvrir" class="__link__image">
+                <img src="/assets/icon/menu/decouvrir.svg" alt="Découvrir" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/explorer" class="__link__button">
-                <img src="/assets/icon/menu/explorer.svg" alt="Explorer" class="__link__image">
+                <img src="/assets/icon/menu/explorer.svg" alt="Explorer" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/parcourir" class="__link__button">
-                <img src="/assets/icon/menu/parcourir.svg" alt="Parcourir" class="__link__image">
+                <img src="/assets/icon/menu/parcourir.svg" alt="Parcourir" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
             <a href="/profil" class="__link__button">
-                <img src="/assets/icon/menu/profil.svg" alt="Profil" class="__link__image">
+                <img src="/assets/icon/menu/profil.svg" alt="Profil" class="svg-img __link__image">
             </a>
         </div>
     </footer>
     <div id="__dom__map"></div>
     <div id="__dom__loadico">
-        <img src="/assets/img/loading.gif" alt="loading">
+        <img src="/assets/img/loading.gif" alt="loading" class="svg-img">
     </div>
     <script src="./src/main.js" type="module"></script>
 </body>

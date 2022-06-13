@@ -147,10 +147,14 @@ export const mapControl = (enable = true, dom = $map.find(".leaflet-bottom.leafl
     zoom_buttons.appendTo(dom);
 }
 
+export const setPosition = ({lat, lng}) => {
+    leafMap.setView([lat, lng], 14);
+}
+
 export const pinLocation = async () => {
     if(!leafMap) return;
     await locate();
-    leafMap.setView([geoloc.lat, geoloc.lng], 16);
+    setPosition(geoloc);
 }
 
 export const addLayer = (layer) => {

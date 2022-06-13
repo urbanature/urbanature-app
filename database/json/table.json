@@ -3,47 +3,24 @@
     "path": "arbres",
     "key_path": "info.genre",
     "name_path": "nom",
-    "category": "verdure",
-    "marker": {
-        "icon": "tree.png",
-        "mask": "tree_mask.png",
-        "anchor": [32, 58],
-        "color": ""
-    }
+    "category": "verdure"
 }, {
     "name": "Arbres remarquables",
     "path": "arbres-remarquables",
     "key_path": "info.genre",
     "name_path": "nom",
-    "category": "verdure",
-    "marker": {
-        "icon": "tree2.png",
-        "mask": "tree_mask.png",
-        "anchor": [32, 58],
-        "color": ""
-    }
+    "category": "verdure"
 }, {
     "name": "Espaces verts",
     "path": "espaces-verts",
     "key_path": "info.categorie",
     "name_path": "info.categorie",
     "category": "verdure",
-    "marker": {
-        "icon": "",
-        "mask": "",
-        "anchor": [0, 0],
-        "color": "#008800"
-    }
+    "color": "#0E423E"
 }, {
     "name": "Jardins partagés",
     "path": "jardins-partages",
     "key_path": "info.type_jardin",
     "name_path": "info.type_jardin",
-    "category": "verdure",
-    "marker": {
-        "icon": "gerden.png",
-        "mask": "gerden_mask.png",
-        "anchor": [32, 52],
-        "color": ""
-    }
+    "category": "verdure"
 }]

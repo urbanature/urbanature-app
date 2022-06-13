@@ -5,7 +5,7 @@ import { updateVh } from "./misc.js";
 import * as BASEDATA from "./data_manager/bd.js";
 import * as USERDATA from "./data_manager/ud.js";
 import { accueil__setMap, accueil__mapCursor } from "../pages/accueil/script.js";
-import { explorer__unhide, explorer__hide, explorer__manageMenu, explorer__initMenu, explorer__initGeoloc, explorer__initContext } from "../pages/explorer/script.js";
+import { explorer__unhide, explorer__hide, explorer__manageMenu, explorer__initMenu, explorer__initGeoloc, explorer__initContext, explorer__initSearch } from "../pages/explorer/script.js";
 import { getPageFromHref, on, useAttemptedHref } from "./history.js";
 
 import "./search.js"
@@ -33,6 +33,7 @@ onStart.explorer = () => {
     explorer__initMenu();
     explorer__initGeoloc();
     explorer__initContext();
+    explorer__initSearch();
 }
 onClose.explorer = async () => {
     // await explorer__hide();

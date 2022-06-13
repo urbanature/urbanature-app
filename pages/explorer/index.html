@@ -1,18 +1,18 @@
 <div id="map-here"></div>
 <div class="hud hud--hide">
     <button class="button button--menu button--left" id="filters-on">
-        <img src="/assets/icon/filtres.svg" alt="Menu" class="button__icon">
+        <img src="/assets/icon/filtres.svg" alt="Menu" class="svg-img button__icon">
     </button>
     <button class="button button--menu button--right" id="search-on">
-        <img src="/assets/icon/recherche.svg" alt="Rechercher" class="button__icon">
+        <img src="/assets/icon/recherche.svg" alt="Rechercher" class="svg-img button__icon">
     </button>
     <button class="button button--locate button--right" id="geolocate">
-        <img src="/assets/icon/localisation.svg" alt="Localiser" class="button__icon">
+        <img src="/assets/icon/localisation.svg" alt="Localiser" class="svg-img button__icon">
     </button>
 </div>
 <div class="menu">
     <div class="menu__close" id="filters-off">
-        <img src="/assets/icon/x.svg" alt="Fermer">
+        <img src="/assets/icon/x.svg" alt="Fermer" class="svg-img">
     </div>
     <h1 class="menu__title">Filtres</h1>
     <div class="menu__categories"></div>
@@ -25,25 +25,25 @@
         <div class="context__save">
             <input type="checkbox" id="save">
             <label for="save" class="checkbox">
-                <img src="/assets/icon/signet_on.svg" alt="" class="checked">
-                <img src="/assets/icon/signet_off.svg" alt="" class="not-checked">
+                <img src="/assets/icon/signet_on.svg" alt="" class="svg-img checked">
+                <img src="/assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
             </label>
         </div>
         <div class="context__menu">
             <button class="cbutton">
-                <img src="/assets/icon/itineraire.svg" alt="" class="cbutton__icon">
+                <img src="/assets/icon/itineraire.svg" alt="" class="svg-img cbutton__icon">
                 <div class="cbutton__text">Itinéraire</div>
             </button>
             <button class="cbutton">
-                <img src="/assets/icon/partager.svg" alt="" class="cbutton__icon">
+                <img src="/assets/icon/partager.svg" alt="" class="svg-img cbutton__icon">
                 <div class="cbutton__text">Partager</div>
             </button>
             <button class="cbutton">
-                <img src="/assets/icon/siteweb.svg" alt="" class="cbutton__icon">
+                <img src="/assets/icon/siteweb.svg" alt="" class="svg-img cbutton__icon">
                 <div class="cbutton__text">Site web</div>
             </button>
             <button class="cbutton">
-                <img src="/assets/icon/ajout_parcourir.svg" alt="" class="cbutton__icon">
+                <img src="/assets/icon/ajout_parcourir.svg" alt="" class="svg-img cbutton__icon">
                 <div class="cbutton__text">Parcours</div>
             </button>
         </div>
@@ -73,58 +73,23 @@
         <article class="suggestion suggestion--menu"></article>
     </section>
 </div>
-<!-- data-active: no | my | search -->
-<div class="search" id="search" data-active="no">
+<div class="search" id="search" data-mode="my">
     <div class="search__close" id="search-off">
-        <img src="/assets/icon/fleche_gauche.svg" alt="Fermer">
+        <img src="/assets/icon/fleche_gauche.svg" alt="Fermer" class="svg-img">
     </div>
-    <form action="" class="searchbar">
-        <input type="search" name="search" id="explorer-search" placeholder="Rechercher un lieu" autocomplete="off" >
+    <form action="" class="searchbar" id="explorer-search">
+        <input type="search" name="search" placeholder="Rechercher un lieu" autocomplete="off" >
     </form>
     <section class="ssection" id="src-recent">
         <h2 class="ssection__title">Recherches récentes</h2>
-        <ul class="ssection__list slist slist--list">
-            <li class="slist__item">
-                <img src="/assets/icon/historique.svg" alt="">
-                <p>Parc</p>
-            </li>
-            <li class="slist__item">
-                <img src="/assets/icon/historique.svg" alt="">
-                <p>Chateau</p>
-            </li>
-        </ul>
+        <ul class="ssection__list slist slist--list"></ul>
     </section>
     <section class="ssection" id="src-favorites">
         <h2 class="ssection__title">Mes adresses</h2>
-        <ul class="ssection__list slist slist--carousel">
-            <li class="slist__item">
-                <p>Parc Montsouris</p>
-            </li>
-            <li class="slist__item">
-                <p>Parc des Buttes-Chaumont</p>
-            </li>
-            <li class="slist__item">
-                <p>Parc de Belleville</p>
-            </li>
-            <li class="slist__item">
-                <p>Parc de machintruc</p>
-            </li>
-        </ul>
+        <ul class="ssection__list slist slist--carousel"></ul>
     </section>
     <section class="ssection ssection--list" id="src-results">
         <h2 class="ssection__title">Résultats</h2>
-        <ul class="ssection__list slist slist--biglist">
-            <li class="slist__item">
-                <h3>Parc Monceau</h3>
-                <p>35 Bd de Courcelles, 75008 Paris</p>
-                <div class="search__save">
-                    <input type="checkbox" id="save-res-0">
-                    <label class="checkbox" for="save-res-0">
-                        <img src="/assets/icon/signet_on.svg" alt="" class="checked">
-                        <img src="/assets/icon/signet_off.svg" alt="" class="not-checked">
-                    </label>
-                </div>
-            </li>
-        </ul>
+        <ul class="ssection__list slist slist--biglist"></ul>
     </section>
 </div>

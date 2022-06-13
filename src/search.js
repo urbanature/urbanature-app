@@ -54,7 +54,7 @@ export const searchByKeyInDB = async (dbName, keyName, searchText) => {
     searchResult.sort((a, b) => {
         const l = levenstein(eval(`a.${keyName}`), searchText) - levenstein(eval(`b.${keyName}`), searchText);
         if(l === 0) {
-            return a.key.localeCompare(b.key);
+            return a.key?.localeCompare(b.key);
         }
         return l;
     });
@@ -75,7 +75,12 @@ export const searchByKeyEverywhere = async (keyName, searchText) => {
     return searchResult;
 }
 
+export const searchByKeyEverywhereWithLimit = async (keyName, searchText, limit) => {
+    const searchResult = [];
+    for(const dbName of BASEDATA.getDatabases()) {
+        const search = await searchByKeyInDBWithLimit(dbName, keyName, searchText, limit);
+        searchResult.push({dbName, result: search});
+    }
+    return searchResult;
+}
 
-window.searchByKeyInDB = searchByKeyInDB;
-window.searchByKeyInDBWithLimit = searchByKeyInDBWithLimit;
-window.searchByKeyEverywhere = searchByKeyEverywhere;
