@@ -1,0 +1,34 @@
+<div>
+    <section class="csection">
+        <h2>Informations</h2>
+        <div class="contentbox">
+            <div class="contentbox__content contentbox__content--text-fit">
+                <p>Catégorie&nbsp;: {{data.info?.categorie}}</p>
+                <p>Type&nbsp;: {{data.info?.type}}</p>
+                <p>A une clôture&nbsp;: {{data.info?.cloture}}</p>
+                <p>Surface&nbsp;: {{data.taille?.surface}} m²</p>
+                <p>Périmètre&nbsp;: {{Math.round(data.taille?.perimetre * 100)/100}} m</p>
+                <p>Année d'ouverture&nbsp;: {{data.date?.annee}}</p>
+            </div>
+        </div>
+    </section>
+    <section class="csection">
+        <h2>Horaires</h2>
+        <% if(Object.keys(data.horaires_bis || {}).length > 0) { %>
+        <div class="contentbox">
+            <div class="contentbox__content contentbox__content--text-fit">
+                <% for(let key in data.horaires_bis) { %>
+                <p>{{capitalize(key)}}&nbsp;: {{data.horaires_bis[key]}}</p>
+                <% } %>
+            </div>
+        </div>
+        <% } %> 
+        <div class="contentbox">
+            <div class="contentbox__content contentbox__content--text-fit">
+                <p>24h/24&nbsp;: {{data.info?.ouvert_h24}}</p>
+                <p>La nuit en été&nbsp;: {{data.ouverture_bis?.nuit_ete}}</p>
+                <p>En canicule&nbsp;: {{data.ouverture_bis?.canicule}}</p>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,94 @@
+@import "../../.common/scss/mixins.scss";
+
+[data-page="parcourir"] {
+--page-margin: 19px;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--page-margin);
+    margin-bottom: 2rem;
+    h1 .svg {
+        width: 3rem;
+    }
+}
+
+h1,h2, h3 {
+    text-align: center;
+    text-shadow: 0 .25rem .25rem #0004;
+}
+p {
+    text-shadow: 0 .25rem .25rem #0004;
+}
+h2 {
+    margin-bottom: .75rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    strong {
+        font-weight: 500;
+        font-style: normal;
+        color: var(--color-2);
+    }
+}
+h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+main h1 {
+    position: absolute;
+    top: 1.75rem; left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--color-2);
+}
+
+.liste {
+    display: flex;
+    margin: var(--page-margin);
+    flex-direction: column;
+    gap: calc(var(--page-margin) * 1.5);
+}
+
+.listel {
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    border-radius: calc(var(--page-margin) / 2);
+    overflow: hidden;
+    @include glass(#FFFFFF26, #0C423E88);
+    &__img {
+        width: 50%; height: 100%;
+        object-fit: cover;
+        box-shadow: 0 .25rem .25rem #0004;
+    }
+    &__texte {
+        width: 50%;
+        padding-left: 1rem;
+        padding-right: 3rem;
+        color: var(--color-4);
+    }
+    &__go {
+        position: absolute;
+        top: 50%; right: .5rem;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        filter: drop-shadow(0 .25rem .25rem #0004);
+        svg {
+            fill: var(--color-4);
+        }
+    }
+    &--bis {
+        border-radius: 0 2.5rem;
+    }
+}
+
+.search {
+    width: 3rem; height: 3rem;
+    padding: .875rem;
+    fill: var(--color-4);
+    border-radius: calc(var(--page-margin) * .5);
+    @include glass(#FFFFFF26, #0C423E88);
+}
+
+}

@@ -1,0 +1,84 @@
+[data-page="profil"] {
+  --page-margin: 19px;
+}
+
+[data-page="profil"] header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 var(--page-margin);
+  margin-bottom: 2rem;
+}
+
+[data-page="profil"] header h1 .svg {
+  width: 3rem;
+}
+
+[data-page="profil"] h1, [data-page="profil"] h2, [data-page="profil"] h3 {
+  text-align: center;
+  text-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="profil"] p {
+  text-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="profil"] h2 {
+  margin-bottom: .75rem;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+[data-page="profil"] h2 strong {
+  font-weight: 500;
+  font-style: normal;
+  color: var(--color-2);
+}
+
+[data-page="profil"] h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+[data-page="profil"] main h1 {
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--color-2);
+}
+
+[data-page="profil"] .search {
+  width: 3rem;
+  height: 3rem;
+  padding: .875rem;
+  fill: var(--color-4);
+  border-radius: calc(var(--page-margin) * .5);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="profil"] .search::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
+  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+/*# sourceMappingURL=style.css.map */

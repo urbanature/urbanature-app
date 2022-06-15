@@ -5,6 +5,7 @@
     --color-3: #E0E789;
     --color-4: #FFFFFF;
     --color-5: #000000;
+    --color-6: #E5E5E5;
 }
 * {
     box-sizing: border-box;
@@ -20,10 +21,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, strong, b, p, a {
-    font-weight: normal;
-    font-style: normal;
-    font-size: 1em;
-    text-decoration: none;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    text-decoration: inherit;
+    color: inherit;
     margin: 0;
 }
 
@@ -35,4 +37,14 @@ input, select, textarea, button {
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.svg svg {
+    display: block;
 }

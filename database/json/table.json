@@ -1,0 +1,26 @@
+[{
+    "name": "Arbres",
+    "path": "arbres",
+    "key_path": "info.genre",
+    "name_path": "nom",
+    "category": "verdure"
+}, {
+    "name": "Arbres remarquables",
+    "path": "arbres-remarquables",
+    "key_path": "info.genre",
+    "name_path": "nom",
+    "category": "verdure"
+}, {
+    "name": "Espaces verts",
+    "path": "espaces-verts",
+    "key_path": "info.categorie",
+    "name_path": "info.categorie",
+    "category": "verdure",
+    "color": "#0E423E"
+}, {
+    "name": "Jardins partagés",
+    "path": "jardins-partages",
+    "key_path": "info.type_jardin",
+    "name_path": "info.type_jardin",
+    "category": "verdure"
+}]

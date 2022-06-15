@@ -1,0 +1,35 @@
+@mixin glass($color1, $color2) {
+    @if not $color1 {
+        $color1: rgba(255, 255, 255, 0.1);
+    }
+    @if not $color2 {
+        $color2: rgba(255, 255, 255, 0.25);
+    }
+    @if not position {
+        position: relative;
+    }
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, .25) 45%,
+        rgba(255, 255, 255, .1) 95%
+    );
+    backdrop-filter: blur(1rem);
+    box-shadow: 0 .25rem .25rem #0004;
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        padding: 1px;
+        background: linear-gradient(
+            to bottom right,
+            $color1 5%,
+            $color2 95%
+        );
+        -webkit-mask: 
+            linear-gradient(#FFF 0 0) content-box,
+            linear-gradient(#FFF 0 0);
+        -webkit-mask-composite: xor;
+        border-radius: inherit;
+    }    
+}

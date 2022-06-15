@@ -1,7 +1,14 @@
 {
+    "compilerOptions": {
+        "target": "ESNext"
+    },
     "typeAcquisition": {
         "include": [
-            "leaflet"
+            "jquery",
+            "leaflet",
+            "leaflet.markercluster",
+            "lodash",
+            "lz-string"
         ]
     }
 }

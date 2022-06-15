@@ -1,29 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Explorer</title>
-    <link rel="stylesheet" href="/assets/css/searchbar.css">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <div id="map-here"></div>
-    <div class="hud hud--hide">
-        <form action="" class="searchbar">
-            <input type="search" name="search" placeholder="Rechercher un lieu">
-        </form>
-        <button class="button button--menu">
-            <img src="/assets/icon/inpages/menu.svg" alt="Menu" class="button__icon">
-        </button>
-        <button class="button button--locate">
-            <img src="/assets/icon/inpages/localiser.svg" alt="Localiser" class="button__icon">
-        </button>
+<div id="map-here"></div>
+<div class="hud hud--hide">
+    <button class="button button--menu button--left" id="filters-on">
+        <img src="/assets/icon/filtres.svg" alt="Menu" class="svg-img button__icon">
+    </button>
+    <button class="button button--menu button--right" id="search-on">
+        <img src="/assets/icon/recherche.svg" alt="Rechercher" class="svg-img button__icon">
+    </button>
+    <button class="button button--locate button--right" id="geolocate">
+        <img src="/assets/icon/localisation.svg" alt="Localiser" class="svg-img button__icon">
+    </button>
+</div>
+<div class="menu">
+    <div class="menu__close" id="filters-off">
+        <img src="/assets/icon/x.svg" alt="Fermer" class="svg-img">
     </div>
-    <div class="menu">
-        <div>
-            ¯\_(ツ)_/¯
+    <h1 class="menu__title">Filtres</h1>
+    <div class="menu__categories"></div>
+</div>
+<div class="context" id="context" data-mode="none">
+    <div class="context__handle"></div>
+    <section class="csection" id="ctx-head">
+        <h2 class="title"></h2>
+        <p class="address"></p>
+        <div class="context__save">
+            <input type="checkbox" id="save">
+            <label for="save" class="checkbox">
+                <img src="/assets/icon/signet_on.svg" alt="" class="svg-img checked">
+                <img src="/assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
+            </label>
         </div>
-        <!-- TODO -->
+        <div class="context__menu">
+            <button class="cbutton">
+                <img src="/assets/icon/itineraire.svg" alt="" class="svg-img cbutton__icon">
+                <div class="cbutton__text">Itinéraire</div>
+            </button>
+            <button class="cbutton">
+                <img src="/assets/icon/partager.svg" alt="" class="svg-img cbutton__icon">
+                <div class="cbutton__text">Partager</div>
+            </button>
+            <button class="cbutton">
+                <img src="/assets/icon/siteweb.svg" alt="" class="svg-img cbutton__icon">
+                <div class="cbutton__text">Site web</div>
+            </button>
+            <button class="cbutton">
+                <img src="/assets/icon/ajout_parcourir.svg" alt="" class="svg-img cbutton__icon">
+                <div class="cbutton__text">Parcours</div>
+            </button>
+        </div>
+    </section>
+    <section class="csection" id="ctx-info">
+        <h2>Informations</h2>
+        <div class="content"></div>
+    </section>
+    <section class="csection" id="ctx-litter">
+        <h2>Littérature</h2>
+        <a href="#" class="csection__more">Voir plus</a>
+    </section>
+    <section class="csection" id="ctx-icono">
+        <h2>Iconographie</h2>
+        <a href="#" class="csection__more">Voir plus</a>
+    </section>
+    <section class="csection" id="ctx-suggestion">
+        <h2>Suggestions</h2>
+        <article class="suggestion">
+            <h3 class="suggestion__title">Similaire</h3>
+            <ul class="suggestion__list"></ul>
+        </article>
+        <article class="suggestion">
+            <h3 class="suggestion__title">À proximité</h3>
+            <ul class="suggestion__list"></ul>
+        </article>
+        <article class="suggestion suggestion--menu"></article>
+    </section>
+</div>
+<div class="search" id="search" data-mode="my">
+    <div class="search__close" id="search-off">
+        <img src="/assets/icon/fleche_gauche.svg" alt="Fermer" class="svg-img">
     </div>
-    <script src="./scripts/start.js" type="module"></script>
-</body>
-</html>
+    <form action="" class="searchbar" id="explorer-search">
+        <input type="search" name="search" placeholder="Rechercher un lieu" autocomplete="off" >
+    </form>
+    <section class="ssection" id="src-recent">
+        <h2 class="ssection__title">Recherches récentes</h2>
+        <ul class="ssection__list slist slist--list"></ul>
+    </section>
+    <section class="ssection" id="src-favorites">
+        <h2 class="ssection__title">Mes adresses</h2>
+        <ul class="ssection__list slist slist--carousel"></ul>
+    </section>
+    <section class="ssection ssection--list" id="src-results">
+        <h2 class="ssection__title">Résultats</h2>
+        <ul class="ssection__list slist slist--biglist"></ul>
+    </section>
+</div>
