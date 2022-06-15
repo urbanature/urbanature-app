@@ -10,6 +10,9 @@
     position: relative;
     overflow: auto;
 }
+#__dom__page[data-has-overlay="true"] {
+    overflow-y: hidden;
+}
 #__dom__navbar {
     position: relative;
     width: 100%;

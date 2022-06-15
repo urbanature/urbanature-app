@@ -63,15 +63,19 @@ export const getHash = (as_query = false) => {
     }
 }
 
-export const setHref = (url) => {
+export const setHref = (url, replace = false) => {
     if(url.includes("accueil")) {
         window.history.pushState({}, "", "/");
         return;
     }
     const new_url = location.origin + "/" + url.split("pages/")[1];
-    window.history.pushState({}, "", new_url);
+    if(replace) {
+        window.history.replaceState({}, "", new_url);
+    } else {
+        window.history.pushState({}, "", new_url);
+    }
 }
-export const setQuery = (query = {}, keep_hash = true) => {
+export const setQuery = (query = {}, keep_hash = true, replace = false) => {
     let hash = ""
     if(keep_hash) hash = window.location.hash;
     const new_url = location.origin + "/" + getPageFromHref() + (
@@ -79,9 +83,13 @@ export const setQuery = (query = {}, keep_hash = true) => {
         ? "?" + Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&")
         : ""
     ) + hash;
-    window.history.pushState({}, "", new_url);
+    if(replace) {
+        window.history.replaceState({}, "", new_url);
+    } else {
+        window.history.pushState({}, "", new_url);
+    }
 }
-export const addToQuery = (query_add = {}, keep_hash = true) => {
+export const addToQuery = (query_add = {}, keep_hash = true, replace = false) => {
     let hash = ""
     if(keep_hash) hash = window.location.hash;
     let query = {...getQueryString(), ...query_add};
@@ -90,9 +98,13 @@ export const addToQuery = (query_add = {}, keep_hash = true) => {
         ? "?" + Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&")
         : ""
     ) + hash;
-    window.history.pushState({}, "", new_url);
+    if(replace) {
+        window.history.replaceState({}, "", new_url);
+    } else {
+        window.history.pushState({}, "", new_url);
+    }
 }
-export const removeFromQuery = (keys = [], keep_hash = true) => {
+export const removeFromQuery = (keys = [], keep_hash = true, replace = false) => {
     let hash = ""
     if(keep_hash) hash = window.location.hash;
     const query = {...getQueryString()};
@@ -102,9 +114,13 @@ export const removeFromQuery = (keys = [], keep_hash = true) => {
         ? "?" + Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&")
         : ""
     ) + hash;
-    window.history.pushState({}, "", new_url);
+    if(replace) {
+        window.history.replaceState({}, "", new_url);
+    } else {
+        window.history.pushState({}, "", new_url);
+    }
 }
-export const setHash = (hash = "", keep_query = true) => {
+export const setHash = (hash = "", keep_query = true, replace = false) => {
     let query = ""
     if(keep_query) query = window.location.search;
     const new_url = location.origin + "/" + getPageFromHref() + query + (
@@ -112,7 +128,11 @@ export const setHash = (hash = "", keep_query = true) => {
         ? "#" + hash
         : ""
     );
-    window.history.pushState({}, "", new_url);
+    if(replace) {
+        window.history.replaceState({}, "", new_url);
+    } else {
+        window.history.pushState({}, "", new_url);
+    }
 }
 
 window.addEventListener("popstate", () => {

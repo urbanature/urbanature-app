@@ -134,6 +134,9 @@ div.zoom-buttons {
 }
 .subcategory {
     position: relative;
+    .category__title--subcategory {
+        padding-left: 3rem;
+    }
     &__expander {
         position: absolute;
         top: 1.75rem; right: 1.75rem;
@@ -144,6 +147,18 @@ div.zoom-buttons {
         }
         .collapse {
             display: none;
+        }
+    }
+    &__uncheck {
+        display: block;
+        position: absolute;
+        top: 1.75rem; left: 1.75rem;
+        width: 2rem; height: 2rem;
+        padding: .375rem;
+        transform: translate(-50%, -50%);
+        .svg {
+            width: 1.25rem; height: 1.25rem;
+            fill: var(--color-2);
         }
     }
     .filterlist {

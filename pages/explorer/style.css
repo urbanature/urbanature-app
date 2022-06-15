@@ -158,6 +158,10 @@
   position: relative;
 }
 
+[data-page="explorer"] .subcategory .category__title--subcategory {
+  padding-left: 3rem;
+}
+
 [data-page="explorer"] .subcategory__expander {
   position: absolute;
   top: 1.75rem;
@@ -174,6 +178,24 @@
 
 [data-page="explorer"] .subcategory__expander .collapse {
   display: none;
+}
+
+[data-page="explorer"] .subcategory__uncheck {
+  display: block;
+  position: absolute;
+  top: 1.75rem;
+  left: 1.75rem;
+  width: 2rem;
+  height: 2rem;
+  padding: .375rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+[data-page="explorer"] .subcategory__uncheck .svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: var(--color-2);
 }
 
 [data-page="explorer"] .subcategory .filterlist {

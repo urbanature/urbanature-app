@@ -11,6 +11,7 @@ const equals = (a, b) => {
 export const searchByKeyInDB = async (dbName, keyName, searchText) => {
     console.log(`searchByKeyInDB(${dbName}, ${keyName}, ${searchText})`);
     const {table: dbs, key_path, name_path} = BASEDATA.getTableMetaData(dbName);
+    const searches = searchText.split(" ");
     const searchResult = [];
     let alreadyScanned = undefined;
     for(let key of [key_path, name_path]) {
@@ -25,7 +26,7 @@ export const searchByKeyInDB = async (dbName, keyName, searchText) => {
                     break;
                 default: throw new Error(`unknown key ${key}`);
             }
-            const some_dbs = dbs.filter(t => includes(String(t[tkey]), searchText));
+            const some_dbs = dbs.filter(t => searches.some(s => includes(String(t[tkey]), s)));
             if(some_dbs.length > 0) {
                 for(let db of some_dbs) {
                     searchResult.push(db);
@@ -46,13 +47,13 @@ export const searchByKeyInDB = async (dbName, keyName, searchText) => {
         if(db === alreadyScanned) continue;
         console.log(`Scanning ${db.key}`);
         const d = await BASEDATA.fetchData(dbName, db.key);
-        const data = d.filter(d => includes(eval(`d.${keyName}`), searchText));
+        const data = d.filter(d => searches.some(s => includes(eval(`d.${keyName}`), s)));
         if(data) {
             searchResult.push(...data);
         }
     }
     searchResult.sort((a, b) => {
-        const l = levenstein(eval(`a.${keyName}`), searchText) - levenstein(eval(`b.${keyName}`), searchText);
+        const l = searches.map(s => levenstein(eval(`a.${keyName}`), s)).reduce((a, b) => a + b, 0) - searches.map(s => levenstein(eval(`b.${keyName}`), s)).reduce((a, b) => a + b, 0);
         if(l === 0) {
             return a.key?.localeCompare(b.key);
         }

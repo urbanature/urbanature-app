@@ -170,7 +170,8 @@ section {
     align-items: center;
     width: fit-content;
     margin: 2.5rem auto;
-    gap: calc(.75rem / 2 - 1px);
+    // gap: calc(.75rem / 2 - 1px);
+    gap: .5rem;
 }
 .exploboxes {
     display: grid;
@@ -180,12 +181,21 @@ section {
     row-gap: .5rem;
     column-gap: .5rem;
     width: 100%;
-    .explobox {
-        display: grid;
-        place-items: center;
-        text-align: center;
-        border-radius: .75rem;
-        @include glass(#FFFFFF26, #0C423E88);
+}
+.explobox {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: .75rem;
+    @include glass(#FFFFFF26, #0C423E88);
+    &__img {
+        display: block;
+        width: 2rem; height: 2rem;
+    }
+    &__text {
+        display: block;
+        font-size: .625rem;
+        color: var(--color-3);
     }
 }
 .group {

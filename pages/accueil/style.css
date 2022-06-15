@@ -283,7 +283,7 @@
   width: -moz-fit-content;
   width: fit-content;
   margin: 2.5rem auto;
-  gap: calc(.75rem / 2 - 1px);
+  gap: .5rem;
 }
 
 [data-page="accueil"] .exploboxes {
@@ -302,7 +302,7 @@
   width: 100%;
 }
 
-[data-page="accueil"] .exploboxes .explobox {
+[data-page="accueil"] .explobox {
   display: -ms-grid;
   display: grid;
   place-items: center;
@@ -316,7 +316,7 @@
           box-shadow: 0 .25rem .25rem #0004;
 }
 
-[data-page="accueil"] .exploboxes .explobox::before {
+[data-page="accueil"] .explobox::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -328,6 +328,18 @@
   -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
   -webkit-mask-composite: xor;
   border-radius: inherit;
+}
+
+[data-page="accueil"] .explobox__img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+[data-page="accueil"] .explobox__text {
+  display: block;
+  font-size: .625rem;
+  color: var(--color-3);
 }
 
 [data-page="accueil"] .group {

@@ -3,6 +3,7 @@
 }
 
 [data-page="decouvrir"] header {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -197,5 +198,102 @@
 
 [data-page="decouvrir"] .decouvrir__go svg {
   fill: var(--color-4);
+}
+
+[data-page="decouvrir"] .expocard {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 10rem;
+  --img-width: calc(100% - 5rem);
+  font-weight: 500;
+  -webkit-filter: drop-shadow(0 0.25rem 0.25rem #0004);
+          filter: drop-shadow(0 0.25rem 0.25rem #0004);
+}
+
+[data-page="decouvrir"] .expocard__img {
+  width: var(--img-width);
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-mask-composite: destination-out;
+          mask-composite: destination-out;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='100%' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='100%' r='1rem' fill='black' /></svg>"), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='100%' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='100%' r='1rem' fill='black' /></svg>"), linear-gradient(#fff, #fff);
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='100%' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='100%' r='1rem' fill='black' /></svg>"), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='100%' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='100%' r='1rem' fill='black' /></svg>"), linear-gradient(#fff, #fff);
+}
+
+[data-page="decouvrir"] .expocard__title {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: none;
+          transform: none;
+  width: calc(var(--img-width));
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: .8rem;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--color-4);
+  text-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="decouvrir"] .expocard::after {
+  content: "Voir l'exposition";
+  display: block;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  top: 100%;
+  right: -5rem;
+  width: 10rem;
+  height: 5rem;
+  padding-top: 3rem;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  text-align: center;
+  background-color: var(--color-4);
+  background-image: url("../../assets/img/barcode.png");
+  background-position: center 1.5rem;
+  background-size: auto 1rem;
+  background-repeat: no-repeat;
+  color: var(--color-2);
+  -webkit-mask-composite: destination-out;
+          mask-composite: destination-out;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='0' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='0' r='1rem' fill='black' /></svg>"), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='0' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='0' r='1rem' fill='black' /></svg>"), linear-gradient(#fff, #fff);
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='0' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='0' r='1rem' fill='black' /></svg>"), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='0' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='0' r='1rem' fill='black' /></svg>"), linear-gradient(#fff, #fff);
+}
+
+[data-page="decouvrir"] .second-page {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100 * var(--vh) - var(--dom-navbar-height));
+  padding-top: 1rem;
+  background: var(--color-1);
+}
+
+[data-page="decouvrir"] .second-page--show {
+  display: block;
+}
+
+[data-page="decouvrir"] .back {
+  width: 3rem;
+  height: 3rem;
+  padding: .875rem;
+}
+
+[data-page="decouvrir"] .back .svg {
+  fill: var(--color-2);
 }
 /*# sourceMappingURL=style.css.map */

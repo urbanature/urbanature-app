@@ -65,10 +65,17 @@ const getFiltersFromQuery = () => {
     const filters = query.filter.split(",");
     for(let i = 0; i < filters.length; i++) {
         const filter = filters[i].split(".");
-        output.push({
-            dataKey: filter[0],
-            key: filter[1]
-        });
+        if(filter.length === 1) {
+            output.push({
+                dataKey: filter[0],
+                all: true
+            });
+        } else {
+            output.push({
+                dataKey: filter[0],
+                key: filter[1]
+            });
+        }
     }
     return output;
 }
@@ -78,7 +85,7 @@ const updateQueryFromActiveFilters = () => {
         const filter = active_filters[i];
         filters.push(filter.dataKey + "." + filter.key);
     }
-    addToQuery({filter: filters.join(",")});
+    addToQuery({filter: filters.join(",")}, true, true);
 }
 
 
@@ -104,6 +111,9 @@ export const explorer__init = async () => {
                 updateQueryFromActiveFilters();
             });
         }
+        $sc.find(".subcategory__uncheck").on("click", function(e) {
+            $sc.find("input:checked").trigger("click");
+        });
     }
     imgToSvg();
     $(".category__title--subcategory").on("click", function(e) {
@@ -114,7 +124,11 @@ export const explorer__init = async () => {
     console.log(filter_query);
     if (filter_query.length > 0) {
         filter_query.forEach(f => {
-            $(`input[data-key="${f.dataKey}"][data-val="${f.key}"]`).trigger("click");
+            if(f.all) {
+                $($(`input[data-key="${f.dataKey}"]`)).trigger("click");
+            } else {
+                $(`input[data-key="${f.dataKey}"][data-val="${f.key}"]`).trigger("click");
+            }
         });
     }
 }

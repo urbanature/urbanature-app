@@ -3,6 +3,9 @@ import { getHrefFeaturing } from "../../src/history.js"
 export const $_subcategory = (id, nom) => $(`
 <div class="subcategory" data-expanded="false" data-subcategory="${id}">
     <h3 class="category__title category__title--subcategory">${nom}</h3>
+    <button class="subcategory__uncheck">
+        <img src="/assets/icon/x.svg" alt="Tout décocher" class="svg-img">
+    </button>
     <div class="subcategory__expander">
         <img src="/assets/icon/fleche_droite.svg" alt="expand" class="svg-img expand">
         <img src="/assets/icon/fleche_bas.svg" alt="collapse" class="svg-img collapse">
