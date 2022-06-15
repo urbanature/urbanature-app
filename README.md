@@ -7,7 +7,7 @@ Ceci est un prototype en cours de développement
 ## Ajouter des données
 
 - Les données doivent être sous la forme de tableau d'objets, en un fichier JSON
-- Si besoin de réorganiser ou simplifier la structure du JSON, utiliser [JSON Mapper](https://totoshampoin.github.io/JsonMapper/)
+- Utiliser [JSON Mapper](https://totoshampoin.github.io/JsonMapper/) pour réorganiser ou simplifier la structure du JSON
   - [Comment s'en servir (en Anglais)](https://github.com/TotoShampoin/JsonMapper)
 - Utiliser [Data Splitter](https://totoshampoin.github.io/DataSplitter/) pour diviser le fichier JSON d'après une des colonnes
   - [Comment s'en servir (en Anglais)](https://github.com/TotoShampoin/DataSplitter)
