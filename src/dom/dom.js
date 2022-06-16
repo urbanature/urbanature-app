@@ -17,7 +17,7 @@ export const onStart = {
 };
 export const onClose = {
     accueil: async () => {},
-    decouvrir: async () => {},
+    decouvrir: () => {},
     explorer: async () => {},
     parcourir: () => {},
     profil: () => {}
@@ -70,8 +70,8 @@ $__dom__page.on('loadPage', async function(e, url, navigating = false) {
         setHref(`/pages/${url}`)
         return;
     }
-    updateUrlStatus(lone_url);
     await closePage(url);
+    updateUrlStatus(lone_url);
     await openPage(url, navigating);
 });
 

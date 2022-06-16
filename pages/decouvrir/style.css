@@ -272,7 +272,7 @@
           mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle cx='0' cy='0' r='1rem' fill='black' /><circle cx='100%' cy='0' r='1rem' fill='black' /></svg>"), linear-gradient(#fff, #fff);
 }
 
-[data-page="decouvrir"] .second-page {
+[data-page="decouvrir"] .hash-page {
   display: none;
   position: absolute;
   top: 0;
@@ -281,9 +281,10 @@
   height: calc(100 * var(--vh) - var(--dom-navbar-height));
   padding-top: 1rem;
   background: var(--color-1);
+  overflow-y: auto;
 }
 
-[data-page="decouvrir"] .second-page--show {
+[data-page="decouvrir"] .hash-page--show {
   display: block;
 }
 

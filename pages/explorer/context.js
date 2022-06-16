@@ -82,7 +82,7 @@ export const initContextEvent = () => {
 export const contextSet = async (data, dataKey, save_id) => {
     const $context = $("#context");
     $context.find(":not(.context__handle)").remove();
-    (await $_context(data, `/database/json/${dataKey}/template.html`, save_id, USERDATA.isFavorisById(save_id)))
+    (await $_context(data, `/database/json/${dataKey}/templates/explorer.html`, save_id, USERDATA.isFavorisById(save_id)))
         .appendTo($context)
         .find(".context__save input").on('change', function(e) {
             if(this.checked) {

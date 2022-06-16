@@ -158,13 +158,14 @@ main h1 {
     }
 }
 
-.second-page {
+.hash-page {
     display: none;
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: calc(100 * var(--vh) - var(--dom-navbar-height));
     padding-top: 1rem;
     background: var(--color-1);
+    overflow-y: auto;
     &--show {
         display: block;
     }

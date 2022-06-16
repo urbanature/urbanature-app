@@ -44,7 +44,9 @@ onStart.decouvrir = () => {
     decouvrir__init();
 }
 
-onClose.decouvrir = async () => {}
+onClose.decouvrir = () => {
+    $("#__dom__page").attr("data-has-overlay", "false");
+}
 
 
 useAttemptedHref();

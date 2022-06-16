@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-app-20220615-1600';
+export const PRECACHE = 'precache-app-20220616-1630';
 export const PRECACHE_URLS = [
     "/",
     "/index.html",
@@ -78,9 +78,10 @@ export const PRECACHE_URLS = [
     "/pages/decouvrir",
     "/pages/decouvrir/index.html",
     "/pages/decouvrir/style.css",
-    "/pages/explorer/context.bak.html",
     "/pages/explorer/context.js",
     "/pages/explorer/el.js",
+    "/pages/decouvrir/hashpages/header.html",
+    "/pages/decouvrir/hashpages/expos.html",
     "/pages/explorer",
     "/pages/explorer/index.html",
     "/pages/explorer/leaf.js",
