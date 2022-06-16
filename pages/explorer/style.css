@@ -536,6 +536,14 @@
   padding: 1rem;
 }
 
+[data-page="explorer"] .contentbox__content--text {
+  overflow-y: hidden;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(90%, black), color-stop(97.5%, transparent));
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 97.5%);
+          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(90%, black), color-stop(97.5%, transparent));
+          mask-image: linear-gradient(to bottom, black 90%, transparent 97.5%);
+}
+
 [data-page="explorer"] .contentbox__content--text h3 {
   font-weight: bold;
   color: var(--color-3);
@@ -554,10 +562,13 @@
 }
 
 [data-page="explorer"] .contentbox__content--text-fit {
+  -webkit-mask-image: default;
+          mask-image: default;
   height: auto;
 }
 
 [data-page="explorer"] .contentbox__content--text-fit p {
+  display: initial;
   margin: 0;
 }
 

@@ -26,7 +26,7 @@ full_file_paths = get_filepaths("./")
 ext_exceptions = [".py", ".scss", ".map", "/_", "cachelist.js"]
 dir_exceptions = [".git"]
 
-with open('cachelist.js', 'w') as f:
+with open('cachelist.js', 'w', encoding="utf8") as f:
     # write as a JS array of strings
     f.write('export const PRECACHE_URLS = [\n')
     for filepath in full_file_paths:

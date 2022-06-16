@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-database-20220615-1600';
+export const PRECACHE = 'precache-database-20220616-1200';
 export const PRECACHE_URLS = [
     "/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg",
     "/database/img/Jardin_du_Roy_Les_serres_...Hilair_Jean-Baptiste_btv1b103030852.jfif",
@@ -273,4 +273,22 @@ export const PRECACHE_URLS = [
     "/database/json/jardins-partages/data/Autre.json",
     "/database/json/jardins-partages/data/Conseil d'arrondissement.json",
     "/database/json/jardins-partages/data/Conseil de Paris.json",
+    "/database/json/textes/marker.svg",
+    "/database/json/textes/table.json",
+    "/database/json/textes/template.html",
+    "/database/json/textes/data/Albert Robida.json",
+    "/database/json/textes/data/Alfred de Musset.json",
+    "/database/json/textes/data/Edmond et Jules de Goncourt.json",
+    "/database/json/textes/data/Exposition publique des produits de l'industrie française.json",
+    "/database/json/textes/data/Francis Blanche.json",
+    "/database/json/textes/data/Gustave Flaubert.json",
+    "/database/json/textes/data/Guy de Maupassant.json",
+    "/database/json/textes/data/Gérard de Nerval.json",
+    "/database/json/textes/data/Honoré de Balzac.json",
+    "/database/json/textes/data/Jules Janin.json",
+    "/database/json/textes/data/Jules Renard.json",
+    "/database/json/textes/data/Maxime Du Camp.json",
+    "/database/json/textes/data/Théophile Gautier.json",
+    "/database/json/textes/data/Victor Hugo.json",
+    "/database/json/textes/data/Émile Zola.json",
 ];

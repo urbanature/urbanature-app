@@ -23,4 +23,10 @@
     "key_path": "info.type_jardin",
     "name_path": "info.type_jardin",
     "category": "verdure"
+}, {
+    "name": "Textes littéraires",
+    "path": "textes",
+    "key_path": "info.author",
+    "name_path": "info.author",
+    "category": "litterature"
 }]
