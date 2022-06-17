@@ -7,7 +7,14 @@ const resetHashEvents = () => {
 
 const loadHashPage = async (hash) => {
     const header = await fetch(`/pages/decouvrir/hashpages/header.html`).then(res => res.text());
-    const text = await fetch(`/pages/decouvrir/hashpages/${hash}.html`).then(res => res.text()).catch();
+    let text = "";
+    try {
+        const response = await fetch(`/pages/decouvrir/hashpages/${hash}.html`);
+        if(response.url.includes('404')) {
+            throw new Error("404");
+        }
+        text = await response.text();
+    } catch {};
     resetHashEvents();
     $("#__dom__page").scrollTop(0);
     $("#hash-page").scrollTop(0)
