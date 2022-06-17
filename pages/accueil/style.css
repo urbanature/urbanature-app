@@ -336,6 +336,10 @@
   height: 2rem;
 }
 
+[data-page="accueil"] .explobox__img[src=""] {
+  display: none;
+}
+
 [data-page="accueil"] .explobox__text {
   display: block;
   font-size: .625rem;

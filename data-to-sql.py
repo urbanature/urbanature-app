@@ -165,7 +165,5 @@ for table in tables:
         sql = ""
         print()
 
-# Copy ./database/sql to ../../bdd-php/sql and subdirectories
-# windows copatible
 import shutil
-shutil.copytree('./database/sql', '../../bdd-php/sql', dirs_exist_ok=True)
+shutil.copytree('./database/sql', '../urbanature-api/sql', dirs_exist_ok=True)

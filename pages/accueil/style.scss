@@ -191,6 +191,9 @@ section {
     &__img {
         display: block;
         width: 2rem; height: 2rem;
+        &[src=""] {
+            display: none;
+        }
     }
     &__text {
         display: block;

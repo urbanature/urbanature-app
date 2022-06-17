@@ -99,6 +99,11 @@ export const explorer__init = async () => {
         const {name, category, path, table} = db;
         const $sc = $_subcategory(path, name).appendTo(`.category#${category}`);
         const $ul = $sc.find(".filterlist");
+        table.sort((a, b) => {
+            const na = a.name ? a.name : a.key;
+            const nb = b.name ? b.name : b.key;
+            return na.localeCompare(nb);
+        });
         for (let t of table) {
             const $f = $_filter(path, t.key, `${t.name} (${t.length})`).appendTo($ul);
             $f.find("input").on("change", () => {
