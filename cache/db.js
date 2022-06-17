@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-database-20220616-1700';
+export const PRECACHE = 'precache-database-20220617-1400';
 export const PRECACHE_URLS = [
     "/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg",
     "/database/img/Jardin_du_Roy_Les_serres_...Hilair_Jean-Baptiste_btv1b103030852.jfif",
@@ -10,6 +10,13 @@ export const PRECACHE_URLS = [
     "/database/img/maquis-montmartre.jpg",
     "/database/img/plan-de-paris-bis.jpg",
     "/database/img/Rue_Saint-Honore_in_the_Afternoon._Effect_of_Rain.jpeg",
+    "/database/icon/arbres.svg",
+    "/database/icon/audio.svg",
+    "/database/icon/espaces-verts.svg",
+    "/database/icon/historique.svg",
+    "/database/icon/icono.svg",
+    "/database/icon/jardins-partages.svg",
+    "/database/icon/textes.svg",
     "/database/json/categories.json",
     "/database/json/shadow.png",
     "/database/json/table.json",
