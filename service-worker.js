@@ -70,11 +70,11 @@ self.addEventListener('fetch', event => {
           return fetch(event.request).then(response => {
             if(response.status === 404) {
               console.warn('[ServiceWorker] 404', event.request.url);
-              return caches.match('/cache/404.html');
+              return caches.match('cache/404.html');
             }
             // if(response.status === 500) {
             //   console.warn('[ServiceWorker] 500', event.request.url);
-            //   return caches.match('/cache/500.html');
+            //   return caches.match('cache/500.html');
             // }
             /** Put a copy of the response in the runtime cache. */
             return cache.put(event.request, response.clone()).then(() => {

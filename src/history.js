@@ -27,7 +27,7 @@ export const getPageFromHref = () => {
 }
 
 export const getHrefFeaturing = (query_string = true, hash_string = true) => {
-    const origin = baseurl + window.location.pathname;
+    const origin = window.location.pathname;
     const query = window.location.search;
     const hash = window.location.hash;
     let output = origin;
