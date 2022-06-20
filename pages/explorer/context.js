@@ -5,6 +5,10 @@ import { $_context } from "./el.js";
 import * as USERDATA from "../../src/data_manager/ud.js";
 import { setHash } from "../../src/history.js";
 
+const data = {
+    last_time_context: null,
+}
+
 export const initContext = () => {
     const handle_state = {
         dragging: false,
@@ -94,10 +98,45 @@ export const contextSet = async (data, dataKey, save_id) => {
     imgToSvg();
 }
 
+const showContextHelper = async () => {
+    const $helper = $(`<svg class="ctx-help" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#FFF" stroke="#CCC" stroke-width="2" /></svg>`);
+    $helper.css({
+        position: "absolute",
+        zIndex: "99999",
+        width: "48px",
+        opacity: "1",
+        transform: "scale(0)",
+        transition: "transform 200ms cubic-bezier(.59,.59,.5,1.5), opacity 500ms ease-in, top 500ms ease-in"
+    });
+    const help_pos = (x, y) => {
+        $helper.css("left", `${x}px`);
+        $helper.css("top", `${y}px`);
+    }
+    $helper.appendTo(document.body);
+    await delay(500);
+    const $handle = $(".context__handle");
+    const hpos = $handle.offset();
+    const hsiz = {width: $handle.width(), height: $handle.height()};
+    const ipos = [hpos.left + hsiz.width / 2, hpos.top + hsiz.height / 2];
+    help_pos(...ipos);
+    $helper.css("transform", "scale(1)");
+    await delay(500);
+    help_pos(ipos[0], ipos[1] - 192);
+    $helper.css("opacity", "0");
+    await delay(500);
+    $helper.remove();
+}
+
 export const contextOpen = (save_id, geoloc) => {
     $("#context").attr("data-mode", "partial");
     setHash(save_id);
     MAP.setPosition(geoloc);
+    const now = Date.now();
+    // time limit: 10 minutes
+    if(!data.last_time_context || now - data.last_time_context > 600000) {
+        showContextHelper();
+    }
+    data.last_time_context = now;
 }
 export const contextClose = (reset_hash = true) => {
     $("#context").attr("data-mode", "none");
