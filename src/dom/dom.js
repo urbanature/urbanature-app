@@ -40,7 +40,7 @@ const closePage = async (url) => {
 const openPage = async (url, navigating = false) => {
     let lone_url = stripUrl(url);
     updateNavbar(lone_url);
-    await loadPage(`/pages/${url}`, $__dom__page, navigating);
+    await loadPage(`pages/${url}`, $__dom__page, navigating);
     updateMapPosition($__dom__page);
     imgToSvg();
     try { await onStart[lone_url](); } catch(e) { console.error(e); }
@@ -50,7 +50,7 @@ const openPage = async (url, navigating = false) => {
 }
 const updateNavbar = (url) => {
     $(`.__link__button--active`).removeClass("__link__button--active");
-    $(`a[href="/${url}"]`).addClass('__link__button--active');
+    $(`a[href="${url}"]`).addClass('__link__button--active');
 }
 const updateUrlStatus = (url) => {
     globals.current_url = url;

@@ -4,11 +4,11 @@ export const $_subcategory = (id, nom) => $(`
 <div class="subcategory" data-expanded="false" data-subcategory="${id}">
     <h3 class="category__title category__title--subcategory">${nom}</h3>
     <button class="subcategory__uncheck">
-        <img src="/assets/icon/x.svg" alt="Tout décocher" class="svg-img">
+        <img src="assets/icon/x.svg" alt="Tout décocher" class="svg-img">
     </button>
     <div class="subcategory__expander">
-        <img src="/assets/icon/fleche_droite.svg" alt="expand" class="svg-img expand">
-        <img src="/assets/icon/fleche_bas.svg" alt="collapse" class="svg-img collapse">
+        <img src="assets/icon/fleche_droite.svg" alt="expand" class="svg-img expand">
+        <img src="assets/icon/fleche_bas.svg" alt="collapse" class="svg-img collapse">
     </div>
     <ul class="filterlist">
     </ul>
@@ -19,8 +19,8 @@ export const $_filter = (key, val, nom) => $(`
 <li class="filter">
     <input type="checkbox" id="${key}-${val}" data-key="${key}" data-val="${val}" data-nom="${nom}">
     <label for="${key}-${val}" class="checkbox">
-        <img src="/assets/icon/check.svg" class="svg-img checked">
-        <img src="/assets/icon/moins.svg" class="svg-img not-checked">
+        <img src="assets/icon/check.svg" class="svg-img checked">
+        <img src="assets/icon/moins.svg" class="svg-img not-checked">
     </label>
     <label for="${key}-${val}" class="filter__name">${nom || `<i>${val}</i>`}</label>
 </li>
@@ -34,13 +34,13 @@ const $_ctx_button = (name, icon) => $(`<button class="cbutton">
 const $_ctx_save = (data) => $(`<div class="context__save">
     <input type="checkbox" id="save" data-id="${data}">
     <label for="save" class="checkbox">
-        <img src="/assets/icon/signet_on.svg" alt="" class="svg-img checked">
-        <img src="/assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
+        <img src="assets/icon/signet_on.svg" alt="" class="svg-img checked">
+        <img src="assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
     </label>
 </div>`)
 
 export const $_slist_item_history = (text) => $(`<li class="slist__item">
-    <img src="/assets/icon/historique.svg" alt="" class="svg-img">
+    <img src="assets/icon/historique.svg" alt="" class="svg-img">
     <p>${text}</p>
 </li>`)
 export const $_slist_item_search = (head, body, id) => $(`<li class="slist__item">
@@ -49,8 +49,8 @@ export const $_slist_item_search = (head, body, id) => $(`<li class="slist__item
     <div class="search__save">
         <input type="checkbox" id="save-res-${id}">
         <label class="checkbox" for="save-res-${id}">
-            <img src="/assets/icon/signet_on.svg" alt="" class="svg-img checked">
-            <img src="/assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
+            <img src="assets/icon/signet_on.svg" alt="" class="svg-img checked">
+            <img src="assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
         </label>
     </div>
 </li>`)
@@ -63,12 +63,12 @@ const $_ctx_head = (data, save_id, is_saved) => {
     $(`<h2 class="title">${data.nom}</h2>`).appendTo($sec);
     const $menu = $(`<div class="context__menu">`).appendTo($sec);
     [
-        {name: "Itinéraire", icon: "/assets/icon/itineraire.svg", action: function(e) {
+        {name: "Itinéraire", icon: "assets/icon/itineraire.svg", action: function(e) {
             e.preventDefault();
             let coords = data.geo.coordinates.reverse().join(",");
             window.open(`https://www.google.com.sa/maps/search/${coords}`, '_blank');
         }},
-        {name: "Partager", icon: "/assets/icon/partager.svg", action: function(e) {
+        {name: "Partager", icon: "assets/icon/partager.svg", action: function(e) {
             // Share function
             e.preventDefault();
             navigator.share({
@@ -76,8 +76,8 @@ const $_ctx_head = (data, save_id, is_saved) => {
                 url: getHrefFeaturing(false, true),
             })
         }},
-        // {name: "Site web", icon: "/assets/icon/siteweb.svg", action: function(e) {}},
-        // {name: "Parcours", icon: "/assets/icon/ajout_parcourir.svg", action: function(e) {}},
+        // {name: "Site web", icon: "assets/icon/siteweb.svg", action: function(e) {}},
+        // {name: "Parcours", icon: "assets/icon/ajout_parcourir.svg", action: function(e) {}},
     ].forEach(({name, icon, action}) => {
         $_ctx_button(name, icon)
             .appendTo($menu)

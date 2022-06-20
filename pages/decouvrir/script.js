@@ -6,10 +6,10 @@ const resetHashEvents = () => {
 }
 
 const loadHashPage = async (hash) => {
-    const header = await fetch(`/pages/decouvrir/hashpages/header.html`).then(res => res.text());
+    const header = await fetch(`pages/decouvrir/hashpages/header.html`).then(res => res.text());
     let text = "";
     try {
-        const response = await fetch(`/pages/decouvrir/hashpages/${hash}.html`);
+        const response = await fetch(`pages/decouvrir/hashpages/${hash}.html`);
         if(response.url.includes('404')) {
             throw new Error("404");
         }

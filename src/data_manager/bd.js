@@ -9,12 +9,12 @@ export const on = {
 
 export const initData = async () => {
     /** @type {{name,path,marker,table,data,key_path,name_path}[]} */
-    const loaded_table = await fetch("/database/json/table.json")
+    const loaded_table = await fetch("database/json/table.json")
                             .then(res => res.json());
-    const loaded_categories = await fetch("/database/json/categories.json")
+    const loaded_categories = await fetch("database/json/categories.json")
                                 .then(res => res.json());
     for(const t of loaded_table) {
-        t.table = await fetch(`/database/json/${t.path}/table.json`)
+        t.table = await fetch(`database/json/${t.path}/table.json`)
                             .then(res => res.json());
     }
     loaded_table.forEach(t => table.push(t));
@@ -29,7 +29,7 @@ export const fetchData = async (dbName, keyName) => {
         throw new Error(`Database ${dbName} not found`);
     }
     const tab = db.table.find(t => t.key === keyName);
-    const data = await fetch(`/database/json/${db.path}/data/${tab.path}`)
+    const data = await fetch(`database/json/${db.path}/data/${tab.path}`)
                             .then(res => res.json());
     return data;
 }

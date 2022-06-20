@@ -1,6 +1,12 @@
+/**
+ * @todo Support relative paths instead of absolutes
+ */
+
 export const on = {
     navigate: (url) => {}
 }
+const baseurl = document.baseURI + (document.baseURI.endsWith("/") ? "" : "/");
+console.log(baseurl);
 
 export const useAttemptedHref = () => {
     const href = sessionStorage.getItem("attempted-href");
@@ -12,7 +18,7 @@ export const useAttemptedHref = () => {
 }
 
 export const getPageFromHref = () => {
-    const href = window.location.href;
+    const href = window.location.href.split(baseurl)[1];
     let page = href.split("/").pop();
     if(!page) return "";
     page = page.split("?")[0];
@@ -21,7 +27,7 @@ export const getPageFromHref = () => {
 }
 
 export const getHrefFeaturing = (query_string = true, hash_string = true) => {
-    const origin = window.location.origin + window.location.pathname;
+    const origin = baseurl + window.location.pathname;
     const query = window.location.search;
     const hash = window.location.hash;
     let output = origin;
@@ -65,10 +71,10 @@ export const getHash = (as_query = false) => {
 
 export const setHref = (url, replace = false) => {
     if(url.includes("accueil")) {
-        window.history.pushState({}, "", "/");
+        window.history.pushState({}, "", baseurl);
         return;
     }
-    const new_url = location.origin + "/" + url.split("pages/")[1];
+    const new_url = baseurl + url.split("pages/")[1];
     if(replace) {
         window.history.replaceState({}, "", new_url);
     } else {
@@ -78,7 +84,7 @@ export const setHref = (url, replace = false) => {
 export const setQuery = (query = {}, keep_hash = true, replace = false) => {
     let hash = ""
     if(keep_hash) hash = window.location.hash;
-    const new_url = location.origin + "/" + getPageFromHref() + (
+    const new_url = baseurl+ getPageFromHref() + (
         Object.keys(query).length
         ? "?" + Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&")
         : ""
@@ -93,7 +99,7 @@ export const addToQuery = (query_add = {}, keep_hash = true, replace = false) =>
     let hash = ""
     if(keep_hash) hash = window.location.hash;
     let query = {...getQueryString(), ...query_add};
-    const new_url = location.origin + "/" + getPageFromHref() + (
+    const new_url = baseurl + getPageFromHref() + (
         Object.keys(query).length
         ? "?" + Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&")
         : ""
@@ -109,7 +115,7 @@ export const removeFromQuery = (keys = [], keep_hash = true, replace = false) =>
     if(keep_hash) hash = window.location.hash;
     const query = {...getQueryString()};
     keys.forEach(key => delete query[key]);
-    const new_url = location.origin + "/" + getPageFromHref() + (
+    const new_url = baseurl + getPageFromHref() + (
         Object.keys(query).length
         ? "?" + Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&")
         : ""
@@ -123,7 +129,7 @@ export const removeFromQuery = (keys = [], keep_hash = true, replace = false) =>
 export const setHash = (hash = "", keep_query = true, replace = false) => {
     let query = ""
     if(keep_query) query = window.location.search;
-    const new_url = location.origin + "/" + getPageFromHref() + query + (
+    const new_url = baseurl + getPageFromHref() + query + (
         hash.length
         ? "#" + hash
         : ""

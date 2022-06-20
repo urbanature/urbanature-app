@@ -71,11 +71,11 @@
 
 [data-page="accueil"] #_decouverte {
   padding-top: 5rem;
-  background-image: url("/database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg");
+  background-image: url("../../database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg");
 }
 
 [data-page="accueil"] #_parcours {
-  background-image: url("/database/img/louis-paulin-z4TOhAEXrCA-unsplash.jpg");
+  background-image: url("../../database/img/louis-paulin-z4TOhAEXrCA-unsplash.jpg");
 }
 
 [data-page="accueil"] #_parcours h3 {

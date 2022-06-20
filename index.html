@@ -4,71 +4,69 @@
     <title>Urbanature</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Comment this during development -->
-    <!-- <base href="https://totoshampoin.github.io/urbanature/" target="_self"> -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#0c423e">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#0c423e">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#0c423e">
     
-    <link rel="stylesheet" href="/assets/css/font.css">
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/assets/css/dom-style.css">
-    <link rel="stylesheet" href="/assets/css/common/searchbar.css">
+    <link rel="stylesheet" href="assets/css/font.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/dom-style.css">
+    <link rel="stylesheet" href="assets/css/common/searchbar.css">
 
-    <link rel="stylesheet" href="/pages/accueil/style.css">
-    <link rel="stylesheet" href="/pages/decouvrir/style.css">
-    <link rel="stylesheet" href="/pages/explorer/style.css">
-    <link rel="stylesheet" href="/pages/parcourir/style.css">
-    <link rel="stylesheet" href="/pages/profil/style.css">
+    <link rel="stylesheet" href="pages/accueil/style.css">
+    <link rel="stylesheet" href="pages/decouvrir/style.css">
+    <link rel="stylesheet" href="pages/explorer/style.css">
+    <link rel="stylesheet" href="pages/parcourir/style.css">
+    <link rel="stylesheet" href="pages/profil/style.css">
     
-    <link rel="stylesheet" href="/vendors/leaflet/leaflet.css">
-    <link rel="stylesheet" href="/vendors/Leaflet.markercluster-1.4.1/MarkerCluster.Default.css">
-    <script src="/vendors/leaflet/leaflet.js"></script>
-    <script src="/vendors/Leaflet.markercluster-1.4.1/leaflet.markercluster.js"></script>
-    <script src="/vendors/jquery-3.6.0.min.js"></script>
-    <script src="/vendors/lodash.min.js"></script>
-    <script src="/vendors/lz-string.js"></script>
+    <link rel="stylesheet" href="vendors/leaflet/leaflet.css">
+    <link rel="stylesheet" href="vendors/Leaflet.markercluster-1.4.1/MarkerCluster.Default.css">
+    <script src="vendors/leaflet/leaflet.js"></script>
+    <script src="vendors/Leaflet.markercluster-1.4.1/leaflet.markercluster.js"></script>
+    <script src="vendors/jquery-3.6.0.min.js"></script>
+    <script src="vendors/lodash.min.js"></script>
+    <script src="vendors/lz-string.js"></script>
 
-    <link rel="manifest" href="/manifest.webmanifest">
-    <script src="/src/dom/cacheload.js" type="module"></script>
+    <link rel="manifest" href="manifest.webmanifest">
+    <script src="src/dom/cacheload.js" type="module"></script>
 </head>
 <body>
     <div id="__dom__page"></div>
     <footer id="__dom__navbar" class="__nav">
         <div class="__nav__link __link">
-            <a href="/accueil" class="__link__button __link__button--active">
-                <img src="/assets/icon/menu/accueil.svg" alt="Accueil" class="svg-img __link__image">
+            <a href="accueil" class="__link__button __link__button--active">
+                <img src="assets/icon/menu/accueil.svg" alt="Accueil" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
-            <a href="/decouvrir" class="__link__button">
-                <img src="/assets/icon/menu/decouvrir.svg" alt="Découvrir" class="svg-img __link__image">
+            <a href="decouvrir" class="__link__button">
+                <img src="assets/icon/menu/decouvrir.svg" alt="Découvrir" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
-            <a href="/explorer" class="__link__button">
-                <img src="/assets/icon/menu/explorer.svg" alt="Explorer" class="svg-img __link__image">
+            <a href="explorer" class="__link__button">
+                <img src="assets/icon/menu/explorer.svg" alt="Explorer" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
-            <a href="/parcourir" class="__link__button">
-                <img src="/assets/icon/menu/parcourir.svg" alt="Parcourir" class="svg-img __link__image">
+            <a href="parcourir" class="__link__button">
+                <img src="assets/icon/menu/parcourir.svg" alt="Parcourir" class="svg-img __link__image">
             </a>
         </div>
         <div class="__nav__link __link">
-            <a href="/profil" class="__link__button">
-                <img src="/assets/icon/menu/profil.svg" alt="Profil" class="svg-img __link__image">
+            <a href="profil" class="__link__button">
+                <img src="assets/icon/menu/profil.svg" alt="Profil" class="svg-img __link__image">
             </a>
         </div>
     </footer>
     <div id="__dom__map"></div>
     <div id="__dom__loadico">
-        <img src="/assets/img/loading.gif" alt="loading" class="svg-img">
+        <img src="assets/img/loading.gif" alt="loading" class="svg-img">
     </div>
-    <script src="./src/main.js" type="module"></script>
+    <script src="src/main.js" type="module"></script>
 </body>
 </html>
