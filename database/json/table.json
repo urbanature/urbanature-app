@@ -25,6 +25,12 @@
     "category": "verdure",
     "color": "#769463"
 }, {
+    "name": "Jardins partagés",
+    "path": "jardins-partages",
+    "key_path": "info.type_jardin",
+    "name_path": "info.type_jardin",
+    "category": "verdure"
+}, {
     "name": "Textes littéraires",
     "path": "textes",
     "key_path": "info.author",
