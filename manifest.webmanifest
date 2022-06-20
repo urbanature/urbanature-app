@@ -13,11 +13,11 @@
             "type": "image/png"
         }
     ],
-    "start_url": "",
+    "start_url": "/urbanature/",
     "background_color": "#0C423E",
     "display": "standalone",
     "orientation": "portrait",
-    "scope": "",
+    "scope": "/urbanature/",
     "theme_color": "#0C423E",
     "description": "Explorez les savoirs et cultures de la biodiversité urbaine du XIXe au XXIe siècle."
 }
