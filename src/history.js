@@ -140,6 +140,14 @@ export const setHash = (hash = "", keep_query = true, replace = false) => {
         window.history.pushState({}, "", new_url);
     }
 }
+export const resetHashQuery = (replace = false) => {
+    const new_url = baseurl + getPageFromHref();
+    if(replace) {
+        window.history.replaceState({}, "", new_url);
+    } else {
+        window.history.pushState({}, "", new_url);
+    }
+}
 
 window.addEventListener("popstate", () => {
     const page = getPageFromHref();

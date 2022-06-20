@@ -1,7 +1,7 @@
 import { updateMapPosition, initMap, updateMapSize, clearLayers, unhideMap } from "./map.js";
 import { loadPage } from "./page.js";
 import { delay, imgToSvg, stripUrl } from "../misc.js";
-import { on, setHref } from "../history.js";
+import { on, setHash, setHref } from "../history.js";
 
 export const globals = {
     current_url: "",
@@ -67,7 +67,9 @@ $__dom__page.on('loadPage', async function(e, url, navigating = false) {
         if(!url.includes("#")) {
             $__dom__page.animate({scrollTop: 0}, 500, 'swing');
         }
-        setHref(`/pages/${url}`)
+        const hash = url.split('#')[1];
+        setHref(`/pages/${url}`);
+        if(hash) setHash(hash);
         return;
     }
     await closePage(url);
