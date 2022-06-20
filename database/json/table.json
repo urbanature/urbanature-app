@@ -18,11 +18,12 @@
     "category": "verdure",
     "color": "#769463"
 }, {
-    "name": "Jardins partagés",
-    "path": "jardins-partages",
-    "key_path": "info.type_jardin",
-    "name_path": "info.type_jardin",
-    "category": "verdure"
+    "name": "Espaces verts dans l'histoire",
+    "path": "historique",
+    "key_path": "date",
+    "name_path": "date",
+    "category": "verdure",
+    "color": "#769463"
 }, {
     "name": "Textes littéraires",
     "path": "textes",
