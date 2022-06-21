@@ -9,7 +9,8 @@
     "path": "arbres-remarquables",
     "key_path": "info.genre",
     "name_path": "nom",
-    "category": "verdure"
+    "category": "verdure",
+    "demo": "Platanus"
 }, {
     "name": "Espaces verts",
     "path": "espaces-verts",
@@ -23,7 +24,8 @@
     "key_path": "date",
     "name_path": "date",
     "category": "culture",
-    "color": "#769463"
+    "color": "#769463",
+    "demo": "1875"
 }, {
     "name": "Jardins partagés",
     "path": "jardins-partages",

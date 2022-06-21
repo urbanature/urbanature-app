@@ -62,6 +62,8 @@ export const getTableMetaData = (dbName) => {
     return db;
 }
 
+window.data_table = table;
+window.getDatabases = getDatabases;
 window.fetchData = fetchData;
 window.fetchAllData = fetchAllData;
 window.getTableFromDatabase = getTableFromDatabase;

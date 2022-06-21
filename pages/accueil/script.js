@@ -1,8 +1,47 @@
-export const accueil__setMap = () => {
-    const map1 = $("#map-one div")[0];
-    const map2 = $("#map-two div")[0];
+import * as DATABASE from "../../src/data_manager/bd.js";
 
-    L.map(map1, {
+const setGeoOption = table => ({
+    style: (feature) => ({
+        color: table.color,
+        weight: 1,
+    }),
+    pointToLayer: (point, latlng) => L.marker(latlng, {
+        icon: L.icon({
+            iconUrl: `database/json/${table.path}/icon/marker.svg`,
+            iconSize: [48, 48],
+            iconAnchor: [24, 48],
+            shadowUrl: `database/json/shadow.png`,
+            shadowSize: [64, 64],
+            shadowAnchor: [21, 41],
+        }),
+    })
+})
+
+const setMapData = async (map1_layer, map2_layer) => {
+    const categories = await fetch("database/json/categories.json").then(res => res.json());
+    const table1 = DATABASE.table.find(t => t.demo && t.category === categories[0].key);
+    const table2 = DATABASE.table.find(t => t.demo && t.category === categories[1].key);
+
+    const data1 = await DATABASE.fetchData(table1.path, table1.demo);
+    const data2 = await DATABASE.fetchData(table2.path, table2.demo);
+    
+    data1.forEach(d => {
+        const geo = d.geo;
+        const Lgeo = L.geoJSON(geo, setGeoOption(table1));
+        map1_layer.addLayer(Lgeo);
+    });
+    data2.forEach(d => {
+        const geo = d.geo;
+        const Lgeo = L.geoJSON(geo, setGeoOption(table2));
+        map2_layer.addLayer(Lgeo);
+    });
+}
+
+export const accueil__setMap = async () => {
+    const $map1 = $("#map-one div")[0];
+    const $map2 = $("#map-two div")[0];
+
+    const map1 = L.map($map1, {
         center: [48.856614, 2.3522219],
         zoom: 12,
         zoomOffset: 0,
@@ -19,7 +58,7 @@ export const accueil__setMap = () => {
         ]
     });
 
-    L.map(map2, {
+    const map2 = L.map($map2, {
         center: [48.856614, 2.3522219],
         zoom: 12,
         zoomOffset: 0,
@@ -35,6 +74,17 @@ export const accueil__setMap = () => {
             })
         ]
     });
+
+    const map1_layer = L.layerGroup().addTo(map1);
+    const map2_layer = L.layerGroup().addTo(map2);
+
+    if(DATABASE.flags.loaded) {
+        setMapData(map1_layer, map2_layer);
+    } else {
+        DATABASE.on.load = () => {
+            setMapData(map1_layer, map2_layer);
+        }
+    }
 }
 
 export const accueil__mapCursor = () => {
