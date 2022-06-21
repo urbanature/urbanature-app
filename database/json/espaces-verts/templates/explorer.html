@@ -6,15 +6,16 @@
                 <p>Catégorie&nbsp;: {{data.info?.categorie}}</p>
                 <p>Type&nbsp;: {{data.info?.type}}</p>
                 <p>A une clôture&nbsp;: {{data.info?.cloture}}</p>
-                <p>Surface&nbsp;: {{data.taille?.surface}} m²</p>
-                <p>Périmètre&nbsp;: {{Math.round(data.taille?.perimetre * 100)/100}} m</p>
+                <% if(data.taille?.surface) { %><p>Surface&nbsp;: {{data.taille?.surface}} m²</p><% } %>
+                <% if(data.taille?.perimetre) { %><p>Périmètre&nbsp;: {{Math.round(data.taille?.perimetre * 100)/100}} m</p><% } %>
                 <p>Année d'ouverture&nbsp;: {{data.date?.annee}}</p>
             </div>
         </div>
     </section>
     <section class="csection">
+        <% if(data.info?.ouvert_h24 || data.ouverture_bis?.nuit_ete || data.ouverture_bis?.canicule || Object.keys(data.horaires_bis || {}).length > 0) { %>
         <h2>Horaires</h2>
-        <% if(Object.keys(data.horaires_bis || {}).length > 0) { %>
+        <% }; if(Object.keys(data.horaires_bis || {}).length > 0) { %>
         <div class="contentbox">
             <div class="contentbox__content contentbox__content--text-fit">
                 <% for(let key in data.horaires_bis) { %>
@@ -22,7 +23,7 @@
                 <% } %>
             </div>
         </div>
-        <% } %> 
+        <% }; if(data.info?.ouvert_h24 || data.ouverture_bis?.nuit_ete || data.ouverture_bis?.canicule) { %> 
         <div class="contentbox">
             <div class="contentbox__content contentbox__content--text-fit">
                 <p>24h/24&nbsp;: {{data.info?.ouvert_h24}}</p>
@@ -30,5 +31,6 @@
                 <p>En canicule&nbsp;: {{data.ouverture_bis?.canicule}}</p>
             </div>
         </div>
+        <% } %>
     </section>
 </div>
