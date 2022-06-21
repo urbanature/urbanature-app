@@ -18,7 +18,7 @@
     "category": "verdure",
     "color": "#769463"
 }, {
-    "name": "Espaces verts dans l'histoire",
+    "name": "Données historiques",
     "path": "historique",
     "key_path": "date",
     "name_path": "date",
