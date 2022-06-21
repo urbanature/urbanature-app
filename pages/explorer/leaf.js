@@ -34,7 +34,7 @@ export const setFilterToLeafmap = async (filters) => {
             }),
             pointToLayer: (point, latlng) => L.marker(latlng, {
                 icon: L.icon({
-                    iconUrl: `database/json/${path}/marker.svg`,
+                    iconUrl: `database/json/${path}/icon/marker.svg`,
                     iconSize: [48, 48],
                     iconAnchor: [24, 48],
                     shadowUrl: `database/json/shadow.png`,

@@ -22,7 +22,7 @@
     "path": "historique",
     "key_path": "date",
     "name_path": "date",
-    "category": "verdure",
+    "category": "culture",
     "color": "#769463"
 }, {
     "name": "Jardins partagés",
@@ -35,5 +35,5 @@
     "path": "textes",
     "key_path": "info.author",
     "name_path": "info.author",
-    "category": "litterature"
+    "category": "culture"
 }]
