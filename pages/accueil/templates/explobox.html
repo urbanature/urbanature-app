@@ -1,0 +1,8 @@
+<a href="explorer?filter={{path}}" class="explobox">
+    <% if(path) { %>
+    <img src="database/json/{{path}}/icon/button-1.svg" alt="" class="explobox__img">
+    <% } else { %>
+    <img src="" alt="" class="explobox__img">
+    <% } %>
+    <div class="explobox__text">{{name}}</div>
+</a>

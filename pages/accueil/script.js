@@ -60,3 +60,39 @@ export const accueil__mapCursor = () => {
         }
     });
 }
+
+export const accueil__initExplorer = async () => {
+    const categories = await fetch("database/json/categories.json").then(res => res.json());
+    const table = await fetch("database/json/table.json").then(res => res.json());
+    const explogroup_ = await fetch("pages/accueil/templates/explogroup.html").then(res => res.text());
+    const explobox_ = await fetch("pages/accueil/templates/explobox.html").then(res => res.text());
+    $(_.template(explogroup_)({
+        categories,
+        capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
+    })).appendTo("#explo-groups");
+    categories.forEach(category => {
+        category.count = 0;
+    });
+    for(let t of table) {
+        const cate = categories.find(c => c.key === t.category);
+        if(!cate) continue;
+        if(cate.count > 3) continue;
+        cate.count++;
+        $(_.template(explobox_)({
+            ...t,
+            capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
+        })).appendTo(`#explo-${t.category}`);
+    }
+    categories.forEach(category => {
+        while(category.count < 4) {
+            $(_.template(explobox_)({
+                ...{
+                    name: "",
+                    path: "",
+                },
+                capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
+            })).appendTo(`#explo-${category.key}`);
+            category.count++;
+        }
+    });
+}
