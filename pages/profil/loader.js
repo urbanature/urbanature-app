@@ -12,12 +12,12 @@ function unloadHash() {
 }
 
 export const loadHashPage = async (hash) => {
-    const header = await fetch(`pages/decouvrir/template/header.html`).then(res => res.text());
+    const header = await fetch(`pages/profil/template/header.html`).then(res => res.text());
     let text = "";
     let with_header = true;
     let to_use = "";
     try {
-        const response = await fetch(`pages/decouvrir/hashpages/${hash}.html`);
+        const response = await fetch(`pages/profil/hashpages/${hash}.html`);
         if(response.url.includes('404')) {
             throw new Error("404");
         }
@@ -32,11 +32,10 @@ export const loadHashPage = async (hash) => {
         }
     } catch {};
     resetHashEvents();
-    $(`.__link__button[href="decouvrir"]`).off("click", unloadHash);
+    $(`.__link__button[href="profil"]`).off("click", unloadHash);
     $("#__dom__page a").off("click");
     $(".save-button").off("click");
     $("#leave-hash-page").off("click");
-    $("#__dom__page img").off("error");
     $("#__dom__page").scrollTop(0);
     $("#hash-page").scrollTop(0)
                     .html((with_header ? header : "") + (text || `<h1>404 - Page not found</h1>`));
@@ -49,18 +48,12 @@ export const loadHashPage = async (hash) => {
         console.log("click");
         loadFromHash();
     });
-    $(".save-button").on("click", function(e) {
-        e.stopPropagation();
-    });
     if(!with_header) {
-        $(`.__link__button[href="decouvrir"]`).on("click", unloadHash);
+        $(`.__link__button[href="profil"]`).on("click", unloadHash);
         $("#hash-page").addClass("no-header");
     } else {
         $("#hash-page").removeClass("no-header");
     }
-    $("#__dom__page img").on("error", function(e) {
-        $(this).attr("src", "database/img/noimg.png");
-    });
 }
 
 export const loadFromHash = async () => {
