@@ -26,7 +26,7 @@ export const parcours = async (template) => {
 
 export const liste = async (template) => {
     const config = await fetch("https://totoshampoin.github.io/les-promenades-du-matrimoine--urbanature-edition/config.json").then(res => res.json());
-    const el_t = await fetch("pages/parcourir/hashpages/liste_el.html").then(res => res.text());
+    const el_t = await fetch("pages/parcourir/template/liste_el.html").then(res => res.text());
     let content = "";
     for(let key in config) {
         try {

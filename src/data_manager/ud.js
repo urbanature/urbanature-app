@@ -109,6 +109,9 @@ export const removeFavoris = (dbname, keyName, data) => {
 export const getRecherchesRecentes = (page, nb) => {
     return GLOBALS.storage.recherches[page].slice(0, nb);
 }
+export const getAllRecherches = () => {
+    return GLOBALS.storage.recherches;
+}
 export const limitRecherches = (page, nb) => {
     GLOBALS.storage.recherches[page] = getRecherchesRecentes(page, nb);
     saveStorage();
@@ -118,4 +121,8 @@ export const addRecherche = (page, recherche) => {
     if(prev !== -1) GLOBALS.storage.recherches[page].splice(prev, 1);
     GLOBALS.storage.recherches[page].unshift(recherche);
     saveStorage();
+}
+
+window.getStorage = () => {
+    return GLOBALS.storage;
 }

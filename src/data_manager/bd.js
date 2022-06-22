@@ -61,10 +61,18 @@ export const getTableMetaData = (dbName) => {
     }
     return db;
 }
+export const getTablesByMetaData = (key, value) => {
+    const db = table.filter(t => t[key] === value);
+    if(!db) {
+        throw new Error(`Databases not found`);
+    }
+    return db;
+}
 
 window.data_table = table;
-window.getDatabases = getDatabases;
 window.fetchData = fetchData;
 window.fetchAllData = fetchAllData;
+window.getDatabases = getDatabases;
 window.getTableFromDatabase = getTableFromDatabase;
 window.getTableMetaData = getTableMetaData;
+window.getTablesByMetaData = getTablesByMetaData;

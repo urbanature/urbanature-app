@@ -1,0 +1,14 @@
+<li><a href="decouvrir#{{database}}.{{data.info?.author}}" class="textcard" data-key="{{data.info?.author}}" data-id="{{data.id}}">
+    <img src="{{data.meta?.img}}" alt="" class="textcard__img">
+    <% if(data.nom) { %>
+    <h1 class="textcard__title">{{data.nom}}</h1>
+    <% } %>
+    <p class="textcard__author">{{data.info?.author}}</p>
+    <div class="textcard__save save-button">
+        <input type="checkbox" id="save-textes-{{data.info?.author}}-{{data.id}}" data-id="textes,{{data.info?.author}},{{data.id}}">
+        <label for="save-textes-{{data.info?.author}}-{{data.id}}" class="checkbox">
+            <img src="assets/icon/signet_on.svg" alt="" class="svg-img checked">
+            <img src="assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
+        </label>
+    </div>
+</a></li>

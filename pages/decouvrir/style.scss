@@ -211,6 +211,14 @@ main h1 {
         //     @include glass(#ffffff26, #0C423E80);
         // }
     }
+    &__save {
+        position: absolute;
+        top: .25rem; right: .25rem;
+        width: 2rem;
+        .svg-img {
+            fill: var(--color-2);
+        }
+    }
 }
 
 .hash-page {
@@ -230,6 +238,28 @@ main h1 {
     padding: .875rem;
     .svg {
         fill: var(--color-2);
+    }
+}
+
+input[type="checkbox"] {
+    display: none;
+    &+.checkbox {
+        width: 1.125rem; height: 1.125rem;
+        fill: var(--color-4);
+        .checked {
+            display: none;
+        }
+        .not-checked {
+            display: block;
+        }
+    }
+    &:checked+.checkbox {
+        .checked {
+            display: block;
+        }
+        .not-checked {
+            display: none;
+        }
     }
 }
 

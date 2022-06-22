@@ -339,6 +339,17 @@
           box-shadow: 0 .25rem .25rem #0004;
 }
 
+[data-page="decouvrir"] .textcard__save {
+  position: absolute;
+  top: .25rem;
+  right: .25rem;
+  width: 2rem;
+}
+
+[data-page="decouvrir"] .textcard__save .svg-img {
+  fill: var(--color-2);
+}
+
 [data-page="decouvrir"] .hash-page {
   display: none;
   position: absolute;
@@ -363,5 +374,31 @@
 
 [data-page="decouvrir"] .back .svg {
   fill: var(--color-2);
+}
+
+[data-page="decouvrir"] input[type="checkbox"] {
+  display: none;
+}
+
+[data-page="decouvrir"] input[type="checkbox"] + .checkbox {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: var(--color-4);
+}
+
+[data-page="decouvrir"] input[type="checkbox"] + .checkbox .checked {
+  display: none;
+}
+
+[data-page="decouvrir"] input[type="checkbox"] + .checkbox .not-checked {
+  display: block;
+}
+
+[data-page="decouvrir"] input[type="checkbox"]:checked + .checkbox .checked {
+  display: block;
+}
+
+[data-page="decouvrir"] input[type="checkbox"]:checked + .checkbox .not-checked {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

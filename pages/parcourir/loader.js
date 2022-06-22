@@ -1,6 +1,6 @@
 import { setHash } from "../../src/history.js";
 import { delay, imgToSvg } from "../../src/misc.js";
-import { parcours, liste } from "./to-use.js"; // DO NOT REMOVE, THEY ARE USED IN AN EVAL SCRIPT
+import * as TO_USE from "./to-use.js"; // DO NOT REMOVE, THEY ARE USED IN AN EVAL SCRIPT
 
 export const resetHashEvents = () => {
     $("#leave-hash-page").off("click");
@@ -12,7 +12,7 @@ function unloadHash() {
 }
 
 export const loadHashPage = async (hash) => {
-    const header = await fetch(`pages/parcourir/hashpages/header.html`).then(res => res.text());
+    const header = await fetch(`pages/parcourir/template/header.html`).then(res => res.text());
     let text = "";
     let with_header = true;
     let to_use = "";
@@ -27,12 +27,15 @@ export const loadHashPage = async (hash) => {
         }
         if(text.includes("<!-- use")) {
             to_use = text.split("<!-- use: ")[1].split(" -->")[0];
-            console.log(eval(`${to_use}`)(text))
-            text = await (eval(`${to_use}`)(text));
+            // console.log(eval(`TO_USE.${to_use}`)(text))
+            text = await (eval(`TO_USE.${to_use}`)(text));
         }
     } catch {};
     resetHashEvents();
     $(`.__link__button[href="parcourir"]`).off("click", unloadHash);
+    $("#__dom__page a").off("click");
+    $(".save-button").off("click");
+    $("#leave-hash-page").off("click");
     $("#__dom__page").scrollTop(0);
     $("#hash-page").scrollTop(0)
                     .html((with_header ? header : "") + (text || `<h1>404 - Page not found</h1>`));

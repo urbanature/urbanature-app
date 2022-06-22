@@ -11,6 +11,7 @@ import { decouvrir__init } from "../pages/decouvrir/script.js";
 import { parcourir__init } from "../pages/parcourir/script.js";
 
 import "./search.js"
+import { profil__init } from "../pages/profil/script.js";
 
 $(window).on('resize', updateVh);
 updateVh();
@@ -53,6 +54,14 @@ onClose.decouvrir = () => {
 onStart.parcourir = () => {
     parcourir__init();
 }
+
+onClose.parcourir = () => {}
+
+onStart.profil = () => {
+    profil__init();
+}
+
+onClose.profil = () => {}
 
 
 useAttemptedHref();
