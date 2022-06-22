@@ -103,7 +103,7 @@ for table in tables:
         if item == "id":
             continue
         else:
-            sql += f'`{item}` TEXT, '
+            sql += f'`{item}` LONGTEXT, '
         if item == "geo.coordinates":
             sql += f'`geoposition` POINT, '
     sql = sql[:-2] + ");\n"
@@ -140,6 +140,8 @@ for table in tables:
                     value = get_geoposition(value)
                     if value != None:
                         sql_row += f'POINT({value[0]}, {value[1]}), '
+                    else:
+                        sql_row += "NULL, "
             sql_row = sql_row[:-2] + "),\n"
             if len(sql + sql_row) > 2 * 999 * 999:
                 sql = sql[:-3] + ");\n"
