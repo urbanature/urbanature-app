@@ -3,21 +3,24 @@
     "path": "arbres",
     "key_path": "info.genre",
     "name_path": "nom",
-    "category": "verdure"
+    "category": "verdure",
+    "type": "object"
 }, {
     "name": "Arbres remarquables",
     "path": "arbres-remarquables",
     "key_path": "info.genre",
     "name_path": "nom",
     "category": "verdure",
-    "demo": "Platanus"
+    "demo": "Platanus",
+    "type": "object"
 }, {
     "name": "Espaces verts",
     "path": "espaces-verts",
     "key_path": "info.categorie",
     "name_path": "info.categorie",
     "category": "verdure",
-    "color": "#769463"
+    "color": "#769463",
+    "type": "object"
 }, {
     "name": "Données historiques",
     "path": "historique",
@@ -25,17 +28,20 @@
     "name_path": "date",
     "category": "culture",
     "color": "#769463",
-    "demo": "1875"
+    "demo": "1875",
+    "type": "time"
 }, {
     "name": "Jardins partagés",
     "path": "jardins-partages",
     "key_path": "info.type_jardin",
     "name_path": "info.type_jardin",
-    "category": "verdure"
+    "category": "verdure",
+    "type": "object"
 }, {
     "name": "Textes littéraires",
     "path": "textes",
     "key_path": "info.author",
     "name_path": "info.author",
-    "category": "culture"
+    "category": "culture",
+    "type": "text"
 }]
