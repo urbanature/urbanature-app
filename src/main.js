@@ -8,6 +8,7 @@ import * as USERDATA from "./data_manager/ud.js";
 import { accueil__setMap, accueil__mapCursor, accueil__initExplorer } from "../pages/accueil/script.js";
 import { explorer__unhide, explorer__hide, explorer__manageMenu, explorer__initMenu, explorer__initGeoloc, explorer__initContext, explorer__initSearch } from "../pages/explorer/script.js";
 import { decouvrir__init } from "../pages/decouvrir/script.js";
+import { parcourir__init } from "../pages/parcourir/script.js";
 
 import "./search.js"
 
@@ -47,6 +48,10 @@ onStart.decouvrir = () => {
 
 onClose.decouvrir = () => {
     $("#__dom__page").attr("data-has-overlay", "false");
+}
+
+onStart.parcourir = () => {
+    parcourir__init();
 }
 
 

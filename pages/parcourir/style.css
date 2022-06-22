@@ -160,4 +160,34 @@
   -webkit-mask-composite: xor;
   border-radius: inherit;
 }
+
+[data-page="parcourir"] .hash-page {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100 * var(--vh) - var(--dom-navbar-height));
+  padding-top: 1rem;
+  background: var(--color-1);
+  overflow-y: auto;
+}
+
+[data-page="parcourir"] .hash-page--show {
+  display: block;
+}
+
+[data-page="parcourir"] .hash-page.no-header {
+  padding-top: 0;
+}
+
+[data-page="parcourir"] .back {
+  width: 3rem;
+  height: 3rem;
+  padding: .875rem;
+}
+
+[data-page="parcourir"] .back .svg {
+  fill: var(--color-2);
+}
 /*# sourceMappingURL=style.css.map */

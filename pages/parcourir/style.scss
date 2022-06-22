@@ -91,4 +91,27 @@ main h1 {
     @include glass(#FFFFFF26, #0C423E88);
 }
 
+.hash-page {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: calc(100 * var(--vh) - var(--dom-navbar-height));
+    padding-top: 1rem;
+    background: var(--color-1);
+    overflow-y: auto;
+    &--show {
+        display: block;
+    }
+    &.no-header {
+        padding-top: 0;
+    }
+}
+.back {
+    width: 3rem; height: 3rem;
+    padding: .875rem;
+    .svg {
+        fill: var(--color-2);
+    }
+}
+
 }
