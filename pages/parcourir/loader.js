@@ -48,8 +48,8 @@ export const loadHashPage = async (hash) => {
         console.log("click");
         loadFromHash();
     });
+    $(`.__link__button[href="parcourir"]`).on("click", unloadHash);
     if(!with_header) {
-        $(`.__link__button[href="parcourir"]`).on("click", unloadHash);
         $("#hash-page").addClass("no-header");
     } else {
         $("#hash-page").removeClass("no-header");

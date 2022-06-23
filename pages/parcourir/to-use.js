@@ -25,21 +25,19 @@ export const parcours = async (template) => {
 }
 
 export const liste = async (template) => {
-    const config = await fetch("https://totoshampoin.github.io/les-promenades-du-matrimoine--urbanature-edition/config.json").then(res => res.json());
+    const config = await fetch("https://totoshampoin.github.io/les-promenades-du-matrimoine--urbanature-edition/config-save.json").then(res => res.json());
     const el_t = await fetch("pages/parcourir/template/liste_el.html").then(res => res.text());
     let content = "";
     for(let key in config) {
-        try {
-            const value = await fetch(config[key]).then(res => res.text());
-            const json = csvToJson(value);
-            const data = {
-                id: key,
-                titre: json[0].titre,
-                image: json[0].visuel
-            };
-            const html = _.template(el_t)(data);
-            content += html;
-        } catch {}
+        console.log(key, config[key]);
+        const json = config[key];
+        const data = {
+            id: key,
+            titre: json.titre,
+            image: json.visuel
+        };
+        const html = _.template(el_t)(data);
+        content += html;
     }
     console.log(content);
     return _.template(template)({content: content});

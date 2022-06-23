@@ -36,6 +36,7 @@ export const loadHashPage = async (hash) => {
     $("#__dom__page a").off("click");
     $(".save-button").off("click");
     $("#leave-hash-page").off("click");
+    $("#__dom__page .contentbox__expand").off("click");
     $("#__dom__page img").off("error");
     $("#__dom__page").scrollTop(0);
     $("#hash-page").scrollTop(0)
@@ -52,14 +53,17 @@ export const loadHashPage = async (hash) => {
     $(".save-button").on("click", function(e) {
         e.stopPropagation();
     });
+    $(`.__link__button[href="decouvrir"]`).on("click", unloadHash);
     if(!with_header) {
-        $(`.__link__button[href="decouvrir"]`).on("click", unloadHash);
         $("#hash-page").addClass("no-header");
     } else {
         $("#hash-page").removeClass("no-header");
     }
     $("#__dom__page img").on("error", function(e) {
         $(this).attr("src", "database/img/noimg.png");
+    });
+    $("#__dom__page .contentbox__expand").on("click", function(e) {
+        $(this).parent().attr("data-expanded", $(this).parent().attr("data-expanded") == "true" ? "false" : "true");
     });
 }
 

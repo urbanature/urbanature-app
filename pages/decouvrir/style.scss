@@ -222,6 +222,85 @@ main h1 {
     }
 }
 
+.contentbox {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 1rem;
+    border-radius: .75rem;
+    @include glass(#FFFFFF40, #FFFFFF19);
+    &__content {
+        width: 100%; height: 25rem;
+        padding: 1rem;
+        &--text {
+            overflow-y: hidden;
+            mask-image: linear-gradient(to bottom,
+                black 90%,
+                transparent 97.5%
+            );
+            h3 {
+                font-weight: bold;
+                color: var(--color-3);
+            }
+            p.page {
+                margin: 0;
+            }
+            p {
+                margin: 1.5rem 0;
+            }
+            strong {
+                color: var(--color-2);
+            }
+            &-fit {
+                mask-image: default;
+                height: auto;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        &--images {
+            display: grid;
+            padding: 1rem; gap: .75rem;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 9rem);
+            img {
+                object-fit: cover;
+                width: 100%; height: 100%;
+                border-radius: .75rem;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+    &__expand {
+        width: 100%;
+        &-arrow {
+            width: 1.5rem; height: 1.5rem;
+            fill: var(--color-3);
+            margin: auto;
+        }
+    }
+    &[data-expanded="true"] {
+        .contentbox__content {
+            &--text {
+                height: fit-content;
+                mask-image: none;
+                p {
+                    margin-bottom: 0;
+                }
+            }
+            &--images {
+                display: block;
+            }
+        }
+        .contentbox__expand {
+            &-arrow {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
 .hash-page {
     display: none;
     position: absolute;

@@ -351,6 +351,135 @@
   fill: var(--color-2);
 }
 
+[data-page="decouvrir"] .contentbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem;
+  border-radius: .75rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="decouvrir"] .contentbox::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF40), color-stop(95%, #FFFFFF19));
+  background: linear-gradient(to bottom right, #FFFFFF40 5%, #FFFFFF19 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="decouvrir"] .contentbox__content {
+  width: 100%;
+  height: 25rem;
+  padding: 1rem;
+}
+
+[data-page="decouvrir"] .contentbox__content--text {
+  overflow-y: hidden;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(90%, black), color-stop(97.5%, transparent));
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 97.5%);
+          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(90%, black), color-stop(97.5%, transparent));
+          mask-image: linear-gradient(to bottom, black 90%, transparent 97.5%);
+}
+
+[data-page="decouvrir"] .contentbox__content--text h3 {
+  font-weight: bold;
+  color: var(--color-3);
+}
+
+[data-page="decouvrir"] .contentbox__content--text p.page {
+  margin: 0;
+}
+
+[data-page="decouvrir"] .contentbox__content--text p {
+  margin: 1.5rem 0;
+}
+
+[data-page="decouvrir"] .contentbox__content--text strong {
+  color: var(--color-2);
+}
+
+[data-page="decouvrir"] .contentbox__content--text-fit {
+  -webkit-mask-image: default;
+          mask-image: default;
+  height: auto;
+}
+
+[data-page="decouvrir"] .contentbox__content--text-fit p {
+  margin: 0;
+}
+
+[data-page="decouvrir"] .contentbox__content--images {
+  display: -ms-grid;
+  display: grid;
+  padding: 1rem;
+  gap: .75rem;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (9rem)[2];
+      grid-template-rows: repeat(2, 9rem);
+}
+
+[data-page="decouvrir"] .contentbox__content--images img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: .75rem;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+[data-page="decouvrir"] .contentbox__expand {
+  width: 100%;
+}
+
+[data-page="decouvrir"] .contentbox__expand-arrow {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--color-3);
+  margin: auto;
+}
+
+[data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__content--text {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-mask-image: none;
+          mask-image: none;
+}
+
+[data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__content--text p {
+  margin-bottom: 0;
+}
+
+[data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__content--images {
+  display: block;
+}
+
+[data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__expand-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 [data-page="decouvrir"] .hash-page {
   display: none;
   position: absolute;
