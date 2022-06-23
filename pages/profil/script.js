@@ -1,4 +1,5 @@
 import * as USERDATA from "../../src/data_manager/ud.js";
+import * as BASEDATA from "../../src/data_manager/bd.js";
 import { imgToSvg } from "../../src/misc.js";
 import { loadFromHash } from "./loader.js";
 
@@ -14,10 +15,10 @@ export const profil__init = async () => {
 
     const favoris = await USERDATA.getFavorisAsync();
     for(let i = 0; i < favoris.length || i < 25; i++) {
-        const fav = favoris[i];
-        if(!fav) continue;
+        if(!favoris[i]) continue;
+        const {item: fav, table} = favoris[i];
         const $fav = $(favitem({
-            text: fav.join(", ")
+            text: BASEDATA.getNameFromElement(table, fav)
         }));
         $favorite.append($fav);
     }

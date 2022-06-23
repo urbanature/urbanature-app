@@ -81,9 +81,9 @@ export const accueil__setMap = async () => {
     if(DATABASE.flags.loaded) {
         setMapData(map1_layer, map2_layer);
     } else {
-        DATABASE.on.load = () => {
+        DATABASE.onload(() => {
             setMapData(map1_layer, map2_layer);
-        }
+        })
     }
 }
 

@@ -17,7 +17,7 @@ export const ecrit = async (template) => {
     
     let tables;
     if(BASEDATA.flags.loaded) tables = getTexts();
-    else BASEDATA.on.load = () => {tables = getTexts()};
+    else BASEDATA.onload(() => {tables = getTexts()});
     let html = "";
 
     if(source) {
@@ -95,7 +95,7 @@ export const textes = async (template) => {
 
     let table;
     if(BASEDATA.flags.loaded) table = await BASEDATA.fetchData("textes", author);
-    else BASEDATA.on.load = async () => table = await BASEDATA.fetchData("textes", author);
+    else BASEDATA.onload(async () => table = await BASEDATA.fetchData("textes", author));
     let html = ""; let tdata = {};
     if(book) {
         const contentbox_ = await fetch("pages/decouvrir/template/contentbox.html").then(r => r.text());

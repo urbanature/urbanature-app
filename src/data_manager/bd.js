@@ -4,8 +4,17 @@ export const flags = {
     loaded: false,
 };
 export const on = {
-    load: () => {},
+    load: [],
 };
+export const onload = (callback) => {
+    on.load.push(callback);
+}
+const runLoad = async () => {
+    for(let callback of on.load) {
+        await callback();
+    }
+}
+
 
 export const initData = async () => {
     /** @type {{name,path,marker,table,data,key_path,name_path}[]} */
@@ -20,7 +29,7 @@ export const initData = async () => {
     loaded_table.forEach(t => table.push(t));
     loaded_categories.forEach(c => categories.push(c));
     flags.loaded = true;
-    on.load();
+    runLoad();
 }
 
 export const fetchData = async (dbName, keyName) => {
@@ -67,6 +76,9 @@ export const getTablesByMetaData = (key, value) => {
         throw new Error(`Databases not found`);
     }
     return db;
+}
+export const getNameFromElement = (table, elem) => {
+    return elem.nom || elem.name;
 }
 
 window.data_table = table;

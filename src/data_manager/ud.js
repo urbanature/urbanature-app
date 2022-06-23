@@ -1,3 +1,4 @@
+import { delay } from "../misc.js";
 import * as BASEDATA from "./bd.js";
 
 const GLOBALS = {
@@ -17,6 +18,10 @@ export const generateId = (dbname, keyName, id) => {
     return [dbname, keyName, id];
 }
 const parseId = async ([dbname, keyName, id]) => {
+    await new Promise(async (res, rej) => {
+        if(BASEDATA.flags.loaded) res();
+        BASEDATA.onload(res);
+    })
     const table = await BASEDATA.fetchData(dbname, keyName);
     if(!table) return null;
     return table.find(({id: tid}) => tid === id);
@@ -74,10 +79,10 @@ export const readUdStorage = () => {
 }
 
 export const getFavoris = () => {
-    return GLOBALS.storage.favoris.map(parseId);
+    return GLOBALS.storage.favoris.map(t => ({item: parseId(t), table: t[0]}));
 }
 export const getFavorisAsync = async () => {
-    return await Promise.all(GLOBALS.storage.favoris.map(parseId));
+    return await Promise.all(GLOBALS.storage.favoris.map(async t => ({item: await parseId(t), table: t[0]})));
 }
 export const isFavorisById = ([dbname, keyName, id]) => {
     return GLOBALS.storage.favoris.find(([d, k, i]) => d === dbname && k === keyName && i === id) != null;

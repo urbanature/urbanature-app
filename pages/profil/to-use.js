@@ -8,10 +8,10 @@ export const favorites = async (template) => {
     const favoris = await USERDATA.getFavorisAsync();
     let html = "";
     for(let i = 0; i < favoris.length || i < 5; i++) {
-        const fav = favoris[i];
-        if(!fav) continue;
+        if(!favoris[i]) continue;
+        const {item: fav, table} = favoris[i];
         html += favitem({
-            text: fav.join(", ")
+            text: BASEDATA.getNameFromElement(table, fav)
         });
     }
     return _.template(template)({

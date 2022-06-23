@@ -154,7 +154,7 @@ export const explorer__initMenu = async () => {
     if(BASEDATA.flags.loaded) {
         explorer__init();
     } else {
-        BASEDATA.on.load = explorer__init;
+        BASEDATA.onload(explorer__init);
     }
 }
 
