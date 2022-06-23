@@ -25,7 +25,6 @@ export const ecrit = async (template) => {
         if(!t) return "";
         const tblist = t.table;
         tblist.sort((a, b) => a.name.localeCompare(b.name));
-        console.log(tblist);
         for(let tb of tblist) {
             const data = await BASEDATA.fetchData(source, tb.key);
             const data_red = data.reduce((acc, cur) => {

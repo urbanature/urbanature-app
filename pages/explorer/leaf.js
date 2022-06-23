@@ -51,7 +51,7 @@ export const setFilterToLeafmap = async (filters) => {
                     const geo = d.geo;
                     if(!geo) return;
                     const Lgeo = L.geoJSON(geo, geo_option);
-                    Lgeo.on("click", () => on.click(d, filter.dataKey, save_id));
+                    Lgeo.on("click", () => on.click(d, filter.dataKey, save_id, /* zoom */));
                     Lcluster.addLayer(Lgeo);
                 });
                 MAP.addLayer(Lcluster);
@@ -65,7 +65,7 @@ export const setFilterToLeafmap = async (filters) => {
                             const save_id = generateId(filter.dataKey, f.key, d.id);
                             if(!d.geo) return;
                             const Lgeo = L.geoJSON(d.geo, geo_option);
-                            Lgeo.on("click", () => on.click(d, filter.dataKey, save_id));
+                            Lgeo.on("click", () => on.click(d, filter.dataKey, save_id, 18));
                             Lcluster.addLayer(Lgeo);
                         });
                     } else {
@@ -73,7 +73,7 @@ export const setFilterToLeafmap = async (filters) => {
                             const save_id = generateId(filter.dataKey, f.key, d.id);
                             if(!d.geo) return;
                             const Lgeo = L.geoJSON(d.geo, geo_option);
-                            Lgeo.on("click", () => on.click(d, filter.dataKey, save_id));
+                            Lgeo.on("click", () => on.click(d, filter.dataKey, save_id, /* zoom */));
                             MAP.addLayer(Lgeo);
                         });
                     }
@@ -85,23 +85,48 @@ export const setFilterToLeafmap = async (filters) => {
 }
 
 export const getPosFromGeo = (geo) => {
+    let coordinates = [];
+    let sum = [0, 0];
+    let min = [Number.MAX_VALUE, Number.MAX_VALUE];
+    let max = [Number.MIN_VALUE, Number.MIN_VALUE];
+    let count = 0;
     if(geo.type === "Point") {
-        return geo.coordinates;
+        coordinates = geo.coordinates;
+        min = coordinates;
+        max = coordinates;
+        count++;
     } else if(geo.type === "Polygon") {
-        const coords = geo.coordinates[0];
-        let sum = [0, 0];
-        for(let coord of coords) {
-            sum[0] += coord[0];
-            sum[1] += coord[1];
+        for(let i = 0; i < geo.coordinates.length; i++) {
+            for(let j = 0; j < geo.coordinates[i].length; j++) {
+                sum[0] += geo.coordinates[i][j][0];
+                sum[1] += geo.coordinates[i][j][1];
+                if(min[0] > geo.coordinates[i][j][0]) min[0] = geo.coordinates[i][j][0];
+                if(min[1] > geo.coordinates[i][j][1]) min[1] = geo.coordinates[i][j][1];
+                if(max[0] < geo.coordinates[i][j][0]) max[0] = geo.coordinates[i][j][0];
+                if(max[1] < geo.coordinates[i][j][1]) max[1] = geo.coordinates[i][j][1];
+                count++;
+            }
         }
-        return [sum[0]/coords.length, sum[1]/coords.length];
+        coordinates = [sum[0]/count, sum[1]/count];
     } else if(geo.type === "MultiPolygon") {
-        const coords = geo.coordinates[0][0];
-        let sum = [0, 0];
-        for(let coord of coords) {
-            sum[0] += coord[0];
-            sum[1] += coord[1];
+        for(let i = 0; i < geo.coordinates.length; i++) {
+            for(let j = 0; j < geo.coordinates[i].length; j++) {
+                for(let k = 0; k < geo.coordinates[i][j].length; k++) {
+                    sum[0] += geo.coordinates[i][j][k][0];
+                    sum[1] += geo.coordinates[i][j][k][1];
+                    if(min[0] > geo.coordinates[i][j][k][0]) min[0] = geo.coordinates[i][j][k][0];
+                    if(min[1] > geo.coordinates[i][j][k][1]) min[1] = geo.coordinates[i][j][k][1];
+                    if(max[0] < geo.coordinates[i][j][k][0]) max[0] = geo.coordinates[i][j][k][0];
+                    if(max[1] < geo.coordinates[i][j][k][1]) max[1] = geo.coordinates[i][j][k][1];
+                    count++;
+                }
+            }
         }
-        return [sum[0]/coords.length, sum[1]/coords.length];
+        coordinates = [sum[0]/count, sum[1]/count];
     }
+    const distance = [
+        Math.abs(max[0] - min[0]),
+        Math.abs(max[1] - min[1]),
+    ]
+    return [coordinates, distance]
 }

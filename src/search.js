@@ -9,7 +9,6 @@ const equals = (a, b) => {
 }
 
 export const searchByKeyInDB = async (dbName, keyName, searchText) => {
-    console.log(`searchByKeyInDB(${dbName}, ${keyName}, ${searchText})`);
     const {table: dbs, key_path, name_path} = BASEDATA.getTableMetaData(dbName);
     const searches = searchText.split(" ");
     const searchResult = [];
@@ -30,7 +29,6 @@ export const searchByKeyInDB = async (dbName, keyName, searchText) => {
             if(some_dbs.length > 0) {
                 for(let db of some_dbs) {
                     searchResult.push(db);
-                    console.log(`Scanning ${db.key} by shortcut`);
                     const d = await BASEDATA.fetchData(dbName, db.key);
                     if(equals(db[tkey], searchText)) {
                         return d;
@@ -45,7 +43,6 @@ export const searchByKeyInDB = async (dbName, keyName, searchText) => {
     }
     for(const db of dbs) {
         if(db === alreadyScanned) continue;
-        console.log(`Scanning ${db.key}`);
         const d = await BASEDATA.fetchData(dbName, db.key);
         const data = d.filter(d => searches.some(s => includes(eval(`d.${keyName}`), s)));
         if(data) {

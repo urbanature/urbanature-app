@@ -147,8 +147,13 @@ export const mapControl = (enable = true, dom = $map.find(".leaflet-bottom.leafl
     zoom_buttons.appendTo(dom);
 }
 
-export const setPosition = ({lat, lng}) => {
-    leafMap.setView([lat, lng], 14);
+export const setPosition = ({lat, lng}, distance) => {
+    // get zoom according to distance and leafMap bounds
+    const zoom = leafMap.getBoundsZoom([
+        [lat - distance[1], lng - distance[0]],
+        [lat + distance[1], lng + distance[0]],
+    ]);
+    leafMap.setView([lat, lng], zoom);
 }
 
 export const pinLocation = async () => {

@@ -20,7 +20,6 @@ export const parcours = async (template) => {
     if(splitted[2]) {
         parcours += "#" + splitted[2];
     }
-    console.log(parcours);
     return _.template(template)({id: parcours});
 }
 
@@ -29,7 +28,6 @@ export const liste = async (template) => {
     const el_t = await fetch("pages/parcourir/template/liste_el.html").then(res => res.text());
     let content = "";
     for(let key in config) {
-        console.log(key, config[key]);
         const json = config[key];
         const data = {
             id: key,
@@ -39,6 +37,5 @@ export const liste = async (template) => {
         const html = _.template(el_t)(data);
         content += html;
     }
-    console.log(content);
     return _.template(template)({content: content});
 }

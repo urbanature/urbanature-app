@@ -27,7 +27,6 @@ export const loadHashPage = async (hash) => {
         }
         if(text.includes("<!-- use")) {
             to_use = text.split("<!-- use: ")[1].split(" -->")[0];
-            // console.log(eval(`TO_USE.${to_use}`)(text))
             text = await (eval(`TO_USE.${to_use}`)(text));
         }
     } catch {};
@@ -45,7 +44,6 @@ export const loadHashPage = async (hash) => {
         loadFromHash();
     });
     $("#__dom__page a").on("click", function(e) {
-        console.log("click");
         loadFromHash();
     });
     $(`.__link__button[href="parcourir"]`).on("click", unloadHash);

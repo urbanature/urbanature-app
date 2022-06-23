@@ -39,7 +39,6 @@ export const profil__init = async () => {
     
     loadFromHash();
     $("#__dom__page a").on("click", function(e) {
-        console.log("click");
         loadFromHash();
     });
 }

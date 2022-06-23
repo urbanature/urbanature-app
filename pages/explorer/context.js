@@ -70,11 +70,11 @@ export const initContextEvent = () => {
         if(!is_open) {
             await delay(50);
         }
-        const geo = LEAF.getPosFromGeo(data.geo);
+        const [geo, distance] = LEAF.getPosFromGeo(data.geo);
         contextOpen(save_id, {
-            lat: geo[1] - .003,
+            lat: geo[1],
             lng: geo[0]
-        });
+        }, distance);
         is_open = true;
     }
     MAP.on.click = (e) => {
@@ -127,10 +127,10 @@ const showContextHelper = async () => {
     $helper.remove();
 }
 
-export const contextOpen = (save_id, geoloc) => {
+export const contextOpen = (save_id, geoloc, distance) => {
     $("#context").attr("data-mode", "partial");
     setHash(save_id);
-    MAP.setPosition(geoloc);
+    MAP.setPosition(geoloc, distance);
     const now = Date.now();
     // time limit: 10 minutes
     if(!data.last_time_context || now - data.last_time_context > 600000) {

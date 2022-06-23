@@ -6,7 +6,6 @@ export const on = {
     navigate: (url) => {}
 }
 const baseurl = document.baseURI + (document.baseURI.endsWith("/") ? "" : "/");
-console.log(baseurl);
 
 export const useAttemptedHref = () => {
     const href = sessionStorage.getItem("attempted-href");

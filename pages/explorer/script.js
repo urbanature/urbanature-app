@@ -126,7 +126,6 @@ export const explorer__init = async () => {
         $(this).parent().attr("data-expanded", !isExpanded);
     });
     const filter_query = getFiltersFromQuery();
-    console.log(filter_query);
     if (filter_query.length > 0) {
         filter_query.forEach(f => {
             if(f.all) {
