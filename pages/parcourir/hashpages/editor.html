@@ -1,0 +1,33 @@
+<!-- no-header -->
+<!-- use-after: editor -->
+<header class="edithead">
+    <button class="edithead__button" data-nav="prev">
+        <img src="assets/icon/fleche_gauche.svg" alt="Precedent" class="svg-img">
+    </button>
+    <h1>Éditeur de parcours</h1>
+    <button class="edithead__button" data-nav="next">
+        <img src="assets/icon/fleche_droite.svg" alt="Suivant" class="svg-img">
+    </button>
+</header>
+<div class="section" id="favoris">
+    <form action="" class="searchbar" id="explorer-search">
+        <input type="search" name="search" placeholder="Rechercher un favoris" autocomplete="off" >
+        <img src="assets/icon/recherche.svg" alt="Fermer" class="svg-img">
+    </form>
+    <div class="section__list"></div>
+</div>
+<div class="section" id="liste">
+    <div class="section__map" id="map-preview"></div>
+    <div class="section__list"></div>
+</div>
+<div class="section" id="meta">
+    <input type="number" name="parcours-id" id="parcours-id" hidden>
+    <input class="section__input section__input--input" type="text" name="parcours-name" placeholder="Nom du parcours" id="parcours-name">
+    <input class="section__input section__input--input" type="text" name="parcours-img" placeholder="URL de l'image du parcours" id="parcours-img">
+    <button class="section__input section__input--button" id="parcours-submit">Valider</button>
+    <div class="listel listel--bis section__example">
+        <img src="database/image/noimg.png" alt="" class="listel__img" id="example-img">
+        <p class="parcourir__texte listel__texte" id="example-name"></p>
+        <img src="assets/icon/fleche_droite.svg" alt="" class="svg-img decouvrir__go listel__go">
+    </div>    
+</div>

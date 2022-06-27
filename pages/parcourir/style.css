@@ -13,7 +13,7 @@
   margin-bottom: 2rem;
 }
 
-[data-page="parcourir"] header h1 .svg {
+[data-page="parcourir"] header h1 {
   width: 3rem;
 }
 
@@ -189,5 +189,391 @@
 
 [data-page="parcourir"] .back .svg {
   fill: var(--color-2);
+}
+
+[data-page="parcourir"] #map-parcours {
+  width: 100%;
+  height: 100%;
+}
+
+[data-page="parcourir"] #map-preview {
+  width: 100%;
+  height: calc(100 * var(--vh) - var(--dom-navbar-height) - 18rem);
+  margin-top: 1rem;
+}
+
+[data-page="parcourir"] .previewhead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 3rem;
+  margin: 1rem var(--page-margin);
+  text-align: center;
+}
+
+[data-page="parcourir"] .previewhead h1 {
+  position: static;
+  width: 100%;
+  -webkit-transform: none;
+          transform: none;
+}
+
+[data-page="parcourir"] .preview {
+  margin: var(--page-margin);
+}
+
+[data-page="parcourir"] .hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+[data-page="parcourir"] .hud__buttonlist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: all;
+}
+
+[data-page="parcourir"] .hud__button {
+  width: 3rem;
+  height: 3rem;
+  padding: .75rem;
+  border-radius: .5rem;
+  background: var(--color-2);
+  color: var(--color-4);
+  fill: var(--color-4);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="parcourir"] .edithead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+}
+
+[data-page="parcourir"] .edithead h1 {
+  position: static;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transform: none;
+          transform: none;
+}
+
+[data-page="parcourir"] .edithead__button {
+  width: 2.5rem;
+  padding: .75rem;
+  fill: var(--color-4);
+  border-radius: .5rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="parcourir"] .edithead__button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
+  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="parcourir"] .edithead__button--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-page="parcourir"] .section {
+  display: none;
+  margin: var(--page-margin);
+}
+
+[data-page="parcourir"] .section__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  min-height: calc(100 * var(--vh) - var(--dom-navbar-height) - 12rem - 1rem);
+}
+
+[data-page="parcourir"] .section__map {
+  width: 100%;
+  height: 12rem;
+  margin-bottom: 1rem;
+}
+
+[data-page="parcourir"] .section__input {
+  display: block;
+  padding: .5rem 1rem;
+  margin: 1rem 0;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="parcourir"] .section__input--input {
+  width: 100%;
+  height: 3rem;
+  background: var(--color-4);
+  color: var(--color-5);
+  font-weight: 500;
+}
+
+[data-page="parcourir"] .section__input--input::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+[data-page="parcourir"] .section__input--input:-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+[data-page="parcourir"] .section__input--input::-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+[data-page="parcourir"] .section__input--input::placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+[data-page="parcourir"] .section__input--button {
+  margin-left: auto;
+  color: var(--color-3);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="parcourir"] .section__input--button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
+  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="parcourir"] .section__example {
+  margin-top: 2rem;
+}
+
+[data-page="parcourir"] .section--view {
+  display: block;
+}
+
+[data-page="parcourir"] .searchbar {
+  margin: var(--page-margin) 0;
+}
+
+[data-page="parcourir"] .favitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .75rem 1.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  border-radius: 1rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="parcourir"] .favitem::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
+  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="parcourir"] .favitem__text {
+  width: 100%;
+}
+
+[data-page="parcourir"] .favitem__text h2 {
+  text-align: left;
+  margin: 0;
+  font-size: 1.25rem;
+  font-style: normal;
+  color: var(--color-3);
+}
+
+[data-page="parcourir"] .favitem__text p {
+  text-align: left;
+  font-size: .875rem;
+  color: var(--color-4);
+}
+
+[data-page="parcourir"] .favitem__drag {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  fill: var(--color-3);
+}
+
+[data-page="parcourir"] .parcourslist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  padding: 0 var(--page-margin);
+}
+
+[data-page="parcourir"] .parcoursitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .75rem 1.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+  border-radius: 1rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="parcourir"] .parcoursitem::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
+  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
+  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
+  -webkit-mask-composite: xor;
+  border-radius: inherit;
+}
+
+[data-page="parcourir"] .parcoursitem__text {
+  width: 100%;
+}
+
+[data-page="parcourir"] .parcoursitem__text h2 {
+  text-align: left;
+  margin: 0;
+  font-size: 1.25rem;
+  font-style: normal;
+  color: var(--color-3);
+}
+
+[data-page="parcourir"] .parcoursitem__text p {
+  text-align: left;
+  font-size: .875rem;
+  color: var(--color-4);
+}
+
+[data-page="parcourir"] .parcoursitem__delete {
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: .25rem;
+  border-radius: .25rem;
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+  background: var(--color-2);
+  color: var(--color-4);
+  fill: var(--color-4);
+}
+
+[data-page="parcourir"] input[type="checkbox"] {
+  display: none;
+}
+
+[data-page="parcourir"] input[type="checkbox"] + .checkbox {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--color-4);
+}
+
+[data-page="parcourir"] input[type="checkbox"] + .checkbox > * {
+  padding: .125rem;
+  border-radius: .25rem;
+}
+
+[data-page="parcourir"] input[type="checkbox"] + .checkbox .checked {
+  background: var(--color-3);
+  fill: var(--color-1);
+  display: none;
+}
+
+[data-page="parcourir"] input[type="checkbox"] + .checkbox .not-checked {
+  background: var(--color-1);
+  fill: var(--color-3);
+  display: block;
+}
+
+[data-page="parcourir"] input[type="checkbox"]:checked + .checkbox .checked {
+  display: block;
+}
+
+[data-page="parcourir"] input[type="checkbox"]:checked + .checkbox .not-checked {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

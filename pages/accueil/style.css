@@ -19,7 +19,7 @@
   padding-bottom: 2rem;
 }
 
-[data-page="accueil"] header h1 .svg {
+[data-page="accueil"] header h1 {
   width: 3rem;
 }
 

@@ -1,0 +1,21 @@
+$size: .375rem;
+$color: var(--color-3);
+
+::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+    &-thumb {
+        border-radius: $size;
+        background: $color;
+    }
+    &-track {
+        background: none;
+    }
+}
+
+#__dom__page {
+    overflow: overlay;
+}
+.hash-page {
+    overflow: overlay !important;
+}

@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.375rem;
+  background: var(--color-3);
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+#__dom__page {
+  overflow: overlay;
+}
+
+.hash-page {
+  overflow: overlay !important;
+}
+/*# sourceMappingURL=scroll.css.map */

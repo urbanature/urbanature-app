@@ -10,14 +10,15 @@ const GLOBALS = {
             explorer: [],
             parcourir: [],
             profil: []
-        }
+        },
+        parcours: [],
     }
 };
 
 export const generateId = (dbname, keyName, id) => {
     return [dbname, keyName, id];
 }
-const parseId = async ([dbname, keyName, id]) => {
+export const parseId = async ([dbname, keyName, id]) => {
     await new Promise(async (res, rej) => {
         if(BASEDATA.flags.loaded) res();
         BASEDATA.onload(res);
@@ -30,39 +31,19 @@ const parseId = async ([dbname, keyName, id]) => {
 export const loadStorage = () => {
     const ud_storage = localStorage.getItem('ud_storage') ?? "";
     const storage = LZString.decompress(ud_storage);
-    if (storage) {
-        const sto = JSON.parse(storage);
-        if(sto.favoris)
-                GLOBALS.storage.favoris = sto.favoris;
-        else    GLOBALS.storage.favoris = [];
-        if(sto.recherches.accueil)
-                GLOBALS.storage.recherches.accueil = sto.recherches.accueil;
-        else    GLOBALS.storage.recherches.accueil = [];
-        if(sto.recherches.decouvrir)
-                GLOBALS.storage.recherches.decouvrir = sto.recherches.decouvrir;
-        else    GLOBALS.storage.recherches.decouvrir = [];
-        if(sto.recherches.explorer)
-                GLOBALS.storage.recherches.explorer = sto.recherches.explorer;
-        else    GLOBALS.storage.recherches.explorer = [];
-        if(sto.recherches.parcourir)
-                GLOBALS.storage.recherches.parcourir = sto.recherches.parcourir;
-        else    GLOBALS.storage.recherches.parcourir = [];
-        if(sto.recherches.profil)
-                GLOBALS.storage.recherches.profil = sto.recherches.profil;
-        else    GLOBALS.storage.recherches.profil = [];
-    } else {
-        GLOBALS.storage = {
-            favoris: [],
-            recherches: {
-                accueil: [],
-                decouvrir: [],
-                explorer: [],
-                parcourir: [],
-                profil: []
-            }
-        };
-    }
-    return GLOBALS.storage;
+    let st = storage ? JSON.parse(storage) : {};
+    return (GLOBALS.storage = {
+        favoris: [],
+        recherches: {
+            accueil: [],
+            decouvrir: [],
+            explorer: [],
+            parcourir: [],
+            profil: []
+        },
+        parcours: [],
+        ...st
+    });
 }
 export const saveStorage = () => {
     const storage = JSON.stringify(GLOBALS.storage);
@@ -72,7 +53,7 @@ export const saveStorage = () => {
 export const initData = () => {
     loadStorage();
     saveStorage();
-    localStorage.setItem("Why does ud_storage look chinese?", "Enter the command readStorage() in the console to see the content of the storage.");
+    localStorage.setItem("Why does ud_storage look chinese?", "Enter the command getStorage() in the console to see the content of the storage.");
 }
 export const readUdStorage = () => {
     return JSON.parse(LZString.decompress(localStorage.ud_storage));
@@ -82,7 +63,7 @@ export const getFavoris = () => {
     return GLOBALS.storage.favoris.map(t => ({item: parseId(t), table: t[0]}));
 }
 export const getFavorisAsync = async () => {
-    return await Promise.all(GLOBALS.storage.favoris.map(async t => ({item: await parseId(t), table: t[0]})));
+    return await Promise.all(GLOBALS.storage.favoris.map(async t => ({item: await parseId(t), table: t[0], sid: t})));
 }
 export const isFavorisById = ([dbname, keyName, id]) => {
     return GLOBALS.storage.favoris.find(([d, k, i]) => d === dbname && k === keyName && i === id) != null;
@@ -126,6 +107,45 @@ export const addRecherche = (page, recherche) => {
     if(prev !== -1) GLOBALS.storage.recherches[page].splice(prev, 1);
     GLOBALS.storage.recherches[page].unshift(recherche);
     saveStorage();
+}
+
+export const getParcours = () => {
+    return GLOBALS.storage.parcours;
+}
+export const addParcours = (parcours) => {
+    GLOBALS.storage.parcours.push(parcours);
+    saveStorage();
+}
+export const removeParcours = (id) => {
+    const index = GLOBALS.storage.parcours.findIndex(p => p.id == id);
+    console.log(index, id);
+    if(index === -1) return;
+    GLOBALS.storage.parcours.splice(index, 1);
+    saveStorage();
+}
+export const updateParcours = (id, parcours) => {
+    const index = GLOBALS.storage.parcours.findIndex(p => p.id == id);
+    if(index === -1) return;
+    GLOBALS.storage.parcours[index] = parcours;
+    saveStorage();
+}
+export const getParcoursById = (id) => {
+    return GLOBALS.storage.parcours.find(p => p.id == id);
+}
+export const getParcoursByName = (name) => {
+    return GLOBALS.storage.parcours.find(p => p.name === name);
+}
+export const getNextParcoursId = () => {
+    return GLOBALS.storage.parcours.length;
+}
+export const getParcode = (id) => {
+    const parcours = getParcoursById(id);
+    if(!parcours) return null;
+    return LZString.compressToEncodedURIComponent(JSON.stringify(parcours));
+}
+export const fromParcode = (parcode) => {
+    const parcours = JSON.parse(LZString.decompressFromEncodedURIComponent(parcode));
+    return parcours;
 }
 
 window.getStorage = () => {

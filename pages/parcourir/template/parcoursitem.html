@@ -1,0 +1,18 @@
+<% if(id == "new") { %>
+<a class="parcoursitem" href="parcourir#editor" data-id="new">
+    <div class="parcoursitem__text">
+        <h2>Nouveau parcours</h2>
+        <p>Créez votre parcours</p>
+    </div>
+</a>
+<% } else { %>
+<a class="parcoursitem" href="parcourir#editor.{{id}}" data-id="{{id}}">
+    <div class="parcoursitem__text">
+        <h2>{{name}}</h2>
+        <p>{{etapes}}</p>
+    </div>
+    <button class="parcoursitem__delete">
+        <img src="assets/icon/x.svg" alt="" class="svg-img">
+    </button>
+</a>
+<% } %>
