@@ -7,7 +7,7 @@ export const favorites = async (template) => {
 
     const favoris = await USERDATA.getFavorisAsync();
     let html = "";
-    for(let i = 0; i < favoris.length || i < 5; i++) {
+    for(let i = 0; i < favoris.length; i++) {
         if(!favoris[i]) continue;
         const {item: fav, table} = favoris[i];
         html += favitem({
@@ -29,7 +29,7 @@ export const history = async (template) => {
         pcont.map(item => recherches.push(`${page}: ${item}`))
     }
     let html = "";
-    for(let i = 0; i < recherches.length || i < 5; i++) {
+    for(let i = 0; i < recherches.length; i++) {
         const rec = recherches[i];
         if(!rec) continue;
         html += histem({
