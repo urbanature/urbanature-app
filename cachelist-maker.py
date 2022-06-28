@@ -23,12 +23,17 @@ def get_filepaths(directory):
 # Run the above function and store its results in a variable.   
 full_file_paths = get_filepaths("./")
 
-ext_exceptions = [".py", ".scss", ".map", "/_", "cachelist.js"]
-dir_exceptions = [".git"]
+for i in range(len(full_file_paths)):
+    full_file_paths[i] = full_file_paths[i].replace("./", "")
+    
+
+ext_exceptions = [".py", ".scss", ".map", "/_", "cachelist.js", ".md", ".htaccess", ".sql"]
+dir_exceptions = [".git", ".common", "node_modules", "database"]
+dir_separate = ["database"]
 
 with open('cachelist.js', 'w', encoding="utf8") as f:
     # write as a JS array of strings
-    f.write('export const PRECACHE_URLS = [\n')
+    f.write('export const PRECACHE_URLS_APP = [\n')
     for filepath in full_file_paths:
         is_writable = True
         for ext in ext_exceptions:
@@ -36,9 +41,24 @@ with open('cachelist.js', 'w', encoding="utf8") as f:
                 is_writable = False
                 break
         for dir in dir_exceptions:
-            if filepath.startswith(f'./{dir}'):
+            if filepath.startswith(f'{dir}'):
                 is_writable = False
                 break
         if is_writable:
             f.write(f'    "{filepath}",\n')
-    f.write(']')
+    f.write(']\n')
+    # write as a JS array of strings
+    f.write('export const PRECACHE_URLS_DATA = [\n')
+    for filepath in full_file_paths:
+        is_writable = True
+        for ext in ext_exceptions:
+            if filepath.endswith(ext):
+                is_writable = False
+                break
+        for dir in dir_separate:
+            if not filepath.startswith(f'{dir}'):
+                is_writable = False
+                break
+        if is_writable:
+            f.write(f'    "{filepath}",\n')
+    f.write(']\n')
