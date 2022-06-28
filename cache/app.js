@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-app-20220628-1515';
+export const PRECACHE = 'precache-app-20220628-1535';
 export const PRECACHE_URLS = [
     "index.html",
     "jsconfig.json",
