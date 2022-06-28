@@ -10,7 +10,6 @@ import { explorer__unhide, explorer__hide, explorer__manageMenu, explorer__initM
 import { decouvrir__init } from "../pages/decouvrir/script.js";
 import { parcourir__init } from "../pages/parcourir/script.js";
 
-import "./search.js"
 import { profil__init } from "../pages/profil/script.js";
 
 $(window).on('resize', updateVh);

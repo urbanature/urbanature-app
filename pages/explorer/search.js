@@ -1,5 +1,6 @@
 import * as USERDATA from "../../src/data_manager/ud.js";
 import { imgToSvg } from "../../src/misc.js";
+import * as SEARCH_ENGINE_BAK from "../../src/search.bak.js";
 import * as SEARCH_ENGINE from "../../src/search.js";
 import { $_slist_item_history, $_slist_item_my, $_slist_item_search } from "./el.js";
 
@@ -38,12 +39,11 @@ export const initSearch = async () => {
             await refreshFavorites();
             return;
         }
-        const results = await SEARCH_ENGINE.searchByKeyEverywhereWithLimit("nom", query, 25);
+        // const results = await SEARCH_ENGINE_BAK.searchByKeyEverywhereWithLimit("nom", query, 25);
+        const results = (await SEARCH_ENGINE.searchInAllTables(query, 25)).map(r => r.data);
         $results.find("ul").empty();
         for (let db of results) {
-            for(let res of db.result) {
-                $_slist_item_search(res.nom, "", res.id).appendTo($results.find("ul"));
-            }
+            $_slist_item_search(db.nom, "", db.id).appendTo($results.find("ul"));
         }
         await imgToSvg();
         USERDATA.addRecherche("explorer", query);

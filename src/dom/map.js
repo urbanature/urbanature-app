@@ -41,6 +41,19 @@ const getMapPosition = () => {
     }
 }
 
+export const getLocation = () => new Promise((resolve, reject) => {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+            resolve({
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude,
+            });
+        });
+    } else {
+        reject();
+    }
+});
+
 const locate = () => new Promise((resolve, reject) => {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {

@@ -25,7 +25,7 @@ export const parseId = async ([dbname, keyName, id]) => {
     })
     const table = await BASEDATA.fetchData(dbname, keyName);
     if(!table) return null;
-    return table.find(({id: tid}) => tid === id);
+    return table.find(({id: tid}) => tid == id);
 }
 
 export const loadStorage = () => {
