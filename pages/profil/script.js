@@ -14,7 +14,7 @@ export const profil__init = async () => {
     const histem = _.template(histem_);
 
     const favoris = await USERDATA.getFavorisAsync();
-    for(let i = 0; i < favoris.length || i < 5; i++) {
+    for(let i = 0; i < Math.min(favoris.length, 5); i++) {
         if(!favoris[i]) continue;
         const {item: fav, table} = favoris[i];
         const $fav = $(favitem({
@@ -28,7 +28,7 @@ export const profil__init = async () => {
         const pcont = udr[page];
         pcont.map(item => recherches.push(`${page}: ${item}`))
     }
-    for(let i = 0; i < recherches.length || i < 5; i++) {
+    for(let i = 0; i < Math.min(recherches.length, 5); i++) {
         const rec = recherches[i];
         if(!rec) continue;
         const $rec = $(histem({
