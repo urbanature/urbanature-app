@@ -26,7 +26,7 @@ export const searchInTable = async (table, searchText, locate, limit) => {
     for(const row of data) {
         result.push({
             ...row,
-            data: await USERDATA.parseId(row.sid)
+            // data: await USERDATA.parseId(row.sid)
         });
     }
     return result;
