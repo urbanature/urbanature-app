@@ -28,7 +28,7 @@ const parcours_map = async (mapid) => {
         const marker = L.geoJSON(data.geo);
         marker.bindPopup(L.popup({
             closeButton: false
-        }).setContent(data.nom || data.name));
+        }).setContent(data.nom));
         markers.push(marker);
     }
     const group = L.featureGroup(markers).addTo(map);

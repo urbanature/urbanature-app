@@ -28,22 +28,22 @@ export const ecrit = async (template) => {
         for(let tb of tblist) {
             const data = await BASEDATA.fetchData(source, tb.key);
             const data_red = data.reduce((acc, cur) => {
-                if(!acc.find(d => d.name == cur.name)) {
+                if(!acc.find(d => d.nom == cur.nom)) {
                     acc.push(cur);
                 }
                 return acc;
             }, []);
-            data_red.sort((a, b) => a.name.localeCompare(b.name));
+            data_red.sort((a, b) => a.nom.localeCompare(b.nom));
             html += section_texte({
                 name: tb.name,
                 key: t.path,
                 href: `textes.${tb.name}`,
                 content: data_red.map(d => textcard({
-                    data: {...d, nom: d.name, meta:{img: ((d.meta?.img) || "database/img/noimg.png")}},
+                    data: {...d, nom: d.nom, meta:{img: ((d.meta?.img) || "database/img/noimg.png")}},
                     database: t.path,
-                    href: `${t.path}.${d.info?.author}.${d.name}`,
+                    href: `${t.path}.${d.info?.author}.${d.nom}`,
                     page: "ecrit",
-                    key: d.name,
+                    key: d.nom,
                     id: d.id,
                     saveid: `textes,${d.info?.author},${d.id}`
                 })).join("")
@@ -100,11 +100,11 @@ export const textes = async (template) => {
     if(book) {
         const contentbox_ = await fetch("pages/decouvrir/template/contentbox.html").then(r => r.text());
         const contentbox = _.template(contentbox_);
-        const data = table.filter(t => t.name == book);
+        const data = table.filter(t => t.nom == book);
         if(!data) return "";
         html += data.map(t => contentbox({
             data: {
-                ...t, nom: t.name, 
+                ...t, 
                 info:{...t.info, contenu: t.info.contenu.replace(/\n/g, "<br>")}, 
                 meta:{img: ((t.meta?.img) || "database/img/noimg.png")}
             },
@@ -120,16 +120,16 @@ export const textes = async (template) => {
         const textcard = _.template(textcard_);
         const data = [];
         for(let t of table) {
-            if(!data.find(d => d.name == t.name)) {
+            if(!data.find(d => d.nom == t.nom)) {
                 data.push({...t});
             }
         }
-        data.sort((a, b) => a.name.localeCompare(b.name));
+        data.sort((a, b) => a.nom.localeCompare(b.nom));
         html = data.map(t => textcard({
-            data: {...t, nom: t.name, meta:{img: ((t.meta?.img) || "database/img/noimg.png")}},
-            href: encodeURI(`textes.${author}.${t.name}`),
+            data: {...t, meta:{img: ((t.meta?.img) || "database/img/noimg.png")}},
+            href: encodeURI(`textes.${author}.${t.nom}`),
             page: "textes",
-            key: t.name,
+            key: t.nom,
             id: t.id,
             saveid: `textes,${author},${t.id}`
         })).join("");
