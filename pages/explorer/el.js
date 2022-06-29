@@ -61,6 +61,7 @@ export const $_slist_item_my = (text) => $(`<li class="slist__item">
 const $_ctx_head = (data, save_id, is_saved) => {
     const $sec = $(`<section class="csection" id="ctx-head">`);
     $(`<h2 class="title">${data.nom}</h2>`).appendTo($sec);
+    $(`<p class="address">${data.meta.address}</p>`).appendTo($sec);
     const $menu = $(`<div class="context__menu">`).appendTo($sec);
     [
         {name: "Itinéraire", icon: "assets/icon/itineraire.svg", action: function(e) {
