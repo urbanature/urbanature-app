@@ -58,7 +58,7 @@ export const loadHashPage = async (hash) => {
         $("#hash-page").removeClass("no-header");
     }
     $("#__dom__page img").on("error", function(e) {
-        $(this).attr("src", "database/img/noimg.png");
+        $(this).attr("src", "database/img/noimg.webp");
     });
     $("#__dom__page .contentbox__expand").on("click", function(e) {
         $(this).parent().attr("data-expanded", $(this).parent().attr("data-expanded") == "true" ? "false" : "true");

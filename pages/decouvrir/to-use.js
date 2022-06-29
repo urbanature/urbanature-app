@@ -39,7 +39,7 @@ export const ecrit = async (template) => {
                 key: t.path,
                 href: `textes.${tb.name}`,
                 content: data_red.map(d => textcard({
-                    data: {...d, nom: d.nom, meta:{img: ((d.meta?.img) || "database/img/noimg.png")}},
+                    data: {...d, nom: d.nom, meta:{img: ((d.meta?.img) || "database/img/noimg.webp")}},
                     database: t.path,
                     href: `${t.path}.${d.info?.author}.${d.nom}`,
                     page: "ecrit",
@@ -66,7 +66,7 @@ export const ecrit = async (template) => {
                         data: {
                             ...d[0],
                             nom: undefined,
-                            meta:{img: img?.meta.img || "database/img/noimg.png"}
+                            meta:{img: img?.meta.img || "database/img/noimg.webp"}
                         },
                         href: `${t.path}.${d[0].info?.author}`,
                         page: "ecrit",
@@ -106,7 +106,7 @@ export const textes = async (template) => {
             data: {
                 ...t, 
                 info:{...t.info, contenu: t.info.contenu.replace(/\n/g, "<br>")}, 
-                meta:{img: ((t.meta?.img) || "database/img/noimg.png")}
+                meta:{img: ((t.meta?.img) || "database/img/noimg.webp")}
             },
         })).join("");
         tdata = {
@@ -126,7 +126,7 @@ export const textes = async (template) => {
         }
         data.sort((a, b) => a.nom.localeCompare(b.nom));
         html = data.map(t => textcard({
-            data: {...t, meta:{img: ((t.meta?.img) || "database/img/noimg.png")}},
+            data: {...t, meta:{img: ((t.meta?.img) || "database/img/noimg.webp")}},
             href: encodeURI(`textes.${author}.${t.nom}`),
             page: "textes",
             key: t.nom,

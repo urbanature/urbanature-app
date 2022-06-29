@@ -11,6 +11,7 @@ export const PRECACHE_URLS = [
     "database/img/map-btv1b530855456.jpg",
     "database/img/maquis-montmartre.jpg",
     "database/img/noimg.png",
+    "database/img/noimg.webp",
     "database/img/plan-de-paris-bis.jpg",
     "database/img/Rue_Saint-Honore_in_the_Afternoon._Effect_of_Rain.jpeg",
     "database/json/categories.json",
