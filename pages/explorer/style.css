@@ -269,6 +269,7 @@
 
 [data-page="explorer"] .context {
   --pos: 0;
+  --pos-partial: calc(100% - var(--dom-navbar-height) - 192px);
   position: fixed;
   top: var(--pos);
   left: 0;
@@ -290,7 +291,7 @@
 }
 
 [data-page="explorer"] .context[data-mode="partial"] {
-  --pos: calc(100% - var(--dom-navbar-height) - 192px);
+  --pos: var(--pos-partial);
 }
 
 [data-page="explorer"] .context[data-mode="none"] {

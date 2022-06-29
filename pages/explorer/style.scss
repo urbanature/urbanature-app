@@ -222,6 +222,7 @@ input[type="checkbox"] {
 
 .context {
     --pos: 0;
+    --pos-partial: calc(100% - var(--dom-navbar-height) - 192px);
     position: fixed;
     top: var(--pos);
     left: 0; z-index: 2001;
@@ -237,7 +238,7 @@ input[type="checkbox"] {
         overflow-y: auto;
     }
     &[data-mode="partial"] {
-        --pos: calc(100% - var(--dom-navbar-height) - 192px);
+        --pos: var(--pos-partial);
     }
     &[data-mode="none"] {
         --pos: 100%;

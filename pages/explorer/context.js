@@ -96,6 +96,11 @@ export const contextSet = async (data, dataKey, save_id) => {
             }
         });
     imgToSvg();
+    const han_h = $(".context__handle").outerHeight();
+    const hea_h = $("#ctx-head").outerHeight();
+    const h = hea_h + han_h + 8;
+    $context.css("--pos-partial", `calc(100% - var(--dom-navbar-height) - ${h}px)`);
+
 }
 
 const showContextHelper = async () => {
