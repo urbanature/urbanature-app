@@ -1,1 +1,1 @@
-INSERT INTO `textes` (`id`, `name`, `info.author`, `info.source`, `info.category`, `info.contenu`, `meta.img`, `meta.adresse`, `geo`) VALUES ('41', '', 'Jules Renard', '', '', '', '', '', '');
+INSERT INTO `textes` (`id`, `info.author`, `info.source`, `info.category`, `info.contenu`, `meta.img`, `meta.adresse`, `geo`, `nom`) VALUES ('41', 'Jules Renard', '', '', '', '', '', '', '');
