@@ -16,8 +16,8 @@
 }, {
     "name": "Espaces verts",
     "path": "espaces-verts",
-    "key_path": "info.categorie",
-    "name_path": "info.categorie",
+    "key_path": "info.type",
+    "name_path": "info.type",
     "category": "verdure",
     "color": "#769463",
     "type": "object"
