@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-database-20220629-1500';
+export const PRECACHE = 'precache-database-20220629-1600';
 export const PRECACHE_URLS = [
     "database/icon/audio.svg",
     "database/icon/icono.svg",
