@@ -140,6 +140,12 @@ section {
             width: calc(100vw - 2rem);
             height: 100%;
         }
+        .leaflet-tile-pane {
+            opacity: .9;
+        }
+        .leaflet-container {
+            background: none;
+        }
     }
     .cursor {
         position: absolute;

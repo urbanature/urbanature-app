@@ -31,6 +31,7 @@ const closePage = async (url) => {
     unhideMap($__dom__page);
     globals.transition_in_progress = true;
     $("#__dom__loadico").removeClass("hidden");
+    $__dom__page.attr("data-has-overlay", "false");
     if(globals.current_url) {
         try { await onClose[globals.current_url](); } catch(e) { console.error(e); }
     }

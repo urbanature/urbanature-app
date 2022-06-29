@@ -237,6 +237,14 @@
   height: 100%;
 }
 
+[data-page="accueil"] #map-here .map .leaflet-tile-pane {
+  opacity: .9;
+}
+
+[data-page="accueil"] #map-here .map .leaflet-container {
+  background: none;
+}
+
 [data-page="accueil"] #map-here .cursor {
   position: absolute;
   top: 50%;

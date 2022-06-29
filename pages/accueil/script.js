@@ -128,8 +128,10 @@ export const accueil__initExplorer = async () => {
         if(!cate) continue;
         if(cate.count > 3) continue;
         cate.count++;
+        let path = (t.type === "time") ? `${t.path}.${t.demo}` : t.path;
         $(_.template(explobox_)({
             ...t,
+            path_href: path,
             capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
         })).appendTo(`#explo-${t.category}`);
     }
@@ -139,6 +141,7 @@ export const accueil__initExplorer = async () => {
                 ...{
                     name: "",
                     path: "",
+                    path_href: "",
                 },
                 capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
             })).appendTo(`#explo-${category.key}`);
