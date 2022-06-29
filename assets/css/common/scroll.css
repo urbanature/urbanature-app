@@ -6,6 +6,7 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 0.375rem;
   background: var(--color-3);
+  border: 1px solid var(--color-1);
 }
 
 ::-webkit-scrollbar-track {
@@ -16,7 +17,9 @@
   overflow: overlay;
 }
 
-.hash-page {
+.hash-page,
+.menu,
+.search {
   overflow: overlay !important;
 }
 /*# sourceMappingURL=scroll.css.map */

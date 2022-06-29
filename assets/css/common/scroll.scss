@@ -1,5 +1,6 @@
 $size: .375rem;
 $color: var(--color-3);
+$bg-color: var(--color-1);
 
 ::-webkit-scrollbar {
     width:  $size;
@@ -7,6 +8,7 @@ $color: var(--color-3);
     &-thumb {
         border-radius: $size;
         background: $color;
+        border: 1px solid $bg-color;
     }
     &-track {
         background: none;
@@ -16,6 +18,8 @@ $color: var(--color-3);
 #__dom__page {
     overflow: overlay;
 }
-.hash-page {
+.hash-page,
+.menu,
+.search {
     overflow: overlay !important;
 }

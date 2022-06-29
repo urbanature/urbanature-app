@@ -170,6 +170,7 @@
   height: 1rem;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
+  pointer-events: none;
 }
 
 [data-page="explorer"] .subcategory__expander .expand {
@@ -602,6 +603,23 @@
   height: 1.5rem;
   fill: var(--color-3);
   margin: auto;
+}
+
+[data-page="explorer"] .contentbox[data-expanded="true"] .contentbox__content--text {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-mask-image: none;
+          mask-image: none;
+}
+
+[data-page="explorer"] .contentbox[data-expanded="true"] .contentbox__content--images {
+  display: block;
+}
+
+[data-page="explorer"] .contentbox[data-expanded="true"] .contentbox__expand-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 [data-page="explorer"] .search {
