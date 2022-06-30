@@ -105,7 +105,7 @@ const fill_parcours = async (parcours, [map_markers, map_path], map) => {
 const fill_meta = async (meta) => {
     $("#parcours-id").val(meta.id || USERDATA.getNextParcoursId());
     $("#parcours-name").val(meta.name || "");
-    $("#parcours-img").val(meta.img || "");
+    // $("#parcours-img").val(meta.img || "");
 }
 
 const export_parcours = async (parcours, meta) => {
@@ -130,10 +130,10 @@ export const editor = async () => {
     if(got_parcours) {
         meta.id = got_parcours.id;
         meta.name = got_parcours.name;
-        meta.img = got_parcours.img;
+        // meta.img = got_parcours.img;
         parcours.push(...got_parcours.parcours);
         $("#example-name").text(meta.name);
-        $("#example-img").attr("src", meta.img);
+        // $("#example-img").attr("src", meta.img);
     }
 
     const map = L.map("map-preview", {
@@ -172,16 +172,16 @@ export const editor = async () => {
     $("#parcours-submit").on("click", async () => {
         meta.id = $("#parcours-id").val();
         meta.name = $("#parcours-name").val();
-        meta.img = $("#parcours-img").val();
+        // meta.img = $("#parcours-img").val();
         await export_parcours(parcours, meta);
         $("a[href='parcourir']").trigger("click");
     });
     $("#parcours-name").on("input", async () => {
         $("#example-name").text($("#parcours-name").val());
     });
-    $("#parcours-img").on("change", async () => {
-        $("#example-img").attr("src", $("#parcours-img").val());
-    });
+    // $("#parcours-img").on("change", async () => {
+    //     $("#example-img").attr("src", $("#parcours-img").val());
+    // });
 
     $(".edithead__button").on("click", async function(e) {
         switch($(this).data("nav")) {

@@ -1,4 +1,7 @@
 import * as BASEDATA from "../../src/data_manager/bd.js";
+import * as USERDATA from "../../src/data_manager/ud.js";
+import * as SEARCH_ENGINE from "../../src/search.js";
+import { loadFromHash } from "./loader.js";
 
 const getTexts = () => {
     return BASEDATA.getTablesByMetaData("type", "text");
@@ -108,6 +111,7 @@ export const textes = async (template) => {
                 info:{...t.info, contenu: t.info.contenu.replace(/\n/g, "<br>")}, 
                 meta:{img: ((t.meta?.img) || "database/img/noimg.webp")}
             },
+            sid: `textes,${t.info?.author},${t.id}`,
         })).join("");
         tdata = {
             content: html,
@@ -141,4 +145,62 @@ export const textes = async (template) => {
         };
     }
     return output(tdata);
+}
+
+export const textes_button = async () => {
+    $(".contentbox__save input").on("change", function(e) {
+        const sid = $(this).attr("id").split(",");
+        if($(this).is(":checked")) {
+            USERDATA.addFavoris(...sid);
+        } else {
+            USERDATA.removeFavoris(...sid);
+        }
+    }).each(function(i, e) {
+        const sid = $(this).attr("id").split(",");
+        if(USERDATA.isFavoris(...sid)) {
+            $(this).prop("checked", true);
+        }
+    });
+}
+
+const castSearch = async (table, query) => {
+    const res = await SEARCH_ENGINE.searchInTable(table.path, query);
+    return res.reduce((acc, cur) => {
+        if(!acc.find(d => d.data.nom == cur.data.nom)) {
+            acc.push(cur);
+        }
+        return acc;
+    }, []);
+}
+
+export const search = async () => {
+    const tables = BASEDATA.getDatabases().map(BASEDATA.getTableMetaData);
+    const searchitem_ = await fetch("pages/decouvrir/template/searchitem.html").then(r => r.text());
+    const searchitem = _.template(searchitem_);
+    console.log(tables);
+    $("#decouvrir-search").on("submit", async function(e) {
+        e.preventDefault();
+        const search = $(this).find("input").val();
+        const results = [];
+        let html = "";
+        for(let t of tables.filter(t => t.type == "text")) {
+            const res = await castSearch(t, search);
+            if(res.length > 0) {
+                results.push(...res);
+                html += res.map(t => searchitem({
+                    title: (t.data.nom.length > 36) ? t.data.nom.substring(0, 33) + "..." : t.data.nom,
+                    author: t.data.info.author,
+                    img: t.data.meta.img,
+                    href: `textes.${t.data.info.author}.${t.data.nom}`,
+                })).join("");
+            }
+        }
+        $("#decouvrir-search-results").html(html);
+        $(".searchitem__img").on("error", function() {
+            $(this).attr("src", "database/img/noimg.webp");
+        });
+        $(".searchitem").on("click", function(e) {
+            loadFromHash();
+        });
+    });
 }

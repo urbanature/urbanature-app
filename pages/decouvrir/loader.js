@@ -16,6 +16,7 @@ export const loadHashPage = async (hash) => {
     let text = "";
     let with_header = true;
     let to_use = "";
+    let to_use_after = "";
     try {
         const response = await fetch(`pages/decouvrir/hashpages/${hash}.html`);
         if(response.url.includes('404')) {
@@ -25,9 +26,12 @@ export const loadHashPage = async (hash) => {
         if(text.includes("<!-- no-header -->")) {
             with_header = false;
         }
-        if(text.includes("<!-- use")) {
+        if(text.includes("<!-- use:")) {
             to_use = text.split("<!-- use: ")[1].split(" -->")[0];
             text = await (eval(`TO_USE.${to_use}`)(text));
+        }
+        if(text.includes("<!-- use-after:")) {
+            to_use_after = text.split("<!-- use-after: ")[1].split(" -->")[0].trim();
         }
     } catch {};
     resetHashEvents();
@@ -57,6 +61,7 @@ export const loadHashPage = async (hash) => {
     } else {
         $("#hash-page").removeClass("no-header");
     }
+    if(to_use_after) await (eval(`TO_USE.${to_use_after}`)(text));
     $("#__dom__page img").on("error", function(e) {
         $(this).attr("src", "database/img/noimg.webp");
     });

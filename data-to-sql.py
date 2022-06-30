@@ -41,7 +41,7 @@ def read_dict_structure(dico: dict, path: str = None, output: list = None):
             output.append(path + key)
     return output
 
-def read_array_of_dict_structure(array: list, foreach):
+def read_array_of_dict_structure(array: list, foreach = None):
     output: list = []
     for i, dico in enumerate(array):
         struct = read_dict_structure(dico)

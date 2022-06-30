@@ -86,7 +86,7 @@ export const liste = async (template) => {
         const data = {
             id: `parcode.${USERDATA.getParcode(parcours.id)}`,
             titre: parcours.name,
-            image: parcours.img
+            image: 'assets/img/parcours.jpg'
         };
         const html = _.template(el_t)(data);
         content += html;

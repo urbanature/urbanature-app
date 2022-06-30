@@ -13,7 +13,8 @@ export const profil__init = async () => {
     const favitem = _.template(favitem_);
     const histem = _.template(histem_);
 
-    const favoris = await USERDATA.getFavorisAsync();
+    const favoris = [...await USERDATA.getFavorisAsync()];
+    favoris.reverse();
     for(let i = 0; i < Math.min(favoris.length, 5); i++) {
         if(!favoris[i]) continue;
         const {item: fav, table} = favoris[i];
@@ -28,6 +29,7 @@ export const profil__init = async () => {
         const pcont = udr[page];
         pcont.map(item => recherches.push(`${page}: ${item}`))
     }
+    recherches.reverse();
     for(let i = 0; i < Math.min(recherches.length, 5); i++) {
         const rec = recherches[i];
         if(!rec) continue;

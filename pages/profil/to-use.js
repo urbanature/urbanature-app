@@ -5,7 +5,8 @@ export const favorites = async (template) => {
     const favitem_ = await fetch("pages/profil/template/favitem.html").then(res => res.text());
     const favitem = _.template(favitem_);
 
-    const favoris = await USERDATA.getFavorisAsync();
+    const favoris = [...await USERDATA.getFavorisAsync()];
+    favoris.reverse();
     let html = "";
     for(let i = 0; i < favoris.length; i++) {
         if(!favoris[i]) continue;
@@ -28,9 +29,10 @@ export const history = async (template) => {
         const pcont = udr[page];
         pcont.map(item => recherches.push(`${page}: ${item}`))
     }
+    recherches.reverse();
     let html = "";
     for(let i = 0; i < recherches.length; i++) {
-        const rec = recherches[i];
+        const rec = [recherches[i]];
         if(!rec) continue;
         html += histem({
             text: rec

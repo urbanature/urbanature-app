@@ -19,6 +19,7 @@
 .searchbar input {
     width: 100%;
     padding-left: 2.75rem;
+    padding-right: .75rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
     color: var(--color-5);
