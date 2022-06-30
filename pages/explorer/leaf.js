@@ -19,39 +19,49 @@ const organizeFilters = (filters) => {
         }
     }
     return filters_organized;
-}  
+}
+
+export const getMarkerOption = (dataKey) => {
+    const bd_table = BASEDATA.table.find(db => db.path === dataKey);
+    const {color, path} = bd_table;
+    return {
+        style: (feature) => ({
+            color: color,
+            weight: 1,
+        }),
+        pointToLayer: (point, latlng) => L.marker(latlng, {
+            icon: L.icon({
+                iconUrl: `database/json/${path}/icon/marker.svg`,
+                iconSize: [48, 48],
+                iconAnchor: [24, 48],
+                shadowUrl: `database/json/shadow.png`,
+                shadowSize: [64, 64],
+                shadowAnchor: [21, 41],
+            }),
+        })
+    }
+}
+
+export const placeMarker = (dataKey, key, data) => {
+    const save_id = generateId(dataKey, key, data.id);
+    const geo = data.geo;
+    if(!geo) return;
+    const geo_option = getMarkerOption(dataKey);
+    const Lgeo = L.geoJSON(geo, geo_option);
+    Lgeo.on("click", () => on.click(data, dataKey, save_id));
+    return Lgeo;
+}
+
 
 export const setFilterToLeafmap = async (filters) => {
     MAP.clearLayers();
     const filters_organized = organizeFilters(filters);
     for(let filter of filters_organized) {
-        const bd_table = BASEDATA.table.find(db => db.path === filter.dataKey);
-        const {color, path} = bd_table;
-        const geo_option = {
-            style: (feature) => ({
-                color: color,
-                weight: 1,
-            }),
-            pointToLayer: (point, latlng) => L.marker(latlng, {
-                icon: L.icon({
-                    iconUrl: `database/json/${path}/icon/marker.svg`,
-                    iconSize: [48, 48],
-                    iconAnchor: [24, 48],
-                    shadowUrl: `database/json/shadow.png`,
-                    shadowSize: [64, 64],
-                    shadowAnchor: [21, 41],
-                }),
-            })
-        }
         if(filter.all) {
             BASEDATA.fetchAllData(filter.dataKey).then(data => {
                 const Lcluster = L.markerClusterGroup();
                 data.forEach(d => {
-                    const save_id = generateId(filter.dataKey, data.key, d.id);
-                    const geo = d.geo;
-                    if(!geo) return;
-                    const Lgeo = L.geoJSON(geo, geo_option);
-                    Lgeo.on("click", () => on.click(d, filter.dataKey, save_id, /* zoom */));
+                    const Lgeo = placeMarker(filter.dataKey, data.key, d);
                     Lcluster.addLayer(Lgeo);
                 });
                 MAP.addLayer(Lcluster);
@@ -62,18 +72,12 @@ export const setFilterToLeafmap = async (filters) => {
                 BASEDATA.fetchData(filter.dataKey, f.key).then(data => {
                     if(data[0].geo.type === "Point") {
                         data.forEach(d => {
-                            const save_id = generateId(filter.dataKey, f.key, d.id);
-                            if(!d.geo) return;
-                            const Lgeo = L.geoJSON(d.geo, geo_option);
-                            Lgeo.on("click", () => on.click(d, filter.dataKey, save_id, 18));
+                            const Lgeo = placeMarker(filter.dataKey, f.key, d);
                             Lcluster.addLayer(Lgeo);
                         });
                     } else {
                         data.forEach(d => {
-                            const save_id = generateId(filter.dataKey, f.key, d.id);
-                            if(!d.geo) return;
-                            const Lgeo = L.geoJSON(d.geo, geo_option);
-                            Lgeo.on("click", () => on.click(d, filter.dataKey, save_id, /* zoom */));
+                            const Lgeo = placeMarker(filter.dataKey, f.key, d);
                             MAP.addLayer(Lgeo);
                         });
                     }

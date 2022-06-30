@@ -2,7 +2,7 @@ import * as MAP from "../../src/dom/map.js";
 import * as BASEDATA from "../../src/data_manager/bd.js";
 import { delay, imgToSvg } from "../../src/misc.js";
 import { $_filter, $_subcategory } from "./el.js";
-import { on, setFilterToLeafmap } from "./leaf.js";
+import { on, placeMarker, setFilterToLeafmap } from "./leaf.js";
 import { contextClose } from "./context.js";
 import { addToQuery, getHash, getQueryString } from "../../src/history.js";
 
@@ -138,14 +138,13 @@ export const explorer__init = async () => {
     const hash = getHash();
     if(hash) {
         // hash would be a string like "arbres,Ailanthus,79d07d616f896be24e69dd383c922d4901efcca5"
-        const [dataKey, key, val] = hash.split(",");
+        const [dataKey, key, val] = decodeURI(hash).split(",");
         const table = await BASEDATA.fetchData(dataKey, key);
         const t = table.find(t => t.id === val);
         if(t) {
-            active_filters.push({dataKey, key, val: t.name});
-            setFilterToLeafmap(active_filters);
-            updateQueryFromActiveFilters();
-            on.click(t, dataKey, [dataKey, key, val]);
+            const Lgeo = placeMarker(dataKey, key, t);
+            MAP.addLayer(Lgeo);
+            Lgeo.fire("click");
         }
     }
 }
