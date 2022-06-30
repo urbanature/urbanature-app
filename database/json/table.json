@@ -44,4 +44,11 @@
     "name_path": "info.author",
     "category": "culture",
     "type": "text"
+}, {
+    "name": "Iconographie",
+    "path": "icono",
+    "key_path": "info.author",
+    "name_path": "info.author",
+    "category": "culture",
+    "type": "image"
 }]

@@ -6,6 +6,9 @@ import { loadFromHash } from "./loader.js";
 const getTexts = () => {
     return BASEDATA.getTablesByMetaData("type", "text");
 }
+const getImages = () => {
+    return BASEDATA.getTablesByMetaData("type", "image");
+}
 
 export const ecrit = async (template) => {
     const hash = window.location.hash.substring(1);
@@ -82,6 +85,68 @@ export const ecrit = async (template) => {
         }
     }
 
+    return output({
+        content: html,
+    });
+}
+
+export const icono = async (template) => {
+    const hash = window.location.hash.substring(1);
+    const splitted = hash.split(".");
+    let source = splitted[1];
+
+    const section_icono_ = await fetch("pages/decouvrir/template/section-icono.html").then(r => r.text());
+    const icocard_ = await fetch("pages/decouvrir/template/icocard.html").then(r => r.text());
+    const section_icono = _.template(section_icono_);
+    const icocard = _.template(icocard_);
+    const output = _.template(template);
+
+    let tables;
+    if(BASEDATA.flags.loaded) tables = getImages();
+    else BASEDATA.onload(() => {tables = getImages()});
+    let html = "";
+
+    if(source) {
+        const t = tables.find(t => t.path == source);
+        if(!t) return "";
+        const tblist = t.table;
+        const data = [];
+        for(let tb of t.table) {
+            data.push(...(await BASEDATA.fetchData(t.path, tb.key)));
+        }
+        data.sort((a, b) => a.info.author.localeCompare(b.info.author));
+        html += "<ul class='icono-list'>";
+        html += data.map(d => {
+            return icocard({
+                data: {...d, info: {...d.info, src: d.info.src || "database/img/noimg.webp"}},
+                href: `${t.path}.${d.info?.author}`,
+                page: "icono",
+                key: d.info.author,
+                id: d.id,
+                saveid: `iconos,${d.info?.author},${d.id}`
+            });
+        }).join("");
+        html += "</ul>";
+    } else {
+        for(let t of tables) {
+            const data = [];
+            for(let tb of t.table) {
+                data.push(...(await BASEDATA.fetchData(t.path, tb.key)));
+            }
+            data.sort((a, b) => a.info.author.localeCompare(b.info.author));
+            html += section_icono({
+                name: t.name,
+                key: t.path,
+                href: `icono.${t.path}`,
+                img: data.map(d => d.info.src)
+                // content: data.map(d => {
+                //     return icocard({
+                //         data: {}
+                //     });
+                // }).join(""),
+            });
+        }
+    }
     return output({
         content: html,
     });
@@ -203,4 +268,11 @@ export const search = async () => {
             loadFromHash();
         });
     });
+}
+
+export const html = async (template) => {
+    const hash = window.location.hash.substring(1);
+    const [,...path] = hash.split(".");
+    const content = await fetch(`database/html/${path.join("/")}.html`).then(r => r.text());
+    return _.template(template)({content});
 }

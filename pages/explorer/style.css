@@ -708,7 +708,7 @@
 
 [data-page="explorer"] .ssection__title {
   margin: 1rem 1rem .5rem 1rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: var(--color-2);
   text-shadow: 0 .25rem .25rem #0004;
@@ -716,6 +716,13 @@
 
 [data-page="explorer"] .ssection__list {
   margin: 0 1rem;
+}
+
+[data-page="explorer"] .ssection__subtitle {
+  margin-left: .5rem;
+  font-size: 1.25rem;
+  color: var(--color-3);
+  text-shadow: 0 .25rem .25rem #0004;
 }
 
 [data-page="explorer"] .slist {
@@ -739,6 +746,10 @@
 [data-page="explorer"] .slist__item .svg {
   width: 1.5rem;
   fill: var(--color-4);
+}
+
+[data-page="explorer"] .slist__item h3, [data-page="explorer"] .slist__item p {
+  margin-right: 2rem;
 }
 
 [data-page="explorer"] .slist--list {

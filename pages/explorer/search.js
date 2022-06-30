@@ -1,6 +1,6 @@
 import * as USERDATA from "../../src/data_manager/ud.js";
+import * as BASEDATA from "../../src/data_manager/bd.js";
 import { imgToSvg } from "../../src/misc.js";
-import * as SEARCH_ENGINE_BAK from "../../src/search.bak.js";
 import * as SEARCH_ENGINE from "../../src/search.js";
 import { $_slist_item_history, $_slist_item_my, $_slist_item_search } from "./el.js";
 
@@ -40,10 +40,20 @@ export const initSearch = async () => {
             return;
         }
         // const results = await SEARCH_ENGINE_BAK.searchByKeyEverywhereWithLimit("nom", query, 25);
-        const results = (await SEARCH_ENGINE.searchInAllTables(query, 25)).map(r => r.data);
+        // const results = (await SEARCH_ENGINE.searchInAllTables(query, 25)).map(r => r.data);
+        // $results.find("ul").empty();
+        // for (let db of results) {
+        //     $_slist_item_search(db.nom, "", db.id).appendTo($results.find("ul"));
+        // }
+        const tables = BASEDATA.getDatabases().filter(t => !SEARCH_ENGINE.EXCEPTIONS.includes(t));
         $results.find("ul").empty();
-        for (let db of results) {
-            $_slist_item_search(db.nom, "", db.id).appendTo($results.find("ul"));
+        for(let t of tables) {
+            const meta = BASEDATA.getTableMetaData(t);
+            const data = await SEARCH_ENGINE.searchInTable(t, query, undefined, 25);
+            $("<h2 class='ssection__subtitle'>").text(meta.name).appendTo($results.find("ul"));
+            for(let {data: d} of data) {
+                $_slist_item_search(d.nom, d.meta?.adresse, d.id).appendTo($results.find("ul"));
+            }
         }
         await imgToSvg();
         USERDATA.addRecherche("explorer", query);

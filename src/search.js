@@ -3,7 +3,7 @@ import * as USERDATA from "./data_manager/ud.js";
 import { getLocation } from "./dom/map.js";
 
 const SEARCH_URL = `https://api.totoshampoin.fr/urbanature/search`;
-const EXCEPTIONS = ["historique"];
+export const EXCEPTIONS = ["historique"];
 
 const prepareFetch = (url, param) => url + '?' + new URLSearchParams(param).toString();
 const fetchParams = async (url, param) => await fetch(prepareFetch(url, param));
@@ -17,6 +17,13 @@ export const searchInTable = async (table, searchText, locate, limit) => {
         lat: loc.lat,
         lng: loc.lng
     });
+    console.log(prepareFetch(SEARCH_URL, {
+        query: searchText,
+        table: table,
+        limit: limit ?? 20,
+        lat: loc.lat,
+        lng: loc.lng
+    }));
     const data = await req.json();
     const result = []
     if(data.error) {

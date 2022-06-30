@@ -1,0 +1,52 @@
+#__dom__page .htmlcontent {
+  padding: 0 1rem;
+}
+
+#__dom__page .htmlcontent * {
+  position: static;
+  -webkit-transform: none;
+          transform: none;
+  text-align: left;
+}
+
+#__dom__page .htmlcontent h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-2);
+  font-style: normal;
+  margin: 1rem 0;
+}
+
+#__dom__page .htmlcontent h1:first-child {
+  margin-top: 0;
+}
+
+#__dom__page .htmlcontent h2 {
+  font-size: 1.5rem;
+  color: var(--color-3);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+#__dom__page .htmlcontent h3 {
+  font-size: 1.25rem;
+  color: var(--color-4);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+#__dom__page .htmlcontent p {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+#__dom__page .htmlcontent a {
+  color: var(--color-3);
+}
+
+#__dom__page .htmlcontent img {
+  display: block;
+  max-width: 100%;
+  max-height: 20rem;
+}
+/*# sourceMappingURL=expos.css.map */

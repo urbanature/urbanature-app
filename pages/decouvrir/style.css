@@ -351,6 +351,40 @@
   fill: var(--color-2);
 }
 
+[data-page="decouvrir"] .icono-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+  padding: var(--page-margin);
+  list-style: none;
+}
+
+[data-page="decouvrir"] .icocard {
+  display: block;
+  width: 9.5rem;
+  height: 9rem;
+  overflow: hidden;
+  border-radius: .75rem;
+  -webkit-box-shadow: 0 .25rem .25rem #0004;
+          box-shadow: 0 .25rem .25rem #0004;
+}
+
+[data-page="decouvrir"] .icocard__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 [data-page="decouvrir"] .contentbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -475,10 +509,6 @@
   max-height: fit-content;
   -webkit-mask-image: none;
           mask-image: none;
-}
-
-[data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__content--images {
-  display: block;
 }
 
 [data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__expand-arrow {

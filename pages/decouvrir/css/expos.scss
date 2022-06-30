@@ -1,0 +1,48 @@
+@import "../../../.common/scss/mixins.scss";
+
+#__dom__page {
+
+.htmlcontent {
+    padding: 0 1rem;
+    * {
+        position: static;
+        transform: none;
+        text-align: left;
+    }
+    h1 {
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--color-2);
+        font-style: normal;
+        margin: 1rem 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    h2 {
+        font-size: 1.5rem;
+        color: var(--color-3);
+        font-style: italic;
+        margin: 1rem 0;
+    }
+    h3 {
+        font-size: 1.25rem;
+        color: var(--color-4);
+        font-style: italic;
+        margin: 1rem 0;
+    }
+    p {
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+    a {
+        color: var(--color-3);
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        max-height: 20rem;
+    }
+}
+
+}
