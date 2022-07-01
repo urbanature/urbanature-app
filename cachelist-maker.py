@@ -46,6 +46,8 @@ with open('cachelist.js', 'w', encoding="utf8") as f:
                 break
         if is_writable:
             f.write(f'    "{filepath}",\n')
+            if filepath.endswith("index.html"):
+                f.write(f'    "{filepath.replace("index.html", "")}",\n')
     f.write(']\n')
     # write as a JS array of strings
     f.write('export const PRECACHE_URLS_DATA = [\n')
