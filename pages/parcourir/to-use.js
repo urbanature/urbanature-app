@@ -68,28 +68,32 @@ export const preview_button = async () => {
 }
 
 export const liste = async (template) => {
-    const config = await fetch("https://totoshampoin.github.io/les-promenades-du-matrimoine--urbanature-edition/config-save.json").then(res => res.json());
-    const my_parcours = USERDATA.getParcours();
+    const page = location.hash.split(".")[1];
     const el_t = await fetch("pages/parcourir/template/liste_el.html").then(res => res.text());
     let content = "";
-    for(let key in config) {
-        const json = config[key];
-        const data = {
-            id: `parcours.${key}`,
-            titre: json.titre,
-            image: json.visuel
-        };
-        const html = _.template(el_t)(data);
-        content += html;
-    }
-    for(let parcours of my_parcours) {
-        const data = {
-            id: `parcode.${USERDATA.getParcode(parcours.id)}`,
-            titre: parcours.name,
-            image: 'assets/img/parcours.jpg'
-        };
-        const html = _.template(el_t)(data);
-        content += html;
+    if(page === "my") {
+        const my_parcours = USERDATA.getParcours();
+        for(let parcours of my_parcours) {
+            const data = {
+                id: `parcode.${USERDATA.getParcode(parcours.id)}`,
+                titre: parcours.name,
+                image: 'assets/img/parcours.jpg'
+            };
+            const html = _.template(el_t)(data);
+            content += html;
+        }
+    } else {
+        const config = await fetch("https://totoshampoin.github.io/les-promenades-du-matrimoine--urbanature-edition/config-save.json").then(res => res.json());
+        for(let key in config) {
+            const json = config[key];
+            const data = {
+                id: `parcours.${key}`,
+                titre: json.titre,
+                image: json.visuel
+            };
+            const html = _.template(el_t)(data);
+            content += html;
+        }
     }
     return _.template(template)({content: content});
 }
