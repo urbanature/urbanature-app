@@ -315,6 +315,7 @@ main h1 {
         padding: .25rem;
         border-radius: .5rem;
         background: var(--color-3);
+        fill: var(--color-1);
     }
     &[data-expanded="true"] {
         .contentbox__content {

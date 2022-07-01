@@ -121,6 +121,9 @@ export const updateMapPosition = async ($dom, animated = true) => {
     }
     $map.css("z-index", "");
     updateMapSize();
+    delay(1000).then(() => {
+        updateMapSize();
+    });
 }
 
 export const initMap = () => {

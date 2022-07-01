@@ -21,9 +21,11 @@ export const ecrit = async (template) => {
     const textcard = _.template(textcard_);
     const output = _.template(template);
     
-    let tables;
-    if(BASEDATA.flags.loaded) tables = getTexts();
-    else BASEDATA.onload(() => {tables = getTexts()});
+    await new Promise(async (res, rej) => {
+        if(BASEDATA.flags.loaded) res();
+        BASEDATA.onload(res);
+    })
+    let tables = getTexts();
     let html = "";
 
     if(source) {
@@ -101,9 +103,11 @@ export const icono = async (template) => {
     const icocard = _.template(icocard_);
     const output = _.template(template);
 
-    let tables;
-    if(BASEDATA.flags.loaded) tables = getImages();
-    else BASEDATA.onload(() => {tables = getImages()});
+    await new Promise(async (res, rej) => {
+        if(BASEDATA.flags.loaded) res();
+        BASEDATA.onload(res);
+    })
+    let tables = getImages();
     let html = "";
 
     if(source) {
@@ -161,9 +165,11 @@ export const textes = async (template) => {
 
     const output = _.template(template);
 
-    let table;
-    if(BASEDATA.flags.loaded) table = await BASEDATA.fetchData("textes", author);
-    else BASEDATA.onload(async () => table = await BASEDATA.fetchData("textes", author));
+    await new Promise(async (res, rej) => {
+        if(BASEDATA.flags.loaded) res();
+        BASEDATA.onload(res);
+    })
+    let table = await BASEDATA.fetchData("textes", author);
     let html = ""; let tdata = {};
     if(book) {
         const contentbox_ = await fetch("pages/decouvrir/template/contentbox.html").then(r => r.text());
