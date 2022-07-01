@@ -1,4 +1,11 @@
+import * as BASEDATA from "../../src/data_manager/bd.js";
 import * as USERDATA from "../../src/data_manager/ud.js";
+
+/** Si un template nécessite des données de BASEDATA, appeler la variable suivante (avec un await): */
+const dataReady = new Promise(async (res, rej) => {
+    if(BASEDATA.flags.loaded) res();
+    BASEDATA.onload(res);
+})
 
 export const parcours = async (template) => {
     const hash = window.location.hash.substring(1);

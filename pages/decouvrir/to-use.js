@@ -3,6 +3,12 @@ import * as USERDATA from "../../src/data_manager/ud.js";
 import * as SEARCH_ENGINE from "../../src/search.js";
 import { loadFromHash } from "./loader.js";
 
+/** Si un template nécessite des données de BASEDATA, appeler la variable suivante (avec un await): */
+const dataReady = new Promise(async (res, rej) => {
+    if(BASEDATA.flags.loaded) res();
+    BASEDATA.onload(res);
+})
+
 const getTexts = () => {
     return BASEDATA.getTablesByMetaData("type", "text");
 }
@@ -21,10 +27,7 @@ export const ecrit = async (template) => {
     const textcard = _.template(textcard_);
     const output = _.template(template);
     
-    await new Promise(async (res, rej) => {
-        if(BASEDATA.flags.loaded) res();
-        BASEDATA.onload(res);
-    })
+    await dataReady
     let tables = getTexts();
     let html = "";
 
@@ -103,10 +106,7 @@ export const icono = async (template) => {
     const icocard = _.template(icocard_);
     const output = _.template(template);
 
-    await new Promise(async (res, rej) => {
-        if(BASEDATA.flags.loaded) res();
-        BASEDATA.onload(res);
-    })
+    await dataReady
     let tables = getImages();
     let html = "";
 
@@ -165,10 +165,7 @@ export const textes = async (template) => {
 
     const output = _.template(template);
 
-    await new Promise(async (res, rej) => {
-        if(BASEDATA.flags.loaded) res();
-        BASEDATA.onload(res);
-    })
+    await dataReady
     let table = await BASEDATA.fetchData("textes", author);
     let html = ""; let tdata = {};
     if(book) {
