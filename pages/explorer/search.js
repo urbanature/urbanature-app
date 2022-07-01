@@ -3,6 +3,7 @@ import * as BASEDATA from "../../src/data_manager/bd.js";
 import { imgToSvg } from "../../src/misc.js";
 import * as SEARCH_ENGINE from "../../src/search.js";
 import { $_slist_item_history, $_slist_item_my, $_slist_item_search } from "./el.js";
+import { placeMarker, clearMarkers } from "./leaf.js";
 
 export const refreshRecent = async () => {
     const $recent = $("#src-recent");
@@ -49,11 +50,13 @@ export const initSearch = async () => {
         $results.find("ul").empty();
         for(let t of tables) {
             const meta = BASEDATA.getTableMetaData(t);
-            const data = await SEARCH_ENGINE.searchInTable(t, query, undefined, 25);
-            $("<h2 class='ssection__subtitle'>").text(meta.name).appendTo($results.find("ul"));
-            for(let {data: d} of data) {
-                $_slist_item_search(d.nom, d.meta?.adresse, d.id).appendTo($results.find("ul"));
-            }
+            try {
+                const data = await SEARCH_ENGINE.searchInTable(t, query, undefined, 25);
+                $("<h2 class='ssection__subtitle'>").text(meta.name).appendTo($results.find("ul"));
+                for(let {data: d} of data) {
+                    $_slist_item_search(d.nom, d.meta?.adresse, d.id).appendTo($results.find("ul"));
+                }
+            } catch {}
         }
         await imgToSvg();
         USERDATA.addRecherche("explorer", query);
