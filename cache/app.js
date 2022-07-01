@@ -1,4 +1,4 @@
-export const PRECACHE = 'precache-app-20220701-1430';
+export const PRECACHE = 'precache-app-20220701-1530';
 export const PRECACHE_URLS = [
     "404.html",
     "index.html",
