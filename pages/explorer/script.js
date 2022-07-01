@@ -2,9 +2,10 @@ import * as MAP from "../../src/dom/map.js";
 import * as BASEDATA from "../../src/data_manager/bd.js";
 import { delay, imgToSvg } from "../../src/misc.js";
 import { $_filter, $_subcategory } from "./el.js";
-import { on, placeMarker, setFilterToLeafmap } from "./leaf.js";
+import { on, createMarker, setFilterToLeafmap } from "./leaf.js";
 import { contextClose } from "./context.js";
 import { addToQuery, getHash, getQueryString } from "../../src/history.js";
+import { searchShow, searchHide } from "./search.js";
 
 const cond = {
     hasTransition: false
@@ -24,13 +25,6 @@ const menuShow = () => {
 }
 const menuHide = () => {
     $(".menu").removeClass("menu--show");
-}
-
-const searchShow = () => {
-    $(".search").addClass("search--show");
-}
-const searchHide = () => {
-    $(".search").removeClass("search--show");
 }
 
 export const explorer__manageMenu = () => {
@@ -142,7 +136,7 @@ export const explorer__init = async () => {
         const table = await BASEDATA.fetchData(dataKey, key);
         const t = table.find(t => t.id === val);
         if(t) {
-            const Lgeo = placeMarker(dataKey, key, t);
+            const Lgeo = createMarker(dataKey, key, t);
             MAP.addLayer(Lgeo);
             Lgeo.fire("click");
         }

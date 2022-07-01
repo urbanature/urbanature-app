@@ -1,22 +1,33 @@
 import * as USERDATA from "../../src/data_manager/ud.js";
 import * as BASEDATA from "../../src/data_manager/bd.js";
-import { imgToSvg } from "../../src/misc.js";
+import { delay, imgToSvg } from "../../src/misc.js";
 import * as SEARCH_ENGINE from "../../src/search.js";
 import { $_slist_item_history, $_slist_item_my, $_slist_item_search } from "./el.js";
-import { placeMarker, clearMarkers } from "./leaf.js";
+import { createMarker, clearMarkers, placeMarker } from "./leaf.js";
+import { contextOpen } from "./context.js";
+
+export const searchShow = () => {
+    $(".search").addClass("search--show");
+}
+export const searchHide = () => {
+    $(".search").removeClass("search--show");
+}
 
 export const refreshRecent = async () => {
     const $recent = $("#src-recent");
     const recentes = USERDATA.getRecherchesRecentes("explorer", 3);
     for (let rec of recentes) {
-        $_slist_item_history(rec).appendTo($recent.find("ul"));
+        $_slist_item_history(rec).appendTo($recent.find("ul")).on("click", () => {
+            $("#explorer-search input").val(rec);
+            $("#explorer-search").trigger("submit");
+        });
     }
 }
 export const refreshFavorites = async () => {
     const $favorites = $("#src-favorites");
     const favorites = await USERDATA.getFavorisAsync();
     for (let fav of favorites) {
-        $_slist_item_my(fav.nom).appendTo($favorites.find("ul"));
+        $_slist_item_my(fav.item.nom).appendTo($favorites.find("ul"));
     }
 }
 
@@ -53,10 +64,24 @@ export const initSearch = async () => {
             try {
                 const data = await SEARCH_ENGINE.searchInTable(t, query, undefined, 25);
                 $("<h2 class='ssection__subtitle'>").text(meta.name).appendTo($results.find("ul"));
-                for(let {data: d} of data) {
-                    $_slist_item_search(d.nom, d.meta?.adresse, d.id).appendTo($results.find("ul"));
+                for(let {data: d, sid} of data) {
+                    const $elem = $_slist_item_search(d.nom, d.meta?.adresse, d.id);
+                    $elem.appendTo($results.find("ul"));
+                    $elem.find(".search__go").on("click", async function() {
+                        console.log(sid);
+                        const tab = await BASEDATA.fetchData(t, sid[1]);
+                        const dat = tab.find(t => t.id = sid[2])
+                        clearMarkers();
+                        const Lgeo = createMarker(sid[0], sid[1], dat);
+                        placeMarker(Lgeo);
+                        searchHide();
+                        await delay(100);
+                        Lgeo.fire("click");
+                    });
                 }
-            } catch {}
+            } catch(e) {
+                console.error(e);
+            }
         }
         await imgToSvg();
         USERDATA.addRecherche("explorer", query);

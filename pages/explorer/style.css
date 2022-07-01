@@ -673,6 +673,18 @@
   fill: var(--color-2);
 }
 
+[data-page="explorer"] .search__go {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  padding: .25rem;
+  border-radius: .5rem;
+  background: var(--color-3);
+}
+
 [data-page="explorer"] .search .searchbar {
   position: relative;
   width: calc(100% - 2rem);
@@ -850,5 +862,6 @@
 
 [data-page="explorer"] .slist--carousel .slist__item p {
   width: 100%;
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */

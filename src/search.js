@@ -17,13 +17,6 @@ export const searchInTable = async (table, searchText, locate, limit) => {
         lat: loc.lat,
         lng: loc.lng
     });
-    console.log(prepareFetch(SEARCH_URL, {
-        query: searchText,
-        table: table,
-        limit: limit ?? 20,
-        lat: loc.lat,
-        lng: loc.lng
-    }));
     const data = await req.json();
     const result = []
     if(data.error) {

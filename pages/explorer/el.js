@@ -53,9 +53,12 @@ export const $_slist_item_search = (head, body, id) => $(`<li class="slist__item
             <img src="assets/icon/signet_off.svg" alt="" class="svg-img not-checked">
         </label>
     </div>
+    <button class="search__go">
+        <img src="assets/icon/menu/explorer.svg" alt="svg-img">
+    </button>
 </li>`)
 export const $_slist_item_my = (text) => $(`<li class="slist__item">
-    <p>${text}</p>
+    <p>${(text.length > 48 ? text.slice(0, 45) + "..." : text)}</p>
 </li>`)
 
 const $_ctx_head = (data, save_id, is_saved) => {

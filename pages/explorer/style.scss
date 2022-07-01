@@ -485,6 +485,15 @@ input[type="checkbox"] {
             fill: var(--color-2);
         }
     }
+    &__go {
+        position: absolute;
+        bottom: .5rem; right: .5rem;
+        display: block;
+        width: 2rem; height: 2rem;
+        padding: .25rem;
+        border-radius: .5rem;
+        background: var(--color-3);
+    }
     
     .searchbar {
         position: relative;
@@ -607,6 +616,7 @@ input[type="checkbox"] {
             box-shadow: 0 .25rem .25rem #0004;
             p {
                 width: 100%;
+                margin: 0;
             }
         }
     }

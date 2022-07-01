@@ -42,7 +42,7 @@ export const getMarkerOption = (dataKey) => {
     }
 }
 
-export const placeMarker = (dataKey, key, data) => {
+export const createMarker = (dataKey, key, data) => {
     const save_id = generateId(dataKey, key, data.id);
     const geo = data.geo;
     if(!geo) return;
@@ -50,6 +50,12 @@ export const placeMarker = (dataKey, key, data) => {
     const Lgeo = L.geoJSON(geo, geo_option);
     Lgeo.on("click", () => on.click(data, dataKey, save_id));
     return Lgeo;
+}
+export const clearMarkers = () => {
+    MAP.clearLayers();
+}
+export const placeMarker = (marker) => {
+    MAP.addLayer(marker);
 }
 
 
@@ -61,7 +67,7 @@ export const setFilterToLeafmap = async (filters) => {
             BASEDATA.fetchAllData(filter.dataKey).then(data => {
                 const Lcluster = L.markerClusterGroup();
                 data.forEach(d => {
-                    const Lgeo = placeMarker(filter.dataKey, data.key, d);
+                    const Lgeo = createMarker(filter.dataKey, data.key, d);
                     Lcluster.addLayer(Lgeo);
                 });
                 MAP.addLayer(Lcluster);
@@ -72,12 +78,12 @@ export const setFilterToLeafmap = async (filters) => {
                 BASEDATA.fetchData(filter.dataKey, f.key).then(data => {
                     if(data[0].geo.type === "Point") {
                         data.forEach(d => {
-                            const Lgeo = placeMarker(filter.dataKey, f.key, d);
+                            const Lgeo = createMarker(filter.dataKey, f.key, d);
                             Lcluster.addLayer(Lgeo);
                         });
                     } else {
                         data.forEach(d => {
-                            const Lgeo = placeMarker(filter.dataKey, f.key, d);
+                            const Lgeo = createMarker(filter.dataKey, f.key, d);
                             MAP.addLayer(Lgeo);
                         });
                     }
