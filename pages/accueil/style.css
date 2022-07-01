@@ -316,26 +316,7 @@
   place-items: center;
   text-align: center;
   border-radius: .75rem;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(45%, rgba(255, 255, 255, 0.25)), color-stop(95%, rgba(255, 255, 255, 0.1)));
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.1) 95%);
-  -webkit-backdrop-filter: blur(1rem);
-          backdrop-filter: blur(1rem);
-  -webkit-box-shadow: 0 .25rem .25rem #0004;
-          box-shadow: 0 .25rem .25rem #0004;
-}
-
-[data-page="accueil"] .explobox::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  padding: 1px;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(5%, #FFFFFF26), color-stop(95%, #0C423E88));
-  background: linear-gradient(to bottom right, #FFFFFF26 5%, #0C423E88 95%);
-  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF));
-  -webkit-mask: linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0);
-  -webkit-mask-composite: xor;
-  border-radius: inherit;
+  background-color: var(--color-3);
 }
 
 [data-page="accueil"] .explobox__img {
@@ -351,7 +332,8 @@
 [data-page="accueil"] .explobox__text {
   display: block;
   font-size: .625rem;
-  color: var(--color-3);
+  font-weight: 500;
+  color: var(--color-1);
 }
 
 [data-page="accueil"] .group {

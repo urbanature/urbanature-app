@@ -193,7 +193,8 @@ section {
     place-items: center;
     text-align: center;
     border-radius: .75rem;
-    @include glass(#FFFFFF26, #0C423E88);
+    // @include glass(#FFFFFF26, #0C423E88);
+    background-color: var(--color-3);
     &__img {
         display: block;
         width: 2rem; height: 2rem;
@@ -204,7 +205,8 @@ section {
     &__text {
         display: block;
         font-size: .625rem;
-        color: var(--color-3);
+        font-weight: 500;
+        color: var(--color-1);
     }
 }
 .group {
