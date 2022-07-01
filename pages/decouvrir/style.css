@@ -503,6 +503,18 @@
   fill: var(--color-4);
 }
 
+[data-page="decouvrir"] .contentbox__go {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  padding: .25rem;
+  border-radius: .5rem;
+  background: var(--color-3);
+}
+
 [data-page="decouvrir"] .contentbox[data-expanded="true"] .contentbox__content--text {
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
