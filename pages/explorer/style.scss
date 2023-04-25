@@ -92,10 +92,10 @@ div.zoom-buttons {
     background: var(--color-1);
     transition: transform 0.3s ease-in-out;
     font-weight: 500;
-    transform: translateY(-100%);
+    transform: translateX(-100%);
     overflow: auto;
     &--show {
-        transform: translateY(0%);
+        transform: translateX(0%);
     }
     &__close {
         position: absolute;
@@ -175,7 +175,8 @@ div.zoom-buttons {
             }
         }
         .filterlist {
-            display: block;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
     }
     & + .subcategory {
@@ -460,11 +461,13 @@ input[type="checkbox"] {
     width: 100vw; height: calc(100 * var(--vh) - var(--dom-navbar-height));
     background: var(--color-1);
     transition: transform 0.3s ease-in-out;
-    transform: translateY(-100%);
+    transform: translateX(100%);
     overflow-y: auto;
+    display: none;
 
     &--show {
-        transform: translateY(0);
+        transform: translateX(0);
+        display: block;
     }
     &__close {
         position: absolute;

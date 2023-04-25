@@ -167,6 +167,7 @@ export const textes = async (template) => {
 
     await dataReady
     let table = await BASEDATA.fetchData("textes", author);
+    console.log(table);
     let html = ""; let tdata = {};
     if(book) {
         const contentbox_ = await fetch("pages/decouvrir/template/contentbox.html").then(r => r.text());
@@ -181,6 +182,7 @@ export const textes = async (template) => {
             },
             sid: `textes,${t.info?.author},${t.id}`,
         })).join("");
+        console.log(html);
         tdata = {
             content: html,
             name: author,
