@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1 class="toran">Mon quiz</h1>
+    <h2 class="tyell">Toute la mer va vers la ville</h2>
+
+    <div class="textbox">
+        <h2 class="toran">Dans quel célèbre roman Marcel Proust évoque-t-il la mer ?</h2>
+        <div class="answercontainer">
+            <label><input type="checkbox" id="reponse1" value="faux">Madame Bovary</label>
+            <label><input type="checkbox" id="reponse2" value="faux">Les Misérables </input></label>
+            <label><input type="checkbox" id="reponse3" value="vrai">À la recherche du temps perdu </input></label>
+            <label><input type="checkbox" id="reponse4" value="faux">Le Comte de Monte-Cristo</input></label>
+        </div>
+    </div>
+
+    <button class="submit" onclick="submit()">
+        Valider
+    </button>
+</body>
+</html>

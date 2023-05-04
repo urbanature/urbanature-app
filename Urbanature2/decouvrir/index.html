@@ -6,24 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Découvrir</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="popup hidden" id="popup1">
+        <div class="textbox">
+            <button onclick="popup1()" class="buttonpopup cross"></button>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum magni incidunt minima voluptatibus ea, soluta laboriosam sit nesciunt deleniti impedit recusandae reprehenderit mollitia, quia quis repellendus amet blanditiis similique rerum!</p>
+        </div>
+    </div>
+
+
+
+
     <div class="topbg">
     </div>
     
     <header>
-        <a href="">
+        <a href="" class="urbalogo">
             <img src="images/logo.png" alt="" style="height: 50px;">
         </a>
         <h1 class="toran">Accueil</h1>
-        <a href="">
+        <a href="" class="search">
             <img src="images/search.png" alt="" style="height: 25px;">
         </a>
     </header>
     <div class="topcenter">
         <h2 class="toran">Découvrez</h2>
         <h2>l'exposition</h2>
-        <p>Toute la mer va vers la ville</p>
+        <p class="italic">Toute la mer va vers la ville</p>
     </div>
     <div class="textbox">
         <h3 class="tyell">Introduction :</h3>
@@ -35,46 +46,46 @@
         <p>Paris a également une relation étroite avec la mer, même si elle est située à des centaines de kilomètres des côtes les plus proches .</p>
     </div>
     <p>De nombreux écrivains célèbres ont utilisé la mer comme source d'inspiration dans leurs œuvres littéraires.</p>
-    <div>
+    <div class="fleximgLtxt">
         <img src="images/img1.png" alt="">
         <p>Les écrivains français tels que Victor Hugo, Jules Verne et Paul Verlaine ont incorporé des éléments marins dans leurs écrits, créant ainsi une connexion littéraire entre Paris et la mer.</p>
     </div>
-    <a href="" class="nounder">en savoir plus</a>
-    <div>
+    <button onclick="popup1()" class="nounder buttonpopup">en savoir plus</button>
+    <div class="fleximgRtxt">
         <div>
             <p>
-                <a href="" class="toran nounder">Marcel Proust</a>, l'un des plus grands écrivains français du XXe siècle, a également évoqué la mer dans son célèbre roman "À la recherche du temps perdu". Dans son œuvre, la mer est souvent associée à des souvenirs d'enfance et à des émotions profondes, offrant ainsi une réflexion sur la façon dont la mer peut évoquer des souvenirs et des sensations liées à Paris et à son histoire.
+                <a href="" class="toran nounder">Marcel Proust</a>, l'un des plus grands écrivains français du XXe siècle, a également évoqué la mer dans son célèbre roman <a href="">"À la recherche du temps perdu"</a>. Dans son œuvre, la mer est souvent associée à des souvenirs d'enfance et à des émotions profondes, offrant ainsi une réflexion sur la façon dont la mer peut évoquer des souvenirs et des sensations liées à Paris et à son histoire.
             </p>
         </div>
         <div>
             <img src="images/img2.png" alt="">
-            <a href="" class="tgreen nounder yellowbtn noshad">
+            <button class="tgreen nounder yellowbtn noshad buttonpopup">
                 <img src="images/icon.png" alt="" style="height: 26px;">
                 <p>Sources écrites</p>
-            </a>
+            </button>
         </div>
     </div>
-    <div>
-        <p> « Et le soir ils ne dînaient pas à l’hôtel où les sources électriques faisant sourdre à flots la lumière dans la grande salle à manger, celle-ci devenait comme un immense et merveilleux aquarium… »</p>
-        <p>-À la recherche du temps perdu édition 1919 tome 4 -</p>
+    <div class="bgimgmid">
+        <p class="italic"> « Et le soir ils ne dînaient pas à l’hôtel où les sources électriques faisant sourdre à flots la lumière dans la grande salle à manger, celle-ci devenait <a href="">comme un immense et merveilleux aquarium</a>… »</p>
+        <p>-À la recherche du temps perdu édition 1919 tome 4</p>
     </div>
-    <a href=""></a>
-    <div>
+    <button class="hintbutton buttonpopup"></button>
+    <div class="fleximgLtxt">
         <div>
             <img src="images/img3.png" alt="">
-            <a href="" class="tgreen nounder yellowbtn noshad">
+            <button class="tgreen nounder yellowbtn noshad buttonpopup">
                 <img src="images/icon.png" alt="" style="height: 26px;">
                 <p>Sources écrites</p>
-            </a>
+            </button>
         </div>
         <div>
             <p>
-                <a href="" class="toran nounder">Jules Verne</a>, quant à lui , est connu pour ses récits d'aventures sous-marines et ses voyages extraordinaires. Dans ses romans tels que "Vingt mille lieues sous les mers" et "L'Île mystérieuse", Verne explore les profondeurs de la mer et imagine des mondes sous-marins fantastiques, créant ainsi un lien entre la mer et Paris, ville de découvertes scientifiques et d'innovations technologiques.
+                <a href="" class="toran nounder">Jules Verne</a>, quant à lui , est connu pour ses récits d'aventures sous-marines et ses voyages extraordinaires. Dans ses romans tels que <a href="">"Vingt mille lieues sous les mers"</a> et <a href="">"L'Île mystérieuse"</a>, Verne explore les profondeurs de la mer et imagine des mondes sous-marins fantastiques, créant ainsi un lien entre la mer et Paris, ville de découvertes scientifiques et d'innovations technologiques.
             </p>
         </div>
     </div>
     <div>
-        <p></p>
+        <p>Les descriptions détaillées de Verne sur les machines et les inventions imaginaires dans ses romans ont également inspiré  les architectes de l'époque. Ses conceptions d'équipements sous-marins, de véhicules volants ont influencé l'architecture de Paris, en encourageant l'exploration de nouvelles formes, de nouvelles structures dans la conception des bâtiments et des objets.</p>
         <div>
             <a href="" class="tgreen nounder yellowbtn noshad">
                 <img src="images/iconico.png" alt="" style="width: 24px;">
@@ -89,11 +100,11 @@
     <h2 class="toran">Quand la mer s’exprime dans les édifices</h2>
     <div class="textbox">
         <h3 class="tyell">Le saviez-vous ?</h3>
-        <p>les aquariums ont également joué un rôle clé dans la façon dont Parisiens et visiteurs de la ville ont pu se rapprocher de l'univers marin. Les aquariums, tels que l'Aquarium de Paris, offrent aux habitants de la ville et aux touristes une expérience immersive pour explorer la diversité de la vie marine et mieux comprendre les océans.</p>
+        <p>les aquariums ont également joué un rôle clé dans la façon dont Parisiens et visiteurs de la ville ont pu se rapprocher de l'univers marin. <a href="">Les aquariums</a>, tels que <a href="">l'Aquarium de Paris</a>, offrent aux habitants de la ville et aux touristes une expérience immersive pour explorer la diversité de la vie marine et mieux comprendre les océans.</p>
     </div>
     <div>
         <div>
-            <a href=""></a>
+            <button class="hintbutton buttonpopup"></button>
         </div>
         <p>L'ouverture du premier aquarium de Paris en 1867 </p>
     </div>
@@ -104,40 +115,40 @@
     <p>Cela a été un événement marquant dans l'histoire de la ville et a suscité un grand intérêt pour les merveilles de la vie marine. L'aquarium présentait une collection d'animaux marins vivants, offrant aux visiteurs la possibilité de voir de près des créatures marines exotiques et fascinantes provenant des océans du monde entier.</p>
     <div>
         <div>
-            <a href="" class="nounder">en savoir plus</a>
+            <button class="nounder btnorange buttonpopup">en savoir plus</button>
         </div>
-        <p>En 1906,  Albert 1er de Monaco fonde l'Institut océanographique de Paris, également connu sous le nom de Maison de l’océan. C’est une institution de recherche et d'éducation dédiée à l'étude des océans et à la promotion de la conservation marine. Cet Institut océanographique de Paris est l'un des plus anciens instituts de recherche océanographique au monde.</p>
+        <p>En 1906,  <a href="">Albert 1er de Monaco</a> fonde l'Institut océanographique de Paris, également connu sous le nom de <a href="">Maison de l’océan</a>. C’est une institution de recherche et d'éducation dédiée à l'étude des océans et à la promotion de la conservation marine. Cet Institut océanographique de Paris est l'un des plus anciens instituts de recherche océanographique au monde.</p>
     </div>
     <div class="textbox">
         <h3 class="tyell">Le saviez-vous ?</h3>
         <p>Outre la recherche scientifique, l'Institut océanographique de Paris joue également un rôle important dans l'éducation du public sur les enjeux liés à l'océan. Il organise des conférences, des expositions et d'autres événements pour sensibiliser le public à la beauté, la richesse et la fragilité des océans, ainsi qu'à la nécessité de les protéger et de les gérer de manière durable.</p>
     </div>
     <h2 class="toran">Découvrir la ville lumière au fil des eaux</h2>
-    <p>Les quais de la Seine sont l’un des endroits les plus populaires pour profiter de l’eau à Paris. Les quais aménagés offrent de belles promenades le long de la Seine, avec des bancs pour se reposer, des cafés pour se rafraîchir et même des péniches amarrées qui servent de bars ou de restaurants. Les quais de la Seine sont également le lieu de nombreuses activités estivales, notamment Paris plage.</p>
+    <p>Les quais de la Seine sont l’un des endroits les plus populaires pour profiter de l’eau à Paris. Les quais aménagés offrent de belles promenades le long de la Seine, avec des bancs pour se reposer, des cafés pour se rafraîchir et même des péniches amarrées qui servent de bars ou de restaurants. Les quais de la Seine sont également le lieu de nombreuses activités estivales, notamment <a href="">Paris plage.</a></p>
     <div>
-        <a href="" class="nounder">en savoir plus sur Paris plage</a>
+        <button class="nounder buttonpopup">en savoir plus sur Paris plage</button>
     </div>
     <div>
-        <p>En plus de la Seine, Paris compte plusieurs lacs artificiels situés dans les parcs de la ville. Le lac Daumesnil, situé dans le Bois de Vincennes à l’est de Paris, est un grand lac entouré d’espaces verts propices à la détente et à la promenade. On peut y louer des pédalos ou tout simplement se promener le long de ses rives pour profiter de la nature en plein cœur de la ville.</p>
+        <p>En plus de la Seine, Paris compte plusieurs lacs artificiels situés dans <a href="">les parcs de la ville</a>. Le <a href="">lac Daumesnil</a>, situé dans le Bois de Vincennes à l’est de Paris, est un grand lac entouré d’espaces verts propices à la détente et à la promenade. On peut y louer des pédalos ou tout simplement se promener le long de ses rives pour profiter de la nature en plein cœur de la ville.</p>
     </div>
-    <p>Le bassin de la Villette est aussi un autre lieu d'eau à Paris. Situé dans le parc de la Villette, dans le nord-est de Paris, c'est le plus grand plan d'eau de la ville. Il offre de nombreuses possibilités de loisirs nautiques tout comme Paris plage, par exemple le canoë-kayak, le pédalo et la baignade dans des zones spécifiques et aménagées.</p>
+    <p>Le bassin <a href="">de la Villette</a> est aussi un autre lieu d'eau à Paris. Situé dans le parc de la Villette, dans le nord-est de Paris, c'est le plus grand plan d'eau de la ville. Il offre de nombreuses possibilités de loisirs nautiques tout comme Paris plage, par exemple le canoë-kayak, le pédalo et la baignade dans des zones spécifiques et aménagées.</p>
     <div>
-        <div>
-            <a href=""></a>
+        <div class="bgimgbottom">
+            <button class="hintbutton buttonpopup"></button>
         </div>
     </div>
     <div class="textbox">
         <h3 class="tyell">A votre tour :</h3>
         <p>Vous pensez tout savoir sur Paris et ses eaux ? Prouvez-le en faisant notre quiz !</p>
         <div>
-            <a href=""  class="nounder">commencer</a>
+            <a href="quiz/index.html"  class="nounder btnorange">commencer</a>
         </div>
     </div>
     <div class="textbox">
         <h3 class="tyell">Le Défi :</h3>
         <p>Maintenant, c'est à vous de prendre le relais et relever notre défi en explorant ces lieux par vous-même !</p>
         <div>
-            <a href=""  class="nounder">c’est parti !</a>
+            <a href=""  class="nounder btnorange">c’est parti !</a>
         </div>
     </div>
 </body>

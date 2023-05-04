@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&display=swap');
+
 /* Urbanature's color palette */
 :root{
     --urbagreen: #0C423E;
+    --urbagreen90: #0c423ee6;
     --urbaorange: #E67032;
     --urbayellow: #E0E789;
 }
@@ -21,6 +24,7 @@ body{
     background-color: var(--urbagreen);
     color: white;
     text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    font-family: 'Alegreya', serif;
 }
 
 /* Links are white by default, use overrides to change the color */
@@ -49,16 +53,26 @@ a{
     color: var(--urbagreen);
 }
 
+/* Other texts modification */
+.italic{
+    font-style: italic;
+}
+
+/* End of default values */
+
+
+
 .yellowbtn{
     border-radius: 10px;
-    background-color: var(--urbayellow);
-    padding: 10px;
+    background-color: var(--urbayellow) !important;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: fit-content;
     height: fit-content;
     box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.25);
+    font-size: 0.7rem;
 }
 .yellowbtn p{
     margin: 0;
@@ -66,6 +80,19 @@ a{
 .yellowbtn img{
     margin-right: 10px;
 }
+
+.btnorange{
+    background-color: var(--urbaorange) !important;
+    box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 100px;
+}
+
 
 header{
     display: flex;
@@ -75,7 +102,7 @@ header{
 
 .topbg{
     position:absolute;
-    width: 100%;
+    width: 100vw;
     height: 440px;
     background-image: url(images/bgtop.png);
     background-size:cover;
@@ -90,6 +117,7 @@ header{
     border-radius: 10px;
     padding: 2px 10px 2px 10px;
     border: 1px, solid, linear-gradient(0.9turn, #0C423E80, #FFFFFF1A);
+    margin-bottom: 30px;
 }
 
 .topcenter{
@@ -97,10 +125,110 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 100px;
+    margin-top: 20px;
 }
 .topcenter h2{
     margin: 0;
 }
 .topcenter p{
     margin: 0;
+}
+
+.fleximgLtxt{
+    display: flex;
+    justify-content: space-between;
+}
+.fleximgRtxt{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fleximgLtxt img{
+    margin-right: 10px;
+}
+.fleximgRtxt img{
+    margin-left: 10px;
+}
+
+.hintbutton{
+    display: block;
+    width: 45px;
+    height: 45px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(images/about.png);
+}
+
+.bgimgmid{
+    background-image: url(images/bgmid.png);
+    width: 100vw;
+    background-size:cover;
+    background-position: center;
+    transform: translateX(-20px);
+    margin-bottom: 30px;
+    padding: 5px 50px 5px 20px;
+    font-size: 0.9rem;
+}
+
+.bgimgbottom{
+    background-image: url(images/bgbot4.png);
+    height: 260px;
+    width: 100vw;
+    background-size:cover;
+    transform: translateX(-20px);
+    margin-bottom: 30px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.hintbutton2{
+    
+}
+
+.search{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0.9turn, #FFFFFF1A, #FFFFFF4D 40%);
+    border: 2px, solid, linear-gradient(0.9turn, #E6703280, #FFFFFF1A);
+    border-radius: 10px;
+}
+.urbalogo{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonpopup{
+    border: none;
+    background-color: transparent;
+}
+
+.popup{
+    border: 1px red solid;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-20px) translateY(-40px);
+    background-color: var(--urbagreen90);
+    position: fixed;
+    z-index: 100;
+    padding: 20px;
+}
+.cross{
+    height: 25px;
+    width: 25px;
+    background-image: url(images/cross.png);
+}
+
+.hidden{
+    display: none;
 }
