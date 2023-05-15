@@ -24,7 +24,7 @@ body{
     background-color: var(--urbagreen);
     color: white;
     text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
-    font-family: 'Alegreya', serif;
+    font-family: 'Alegreya', serif !important;
 }
 
 /* Links are white by default, use overrides to change the color */
@@ -72,4 +72,72 @@ a{
 .answercontainer{
     display: flex;
     flex-direction: column;
+}
+
+.popup{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-20px) translateY(-40px);
+    background-color: var(--urbagreen90);
+    position: fixed;
+    z-index: 100;
+    padding: 20px;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.wrong{
+    color: #CC2929;
+}
+
+.right{
+    color: var(--urbayellow)
+}
+
+.yellowbtn{
+    border-radius: 10px;
+    background-color: var(--urbayellow) !important;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.25);
+    border: none;
+    font-size: 1.2rem;
+    color: var(--urbagreen);
+}
+
+.topcontainer{
+    display: flex;
+    width: 100vw;
+    transform: translateX(-20px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hintbutton{
+    display: block;
+    width: 45px;
+    height: 45px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/about.png);
+    border: none;
+    background-color: transparent;
+}
+.cross{
+    height: 25px;
+    width: 25px;
+    background-image: url(../images/cross.png);
+    border: none;
+    background-color: transparent;
 }

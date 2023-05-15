@@ -3,6 +3,30 @@ import * as USERDATA from "../../src/data_manager/ud.js";
 import * as SEARCH_ENGINE from "../../src/search.js";
 import { loadFromHash } from "./loader.js";
 
+
+// Detecte si l'url change et ajoute le nouveau lien au début de l'array dans le local storage
+window.addEventListener('popstate', function (event) {
+    let currenturl;
+    currenturl = window.location.href;
+
+    let urlHistory = localStorage.getItem(url);
+    urlHistory.unshift(currenturl);
+
+    localStorage.setItem(url, urlHistory);
+
+	console.log("url changed")
+});
+
+const urlGoback = () => {
+    let locationdest = localStorage.getItem(url);
+
+    location.href = locationdest[1];
+    locationdest.shift();
+
+    localStorage.setItem(url, locationdest);
+};
+
+
 /** Si un template nécessite des données de BASEDATA, appeler la variable suivante (avec un await): */
 const dataReady = new Promise(async (res, rej) => {
     if(BASEDATA.flags.loaded) res();

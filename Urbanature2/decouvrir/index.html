@@ -11,8 +11,15 @@
 <body>
     <div class="popup hidden" id="popup1">
         <div class="textbox">
-            <button onclick="popup1()" class="buttonpopup cross"></button>
+            <button onclick="popup('1')" class="buttonpopup cross"></button>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum magni incidunt minima voluptatibus ea, soluta laboriosam sit nesciunt deleniti impedit recusandae reprehenderit mollitia, quia quis repellendus amet blanditiis similique rerum!</p>
+        </div>
+    </div>
+
+    <div class="popup hidden" id="popup2">
+        <div class="textbox">
+            <button onclick="popup('2')" class="buttonpopup cross"></button>
+            <p>2Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum magni incidunt minima voluptatibus ea, soluta laboriosam sit nesciunt deleniti impedit recusandae reprehenderit mollitia, quia quis repellendus amet blanditiis similique rerum!</p>
         </div>
     </div>
 
@@ -50,7 +57,7 @@
         <img src="images/img1.png" alt="">
         <p>Les écrivains français tels que Victor Hugo, Jules Verne et Paul Verlaine ont incorporé des éléments marins dans leurs écrits, créant ainsi une connexion littéraire entre Paris et la mer.</p>
     </div>
-    <button onclick="popup1()" class="nounder buttonpopup">en savoir plus</button>
+    <button onclick="popup('1')" class="nounder buttonpopup">en savoir plus</button>
     <div class="fleximgRtxt">
         <div>
             <p>
@@ -59,7 +66,7 @@
         </div>
         <div>
             <img src="images/img2.png" alt="">
-            <button class="tgreen nounder yellowbtn noshad buttonpopup">
+            <button onclick="popup('2')" class="tgreen nounder yellowbtn noshad buttonpopup">
                 <img src="images/icon.png" alt="" style="height: 26px;">
                 <p>Sources écrites</p>
             </button>

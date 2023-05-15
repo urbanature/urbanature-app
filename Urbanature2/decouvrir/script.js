@@ -1,4 +1,4 @@
-function popup1(){
-    var element = document.getElementById("popup1");
+function popup(x){
+    var element = document.getElementById('popup'+x);
     element.classList.toggle("hidden");
 };

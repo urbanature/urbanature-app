@@ -9,20 +9,36 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 class="toran">Mon quiz</h1>
-    <h2 class="tyell">Toute la mer va vers la ville</h2>
-
-    <div class="textbox">
-        <h2 class="toran">Dans quel célèbre roman Marcel Proust évoque-t-il la mer ?</h2>
-        <div class="answercontainer">
-            <label><input type="checkbox" id="reponse1" value="faux">Madame Bovary</label>
-            <label><input type="checkbox" id="reponse2" value="faux">Les Misérables </input></label>
-            <label><input type="checkbox" id="reponse3" value="vrai">À la recherche du temps perdu </input></label>
-            <label><input type="checkbox" id="reponse4" value="faux">Le Comte de Monte-Cristo</input></label>
+    <div class="popup hidden" id="popup">
+        <div class="textbox">
+            <button onclick="popupShow()" class="cross"></button>
+            <h2 class="tyell">Un peu de contexte:</h2>
+            <p id="popupcontent"></p>
+            <div id="imgholder"></div>
         </div>
     </div>
 
-    <button class="submit" onclick="submit()">
+<div class="topcontainer">
+    <h1 class="toran">Mon quiz</h1>
+    <h2 class="tyell">Toute la mer va vers la ville</h2>
+</div>
+
+    <div class="textbox">
+        <h2 class="toran" id="quizquestion"></h2>
+        <h3 class="tyell" id="reponsenombre"></h3>
+        <div class="answercontainer" id="answercontainer">
+        </div>
+    </div>
+
+    <div class="textbox hidden" id="answers">
+        <h2 class="tyell" id="answer"></h2>
+        <h3 class="tyell" id="reponsepluriel"></h3>
+        <div id="listereponses">
+        </div>
+        <button onclick="popupShow()" class="hintbutton"></button>
+    </div>
+
+    <button class="yellowbtn" onclick="submit()" id="submitbutton">
         Valider
     </button>
 </body>
