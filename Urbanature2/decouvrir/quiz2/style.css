@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&display=swap');
+
+/* Urbanature's color palette */
+:root{
+    --urbagreen: #0C423E;
+    --urbagreen90: #0c423ee6;
+    --urbaorange: #E67032;
+    --urbayellow: #E0E789;
+}
+
+/* Do no remove, changing the boxes to border-box for better control. */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+};
+
+/* Removing margin, setting up the default background color and text color. Keep at the beggining to easily override. It also gives every text some shadows by default, can be removed with "noshad" class */
+html{
+    margin: 0;
+}
+body{
+    margin: 40px 20px 20px 20px;
+    background-color: var(--urbagreen);
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    font-family: 'Alegreya', serif !important;
+}
+
+/* Links are white by default, use overrides to change the color */
+a{
+    color:white;
+}
+
+/* Removing the underline from a link. */
+.nounder{
+    text-decoration: none;
+}
+
+/* Removing the shadow from texts. */
+.noshad{
+    text-shadow:none;
+}
+
+/* Text is white by default, these are overrides to change the color of the texts. */
+.tyell{
+    color: var(--urbayellow);
+}
+.toran{
+    color: var(--urbaorange);
+}
+.tgreen{
+    color: var(--urbagreen);
+}
+
+/* Other texts modification */
+.italic{
+    font-style: italic;
+}
+
+/* End of default values */
+
+.textbox{
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    backdrop-filter: blur(30px);
+    background: linear-gradient(0.9turn, #FFFFFF1A, #FFFFFF4D 40%);
+    border-radius: 10px;
+    padding: 2px 10px 2px 10px;
+    border: 1px, solid, linear-gradient(0.9turn, #0C423E80, #FFFFFF1A);
+    margin-bottom: 30px;
+}
+.answercontainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.popup{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-20px) translateY(-40px);
+    background-color: var(--urbagreen90);
+    position: fixed;
+    z-index: 100;
+    padding: 20px;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.wrong{
+    color: #CC2929;
+}
+
+.right{
+    color: var(--urbayellow)
+}
+
+.yellowbtn{
+    border-radius: 10px;
+    background-color: var(--urbayellow) !important;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.25);
+    border: none;
+    font-size: 1.2rem;
+    color: var(--urbagreen);
+}
+
+.topcontainer{
+    display: flex;
+    width: 100vw;
+    transform: translateX(-20px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hintbutton{
+    display: block;
+    width: 45px;
+    height: 45px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/about.png);
+    border: none;
+    background-color: transparent;
+}
+.cross{
+    height: 25px;
+    width: 25px;
+    background-image: url(../images/cross.png);
+    border: none;
+    background-color: transparent;
+}

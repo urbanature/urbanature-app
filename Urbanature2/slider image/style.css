@@ -1,0 +1,42 @@
+.images{
+    position: relative;
+    width: 512px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider{
+    display:block;
+    width: 532px;
+    position: absolute;
+    justify-self: center;
+    z-index: 999;
+    transform: translateX(-12px);
+}
+
+.imgContainer1{
+    position: absolute;
+    overflow: hidden;
+    height: 200px;
+    width: 50%;
+    background-image: url(img/img1.png);
+    background-position: left center;
+    background-size: 512px;
+}
+.imgContainer2{
+    position: absolute;
+    overflow: hidden;
+    height: 200px;
+    width: 50%;
+    align-self: flex-end;
+    background-image: url(img/img2.png);
+    background-position: right center;
+    background-size: 512px;
+}
+.imageSlider{
+    display: flex;
+    align-items: center;
+    position: relative;
+}

@@ -104,9 +104,9 @@ let totalcorrectanswer = correctanswers.length;
 
 //Annonce le nombre de bonnes réponses
 if(totalcorrectanswer > 1){
-  document.getElementById('reponsenombre').innerHTML = "(" + totalcorrectanswer + " bonnes réponses)";
+  document.getElementById('reponsenombre').innerHTML = "(" + totalcorrectanswer + " bonnes réponses à cocher)";
 }else{
-  document.getElementById('reponsenombre').innerHTML = "(" + totalcorrectanswer + " bonne réponse)";
+  document.getElementById('reponsenombre').innerHTML = "(" + totalcorrectanswer + " bonne réponse à cocher)";
 };
 
 
