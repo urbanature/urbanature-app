@@ -63,9 +63,14 @@ const shuffleArray = array => {
   };
 };
 
+//Creation des quiz
 for(let i = 0; i < quiz.quizs.length; i++){
   
   //Création des balises pour le quiz.
+  let answerbox = document.createElement("div");
+  let answerbox = document.createElement("div");
+  let answerbox = document.createElement("div");
+  let answerbox = document.createElement("div");
   let answerbox = document.createElement("div");
   
 };

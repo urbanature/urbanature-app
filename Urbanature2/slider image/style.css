@@ -12,6 +12,7 @@
     width: 532px;
     position: absolute;
     justify-self: center;
+    align-self: flex-end;
     z-index: 999;
     transform: translateX(-12px);
 }

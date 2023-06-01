@@ -11,6 +11,40 @@ function unloadHash() {
     loadFromHash();
 }
 
+//add or go back with the localStorage URL
+function localUrl(){
+    let localaction = localStorage.urlAction;
+    if(localaction == "addUrl"){
+        let currenturl = window.location.href;
+        let localarray = JSON.parse(localStorage.getItem("urlArray"));
+
+        localarray.unshift(currenturl);
+
+        localStorage.setItem("urlArray", JSON.stringify(localarray));
+        console.log(localarray)
+    }
+    if(localaction == "backUrl"){
+        let localarray = JSON.parse(localStorage.getItem("urlArray"));
+        localarray.shift();
+
+        localStorage.setItem("urlArray", JSON.stringify(localarray));
+
+        localStorage.setItem("urlAction", "addUrl");
+        console.log(localarray);
+        console.log("retour avec succès");
+        
+        console.log(typeof localarray[1]);
+
+        //If there is no second value in the array, the next step is to go back to the "decouvrir" page and empty the localstorage
+        if(typeof localarray[1] == 'undefined'){
+            localarray.unshift(" ");
+            localStorage.setItem("urlArray", JSON.stringify(localarray));
+            console.log(localarray);
+            console.log("special");
+        }
+    }
+}
+
 export const loadHashPage = async (hash) => {
     const header = await fetch(`pages/decouvrir/template/header.html`).then(res => res.text());
     let text = "";
@@ -46,7 +80,18 @@ export const loadHashPage = async (hash) => {
                     .html((with_header ? header : "") + (text || `<h1>404 - Page not found</h1>`));
     imgToSvg();
     $("#leave-hash-page").on("click", function(e) {
-        setHash("");
+        localStorage.setItem("urlAction", "backUrl");
+
+        let localarray = JSON.parse(localStorage.getItem("urlArray"));
+        let hash = localarray[1].split('/');
+        for (let i = 0; i < 3; i++) { 
+            hash.shift();
+        };
+        hash[0] = hash[0].replace("decouvrir#", "");
+        console.log(hash)
+        console.log("^^^^")
+
+        setHash(hash);
         loadFromHash();
     });
     $("#__dom__page a").on("click", function(e) {
@@ -74,6 +119,9 @@ export const loadFromHash = async () => {
     await delay(10);
     $("#__dom__loadico").removeClass("hidden");
     let hash = window.location.hash.substring(1);
+    
+    localUrl()
+
     if(hash.includes(".")) {
         hash = hash.split(".")[0];
     }

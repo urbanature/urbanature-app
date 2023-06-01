@@ -26,6 +26,11 @@ onStart.accueil = () => {
     accueil__mapCursor();
     accueil__initExplorer();
     mapControl(false);
+
+//resets the localstorage
+    localStorage.setItem("urlAction", "addUrl");
+    let urlReset = [];
+    localStorage.setItem("urlArray", JSON.stringify(urlReset));
 }
 onClose.accueil = async () => {}
 
