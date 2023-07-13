@@ -1,19 +1,187 @@
-<h1>Expositions</h1>
-<ul class="liste liste--decouverte">
-    <li><a href="decouvrir#html.example" class="expocard">
-        <img src="database/img/noimg.png" alt="" class="expocard__img">
-        <h1 class="expocard__title">Exemple de html</h1>
-    </a></li>
-    <li><a href="decouvrir#html.expos.ex" class="expocard">
-        <img src="database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg" alt="" class="expocard__img">
-        <h1 class="expocard__title">Flore et faune des villes&nbsp;:<br>réalités et fictions</h1>
-    </a></li>
-    <li><a href="" class="expocard">
-        <img src="database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg" alt="" class="expocard__img">
-        <h1 class="expocard__title">Flore et faune des villes&nbsp;:<br>réalités et fictions</h1>
-    </a></li>
-    <li><a href="" class="expocard">
-        <img src="database/img/Jardin_des_Plantes_Paris_figures_strolling_the_grounds_alongside_the_glasshouses._Coloured_lithograph_by_J._Jacottet.coupe.jpg" alt="" class="expocard__img">
-        <h1 class="expocard__title">Flore et faune des villes&nbsp;:<br>réalités et fictions</h1>
-    </a></li>
-</ul>
+<script defer>
+    //For the expos, script to show/hide divs
+    function toggleSection(sectionNumber) {
+            let section = document.getElementById("section" + sectionNumber);
+            if (section.classList.contains("hiddensection")) {
+                // If the section is currently hidden
+                section.style.display = "block";
+                section.classList.remove("hiddensection");
+                section.classList.add("visiblesection");
+                // Changes the height to the height of the content
+                section.style.maxHeight = section.scrollHeight + "px";
+            } else {
+                // If the section is currently visible
+                section.classList.remove("visiblesection");
+                section.classList.add("hiddensection");
+                section.style.maxHeight = "0";
+
+                // Put display None once the transition is done for accessibility
+                setTimeout(function() {
+                    if (section.classList.contains("hiddensection")) {
+                        section.style.display = "none";
+                    }
+                }, 300);
+            }
+        }
+
+    //Script for the popups
+    function popup(x){
+        let number = x.toString()
+
+        let element = document.getElementById('popup'+number);
+        element.classList.toggle("hidden");
+    };
+</script>
+
+<div class="bodymargin">
+
+    <div class="popup hidden" id="popup1">
+        <div class="textbox">
+            <button onclick="popup(1)" class="buttonpopup cross"></button>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum magni incidunt minima voluptatibus ea, soluta laboriosam sit nesciunt deleniti impedit recusandae reprehenderit mollitia, quia quis repellendus amet blanditiis similique rerum!</p>
+        </div>
+    </div>
+
+    <div class="popup hidden" id="popup2">
+        <div class="textbox">
+            <button onclick="popup(2)" class="buttonpopup cross"></button>
+            <p>2Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum magni incidunt minima voluptatibus ea, soluta laboriosam sit nesciunt deleniti impedit recusandae reprehenderit mollitia, quia quis repellendus amet blanditiis similique rerum!</p>
+        </div>
+    </div>
+
+
+
+
+    <div class="topbg">
+    </div>
+
+    <div class="topcenter">
+        <h2 class="toran">Découvrez</h2>
+        <h2>l'exposition</h2>
+        <p class="italic">Toute la mer va vers la ville</p>
+    </div>
+    <div class="textbox">
+        <h3 class="tyell">Introduction :</h3>
+        <p>L'exposition virtuelle "Toute la mer va vers la ville" est dédiée à l'influence de l'imaginaire de l'océan sur notre vision de l'univers urbain, en particulier à Paris. Cette exposition vous emmènera dans un voyage captivant à travers la littérature et l'architecture pour mieux comprendre comment la mer a informé notre perception de la vie urbaine dans la Ville Lumière.</p>
+    </div>
+    <h2 class="toran" onclick="toggleSection(1)">Quand la littérature s’échoue dans la ville lumière</h2>
+    <section class="hiddensection contentsection" id="section1" style="display: none; max-height: 0px;">
+        <div>
+        <div class="textbox">
+            <h3 class="tyell">Le saviez-vous</h3>
+            <p>Paris a également une relation étroite avec la mer, même si elle est située à des centaines de kilomètres des côtes les plus proches .</p>
+        </div>
+        <p>De nombreux écrivains célèbres ont utilisé la mer comme source d'inspiration dans leurs œuvres littéraires.</p>
+        <div class="fleximgLtxt">
+            <img src="assets/img/decouvrir/img1.png" alt="">
+            <p>Les écrivains français tels que Victor Hugo, Jules Verne et Paul Verlaine ont incorporé des éléments marins dans leurs écrits, créant ainsi une connexion littéraire entre Paris et la mer.</p>
+        </div>
+        <button onclick="popup(1)" class="nounder buttonpopup">en savoir plus</button>
+        <div class="fleximgRtxt">
+            <div>
+                <p>
+                    <a href="" class="toran nounder">Marcel Proust</a>, l'un des plus grands écrivains français du XXe siècle, a également évoqué la mer dans son célèbre roman <a href="">"À la recherche du temps perdu"</a>. Dans son œuvre, la mer est souvent associée à des souvenirs d'enfance et à des émotions profondes, offrant ainsi une réflexion sur la façon dont la mer peut évoquer des souvenirs et des sensations liées à Paris et à son histoire.
+                </p>
+            </div>
+            <div>
+                <img src="assets/img/decouvrir/img2.png" alt="">
+                <button onclick="popup(2)" class="tgreen nounder yellowbtn noshad buttonpopup">
+                    <img src="assets/img/decouvrir/icon.png" alt="" style="height: 26px;">
+                    <p>Sources écrites</p>
+                </button>
+            </div>
+        </div>
+        <div class="bgimgmid">
+            <p class="italic"> « Et le soir ils ne dînaient pas à l’hôtel où les sources électriques faisant sourdre à flots la lumière dans la grande salle à manger, celle-ci devenait <a href="">comme un immense et merveilleux aquarium</a>… »</p>
+            <p>-À la recherche du temps perdu édition 1919 tome 4</p>
+        </div>
+        <button class="hintbutton buttonpopup"></button>
+        <div class="fleximgLtxt">
+            <div>
+                <img src="assets/img/decouvrir/img3.png" alt="">
+                <button class="tgreen nounder yellowbtn noshad buttonpopup">
+                    <img src="assets/img/decouvrir/icon.png" alt="" style="height: 26px;">
+                    <p>Sources écrites</p>
+                </button>
+            </div>
+            <div>
+                <p>
+                    <a href="" class="toran nounder">Jules Verne</a>, quant à lui , est connu pour ses récits d'aventures sous-marines et ses voyages extraordinaires. Dans ses romans tels que <a href="">"Vingt mille lieues sous les mers"</a> et <a href="">"L'Île mystérieuse"</a>, Verne explore les profondeurs de la mer et imagine des mondes sous-marins fantastiques, créant ainsi un lien entre la mer et Paris, ville de découvertes scientifiques et d'innovations technologiques.
+                </p>
+            </div>
+        </div>
+        <div>
+            <p>Les descriptions détaillées de Verne sur les machines et les inventions imaginaires dans ses romans ont également inspiré  les architectes de l'époque. Ses conceptions d'équipements sous-marins, de véhicules volants ont influencé l'architecture de Paris, en encourageant l'exploration de nouvelles formes, de nouvelles structures dans la conception des bâtiments et des objets.</p>
+            <div>
+                <a href="" class="tgreen nounder yellowbtn noshad">
+                    <img src="assets/img/decouvrir/iconico.png" alt="" style="width: 24px;">
+                    <p>Iconographies</p>
+                </a>
+            </div>
+        </div>
+        <div class="textbox">
+            <h3 class="tyell">Selon-vous :</h3>
+            <p>L’architecture liée aux océans ne vous fait elle pas penser au Nautilus, sous-marin mythique du roman “Vingt mille lieues sous les mers “ ?</p>
+        </div>
+    </div>
+    </section>
+    <h2 class="toran" onclick="toggleSection(2)">Quand la mer s’exprime dans les édifices</h2>
+    <section class="hiddensection contentsection" id="section2" style="display: none; max-height: 0px;">
+    <div class="textbox">
+        <h3 class="tyell">Le saviez-vous ?</h3>
+        <p>les aquariums ont également joué un rôle clé dans la façon dont Parisiens et visiteurs de la ville ont pu se rapprocher de l'univers marin. <a href="">Les aquariums</a>, tels que <a href="">l'Aquarium de Paris</a>, offrent aux habitants de la ville et aux touristes une expérience immersive pour explorer la diversité de la vie marine et mieux comprendre les océans.</p>
+    </div>
+    <div>
+        <div>
+            <button class="hintbutton buttonpopup"></button>
+        </div>
+        <p>L'ouverture du premier aquarium de Paris en 1867 </p>
+    </div>
+    <a href="" class="tgreen nounder yellowbtn noshad">
+        <img src="assets/img/decouvrir/iconico.png" alt="" style="width: 24px;">
+        <p>Iconographies</p>
+    </a>
+    <p>Cela a été un événement marquant dans l'histoire de la ville et a suscité un grand intérêt pour les merveilles de la vie marine. L'aquarium présentait une collection d'animaux marins vivants, offrant aux visiteurs la possibilité de voir de près des créatures marines exotiques et fascinantes provenant des océans du monde entier.</p>
+    <div>
+        <div>
+            <button class="nounder btnorange buttonpopup">en savoir plus</button>
+        </div>
+        <p>En 1906,  <a href="">Albert 1er de Monaco</a> fonde l'Institut océanographique de Paris, également connu sous le nom de <a href="">Maison de l’océan</a>. C’est une institution de recherche et d'éducation dédiée à l'étude des océans et à la promotion de la conservation marine. Cet Institut océanographique de Paris est l'un des plus anciens instituts de recherche océanographique au monde.</p>
+    </div>
+    <div class="textbox">
+        <h3 class="tyell">Le saviez-vous ?</h3>
+        <p>Outre la recherche scientifique, l'Institut océanographique de Paris joue également un rôle important dans l'éducation du public sur les enjeux liés à l'océan. Il organise des conférences, des expositions et d'autres événements pour sensibiliser le public à la beauté, la richesse et la fragilité des océans, ainsi qu'à la nécessité de les protéger et de les gérer de manière durable.</p>
+    </div>
+    </section>
+    <h2 class="toran" onclick="toggleSection(3)">Découvrir la ville lumière au fil des eaux</h2>
+    <section class="hiddensection contentsection" id="section3" style="display: none; max-height: 0px;">
+    <p>Les quais de la Seine sont l’un des endroits les plus populaires pour profiter de l’eau à Paris. Les quais aménagés offrent de belles promenades le long de la Seine, avec des bancs pour se reposer, des cafés pour se rafraîchir et même des péniches amarrées qui servent de bars ou de restaurants. Les quais de la Seine sont également le lieu de nombreuses activités estivales, notamment <a href="">Paris plage.</a></p>
+    <div>
+        <button class="nounder buttonpopup">en savoir plus sur Paris plage</button>
+    </div>
+    <div>
+        <p>En plus de la Seine, Paris compte plusieurs lacs artificiels situés dans <a href="">les parcs de la ville</a>. Le <a href="">lac Daumesnil</a>, situé dans le Bois de Vincennes à l’est de Paris, est un grand lac entouré d’espaces verts propices à la détente et à la promenade. On peut y louer des pédalos ou tout simplement se promener le long de ses rives pour profiter de la nature en plein cœur de la ville.</p>
+    </div>
+    <p>Le bassin <a href="">de la Villette</a> est aussi un autre lieu d'eau à Paris. Situé dans le parc de la Villette, dans le nord-est de Paris, c'est le plus grand plan d'eau de la ville. Il offre de nombreuses possibilités de loisirs nautiques tout comme Paris plage, par exemple le canoë-kayak, le pédalo et la baignade dans des zones spécifiques et aménagées.</p>
+    <div>
+        <div class="bgimgbottom">
+            <button class="hintbutton buttonpopup"></button>
+        </div>
+    </div>
+    <div class="textbox">
+        <h3 class="tyell">A votre tour :</h3>
+        <p>Vous pensez tout savoir sur Paris et ses eaux ? Prouvez-le en faisant notre quiz !</p>
+        <div>
+            <a href="quiz/index.html"  class="nounder btnorange">commencer</a>
+        </div>
+    </div>
+    <div class="textbox">
+        <h3 class="tyell">Le Défi :</h3>
+        <p>Maintenant, c'est à vous de prendre le relais et relever notre défi en explorant ces lieux par vous-même !</p>
+        <div>
+            <a href=""  class="nounder btnorange">c’est parti !</a>
+        </div>
+    </div>
+    </section>
+
+</div>

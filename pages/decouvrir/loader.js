@@ -21,7 +21,6 @@ function localUrl(){
         localarray.unshift(currenturl);
 
         localStorage.setItem("urlArray", JSON.stringify(localarray));
-        console.log(localarray)
     }
     if(localaction == "backUrl"){
         let localarray = JSON.parse(localStorage.getItem("urlArray"));
@@ -30,17 +29,11 @@ function localUrl(){
         localStorage.setItem("urlArray", JSON.stringify(localarray));
 
         localStorage.setItem("urlAction", "addUrl");
-        console.log(localarray);
-        console.log("retour avec succès");
-        
-        console.log(typeof localarray[1]);
 
-        //If there is no second value in the array, the next step is to go back to the "decouvrir" page and empty the localstorage
+        //If there is no second value in the array, the next step is to go back to the "decouvrir" page
         if(typeof localarray[1] == 'undefined'){
-            localarray.unshift(" ");
+            localarray.push(" ");
             localStorage.setItem("urlArray", JSON.stringify(localarray));
-            console.log(localarray);
-            console.log("special");
         }
     }
 }
@@ -84,14 +77,10 @@ export const loadHashPage = async (hash) => {
 
         let localarray = JSON.parse(localStorage.getItem("urlArray"));
         let hash = localarray[1].split('/');
-        for (let i = 0; i < 3; i++) { 
-            hash.shift();
-        };
-        hash[0] = hash[0].replace("decouvrir#", "");
-        console.log(hash)
-        console.log("^^^^")
 
-        setHash(hash);
+        let hashvalue = hash[hash.length - 1].replace("decouvrir#", "");
+
+        setHash(hashvalue);
         loadFromHash();
     });
     $("#__dom__page a").on("click", function(e) {

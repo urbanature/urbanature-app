@@ -27,29 +27,33 @@ body{
     font-family: 'Alegreya', serif !important;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 /* Links are white by default, use overrides to change the color */
 a{
     color:white;
 }
 
 /* Removing the underline from a link. */
-.nounder{
+.noUnder{
     text-decoration: none;
 }
 
 /* Removing the shadow from texts. */
-.noshad{
+.noShad{
     text-shadow:none;
 }
 
 /* Text is white by default, these are overrides to change the color of the texts. */
-.tyell{
+.tYell{
     color: var(--urbayellow);
 }
-.toran{
+.tOran{
     color: var(--urbaorange);
 }
-.tgreen{
+.tGreen{
     color: var(--urbagreen);
 }
 
@@ -60,7 +64,7 @@ a{
 
 /* End of default values */
 
-.textbox{
+.textBox{
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
     backdrop-filter: blur(30px);
     background: linear-gradient(0.9turn, #FFFFFF1A, #FFFFFF4D 40%);
@@ -69,7 +73,7 @@ a{
     border: 1px, solid, linear-gradient(0.9turn, #0C423E80, #FFFFFF1A);
     margin-bottom: 30px;
 }
-.answercontainer{
+.answerContainer{
     display: flex;
     flex-direction: column;
 }
@@ -99,7 +103,7 @@ a{
     color: var(--urbayellow)
 }
 
-.yellowbtn{
+.yellowBtn{
     border-radius: 10px;
     background-color: var(--urbayellow) !important;
     padding: 15px;
@@ -112,9 +116,10 @@ a{
     border: none;
     font-size: 1.2rem;
     color: var(--urbagreen);
+    margin-bottom: 30px;
 }
 
-.topcontainer{
+.topContainer{
     display: flex;
     width: 100vw;
     transform: translateX(-20px);
@@ -123,7 +128,7 @@ a{
     flex-direction: column;
 }
 
-.hintbutton{
+.hintButton{
     display: block;
     width: 45px;
     height: 45px;

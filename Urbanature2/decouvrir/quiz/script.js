@@ -69,8 +69,8 @@ let correctanswers=[];
 let correctanswerstext=[];
 
 for(let i = 0; i < questions.question.length; i++){
-order.push(i);
-questionnumbers.push(i);
+  order.push(i);
+  questionnumbers.push(i);
 };
 
 const shuffleArray = array => {
@@ -155,6 +155,7 @@ function showawnser(){
 
   popupInit();
 };
+
 
 
 //Récupère le numéro attribué au hasard aux bonnes et mauvaises réponses, puis les compare pour en déduire la validité totale.

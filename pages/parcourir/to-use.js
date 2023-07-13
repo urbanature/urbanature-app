@@ -90,7 +90,7 @@ export const liste = async (template) => {
             content += html;
         }
     } else {
-        const config = await fetch("https://totoshampoin.github.io/les-promenades-du-matrimoine--urbanature-edition/config-save.json").then(res => res.json());
+        const config = await fetch("pages/parcourir/parcours.json").then(res => res.json());
         for(let key in config) {
             const json = config[key];
             const data = {

@@ -27,6 +27,10 @@ body{
     font-family: 'Alegreya', serif !important;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 /* Links are white by default, use overrides to change the color */
 a{
     color:white;

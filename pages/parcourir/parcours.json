@@ -1,0 +1,17 @@
+{
+  "lesMarguerites": {
+    "titre": "Promenade parisienne des Marguerite",
+    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Marguerite_Durand_1910_-_Restoration.jpg/640px-Marguerite_Durand_1910_-_Restoration.jpg",
+    "description": ""
+  },
+  "marcelineADouai": {
+    "titre": "Sur les pas de Marceline Desbordes-Valmore à Douai",
+    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Th%C3%A9%C3%A2tre_de_Douai-_d%C3%A9tail_du_plafond_Marceline_Desbordes-Valmore.JPG/450px-Th%C3%A9%C3%A2tre_de_Douai-_d%C3%A9tail_du_plafond_Marceline_Desbordes-Valmore.JPG",
+    "description": "<i>Sur les pas de Marceline Desbordes-Valmore à Douai</i>, une promenade initialement conçue pour le Festival Résonances 2021."
+  },
+  "marieDeGournay": {
+    "titre": "Le Paris de Marie de Gournay",
+    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Marie_de_Gournay.jpg/640px-Marie_de_Gournay.jpg",
+    "description": "<i>Le Paris de Marie de Gournay</i>, une promenade sur les traces de la philosophe née en 1565 et morte en 1645."
+  }
+}
