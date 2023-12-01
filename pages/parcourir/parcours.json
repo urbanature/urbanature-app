@@ -1,17 +1,12 @@
 {
-  "lesMarguerites": {
-    "titre": "Promenade parisienne des Marguerite",
-    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Marguerite_Durand_1910_-_Restoration.jpg/640px-Marguerite_Durand_1910_-_Restoration.jpg",
-    "description": ""
+  "JardinDesPlantes": {
+    "titre": "Promenade du Jardin des Plantes",
+    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Carr%C3%A9_Rosiers_Jardin_Plantes_-_Paris_V_%28FR75%29_-_2021-07-30_-_2.jpg/640px-Carr%C3%A9_Rosiers_Jardin_Plantes_-_Paris_V_%28FR75%29_-_2021-07-30_-_2.jpg",
+    "description": "Une promenade dans le Jardin des Plantes, à la découverte de son histoire (photo Chabe01, Wikimedia Commons)"
   },
-  "marcelineADouai": {
-    "titre": "Sur les pas de Marceline Desbordes-Valmore à Douai",
-    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Th%C3%A9%C3%A2tre_de_Douai-_d%C3%A9tail_du_plafond_Marceline_Desbordes-Valmore.JPG/450px-Th%C3%A9%C3%A2tre_de_Douai-_d%C3%A9tail_du_plafond_Marceline_Desbordes-Valmore.JPG",
-    "description": "<i>Sur les pas de Marceline Desbordes-Valmore à Douai</i>, une promenade initialement conçue pour le Festival Résonances 2021."
-  },
-  "marieDeGournay": {
-    "titre": "Le Paris de Marie de Gournay",
-    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Marie_de_Gournay.jpg/640px-Marie_de_Gournay.jpg",
-    "description": "<i>Le Paris de Marie de Gournay</i>, une promenade sur les traces de la philosophe née en 1565 et morte en 1645."
+  "NatureMontmartre": {
+    "titre": "La nature à Montmartre",
+    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Henri_Arthur_Bonnefoy_-_Moulins_%C3%A0_Montmartre_-_P1036_-_Mus%C3%A9e_Carnavalet.jpg/588px-Henri_Arthur_Bonnefoy_-_Moulins_%C3%A0_Montmartre_-_P1036_-_Mus%C3%A9e_Carnavalet.jpg",
+    "description": "Une promenade de la nature à Montrmartre (tableau <i>Moulins à Montmartre</i> d'Henri-Arthur Bonnefoy, vers 1900, musée Carnavalet)"
   }
 }
