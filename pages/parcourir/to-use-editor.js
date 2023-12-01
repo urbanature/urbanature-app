@@ -56,9 +56,10 @@ const fill_parcours = async (parcours, [map_markers, map_path], map) => {
     for(let sid of parcours) {
         const fav = favoris.find(f => array_eq(f.sid, sid));
         if(!fav) continue;
+        console.log(fav.item)
         const html = favitem_drag({
             name: fav.item.nom,
-            addr: "adresse",
+            addr: fav.item.adresse,
             sid: fav.sid
         });
         const $item = $(html).appendTo($liste);
