@@ -3,22 +3,22 @@
     //For the expos, script to show/hide divs
     function toggleSection(sectionNumber) {
             let section = document.getElementById("section" + sectionNumber);
-            if (section.classList.contains("hiddensection")) {
+            if (section.classList.contains("visiblesection")) {
                 // If the section is currently hidden
                 section.style.display = "block";
-                section.classList.remove("hiddensection");
+                section.classList.remove("visiblesection");
                 section.classList.add("visiblesection");
                 // Changes the height to the height of the content
                 section.style.maxHeight = section.scrollHeight + "px";
             } else {
                 // If the section is currently visible
                 section.classList.remove("visiblesection");
-                section.classList.add("hiddensection");
+                section.classList.add("visiblesection");
                 section.style.maxHeight = "0";
 
                 // Put display None once the transition is done for accessibility
                 setTimeout(function() {
-                    if (section.classList.contains("hiddensection")) {
+                    if (section.classList.contains("visiblesection")) {
                         section.style.display = "none";
                     }
                 }, 300);
@@ -74,7 +74,7 @@
         <p>L'exposition virtuelle "Toute la mer va vers la ville" est dédiée à l'influence de l'imaginaire de l'océan sur notre vision de l'univers urbain, en particulier à Paris. Cette exposition vous emmènera dans un voyage captivant à travers la littérature et l'architecture pour mieux comprendre comment la mer a informé notre perception de la vie urbaine dans la Ville Lumière.</p>
     </div>
     <h2 class="toran" onclick="toggleSection(1)">Quand la littérature s’échoue dans la ville lumière</h2>
-    <section class="hiddensection contentsection" id="section1" style="display: none; max-height: 0px;">
+    <section class="visiblesection contentsection" id="section1" style="display: none; max-height: 0px;">
         <div>
         <div class="textbox">
             <h3 class="tyell">Le saviez-vous</h3>
@@ -135,7 +135,7 @@
     </div>
     </section>
     <h2 class="toran" onclick="toggleSection(2)">Quand la mer s’exprime dans les édifices</h2>
-    <section class="hiddensection contentsection" id="section2" style="display: none; max-height: 0px;">
+    <section class="visiblesection contentsection" id="section2" style="display: none; max-height: 0px;">
     <div class="textbox">
         <h3 class="tyell">Le saviez-vous ?</h3>
         <p>les aquariums ont également joué un rôle clé dans la façon dont Parisiens et visiteurs de la ville ont pu se rapprocher de l'univers marin. <a href="">Les aquariums</a>, tels que <a href="">l'Aquarium de Paris</a>, offrent aux habitants de la ville et aux touristes une expérience immersive pour explorer la diversité de la vie marine et mieux comprendre les océans.</p>
@@ -163,7 +163,7 @@
     </div>
     </section>
     <h2 class="toran" onclick="toggleSection(3)">Découvrir la ville lumière au fil des eaux</h2>
-    <section class="hiddensection contentsection" id="section3" style="display: none; max-height: 0px;">
+    <section class="visiblesection contentsection" id="section3" style="display: none; max-height: 0px;">
     <p>Les quais de la Seine sont l’un des endroits les plus populaires pour profiter de l’eau à Paris. Les quais aménagés offrent de belles promenades le long de la Seine, avec des bancs pour se reposer, des cafés pour se rafraîchir et même des péniches amarrées qui servent de bars ou de restaurants. Les quais de la Seine sont également le lieu de nombreuses activités estivales, notamment <a href="">Paris plage.</a></p>
     <div>
         <button class="nounder buttonpopup">en savoir plus sur Paris plage</button>
